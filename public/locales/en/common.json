@@ -1,0 +1,398 @@
+{
+  "authentication": {
+    "login": {
+      "title": "Login in your account of",
+      "forgot": "Did you forget your password?",
+      "keep": "Keep the session active for 1 week",
+      "no_account": "Do you not have a account?"
+    },
+    "register": {
+      "title": "Create an account of",
+      "terms": "I accept the terms and conditions",
+      "already_account": "Do you already have an account?",
+      "country": "Country",
+      "city": "City",
+      "name_city": "Name of the City",
+      "phone": "Phone number"
+    },
+    "create_account": "Create an Account",
+    "login_account": "Login in your account"
+  },
+  "language": {
+    "language": "Language",
+    "spanish": "Spanish",
+    "english": "English",
+    "portuguese": "Portuguese",
+    "german": "German",
+    "french": "French",
+    "italian": "Italian",
+    "sweden": "Swedish",
+    "select": "Select your preferred Language"
+  },
+  "reset": {
+    "title": "Reset your password",
+    "description": "verify your account and start",
+    "open_email": "Open email",
+    "already_update": "Already update my password"
+  },
+  "verify": {
+    "title": "Verify your email",
+    "description": "to verify your account and start",
+    "already_verify": "Already verify the account"
+  },
+  "nav_menu": {
+    "home": "Home",
+    "parking_areas": "Parking Areas",
+    "users": "Users",
+    "stats": "Stats",
+    "vehicles": "Vehicles",
+    "super_user": "Super User",
+    "third_party_company": "Distributors"
+  },
+  "parking_areas": {
+    "title": "Parking Areas",
+    "all": "All parking areas",
+    "first": "Create your first parking area...",
+    "areas": "Areas",
+    "area": "Area",
+    "schedules": "Schedules",
+    "subscriptions": "Subscriptions",
+    "new": "New Parking Area",
+    "new_tooltip": "Create New Parkign Area",
+    "add": "Add Parking Area",
+    "add_a": "Add a new Parking Area",
+    "create": "Create Parking Area",
+    "information": "Parking Area Information",
+    "name_of": "Name of Parking Area",
+    "add_area": "Add New Area",
+    "add_schedule": "Add New Schedule",
+    "add_subscription": "Add New Subscription",
+    "no_parking_areas": "There is no registered parking areas ...",
+    "tables": {
+      "name": "NAME",
+      "area": "AREA",
+      "schedules": "SCHEDULES",
+      "subscriptions": "SUBSCRIPTIONS",
+      "created": "CREATION"
+    }
+  },
+  "areas": {
+    "add": "Add Area",
+    "first": "Create your first area...",
+    "tables": {
+      "name": "NAME",
+      "parking_spaces": "PARKING SPACES",
+      "type_numbering": "TYPE NUMBERING",
+      "created": "CREATION",
+      "sensor": "SENSOR",
+      "geolocalization": "GEOLOCALIZATION",
+      "points": "POINTS"
+    },
+    "form": {
+      "area_information": "Area Information",
+      "name_of_area": "Name of the Area",
+      "points": "Points",
+      "spaces": "Parking spaces",
+      "spaces_information": "Parking spaces Information",
+      "numbering": "Numbering of parking spaces",
+      "want_to_list": "I want to list the parking spaces",
+      "type_numbering": "Type numbering of parking spaces"
+    },
+    "detail": {
+      "number_parking_spaces": "Number of parking spaces"
+    }
+  },
+  "spaces": {
+    "form": {
+      "title": "Parking Space ",
+      "select_space": "Select a parking space to geolocate",
+      "sensor": "Sensor",
+      "check_sensor": "I want to add a sensor to this parking space",
+      "id_sensor": "Sensor ID",
+      "geolocate": "Geolocate"
+    }
+  },
+  "schedules": {
+    "add": "Add Schedule",
+    "first": "Create your first schedule...",
+    "from": "From",
+    "until": "until",
+    "hours": "hours",
+    "tables": {
+      "name": "NAME",
+      "days": "DAYS",
+      "hours": "HOURS",
+      "minimum_time": "MINIMUM TIME",
+      "currency": "CURRENCY",
+      "vehicles": "VEHICLES",
+      "created": "CREATION"
+    },
+    "form": {
+      "schedule_information": "Schedule Information",
+      "name_of_schedule": "Name of the Schedule",
+      "days": "Days",
+      "hours": "Hours",
+      "start_hour": "Strat hour",
+      "end_hour": "End hour",
+      "price": "Price",
+      "currency": "Currency",
+      "units": "Units",
+      "minimum_time": "Minimum time (minutes)",
+      "type_vehicles": "Types of vehicles",
+      "billing_block": "Billing Block",
+      "minutes": "Minutes"
+    }
+  },
+  "subscriptions": {
+    "add": "Add Subscription",
+    "first": "Create your first subscription...",
+    "tables": {
+      "name": "NAME",
+      "currency": "CURRENCY",
+      "created": "CREATION"
+    },
+    "form": {
+      "subscription_information": "Subscription Information",
+      "name_of_subscription": "Name of the Subscription",
+      "type_vehicles": "Types of vehicles",
+      "billing_block": "Billing Block",
+      "want_subs": "I want to assign subscriptions"
+    }
+  },
+  "inspectors": {
+    "inspectors": "Inspectors",
+    "tracking": "Inspectors tracking",
+    "app": "Inspectors App",
+    "add": "Add Inspector",
+    "add_new": "Add new Inspector",
+    "table": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "parking_area": "PARKING AREA",
+      "permissions": "PERMISSIONS",
+      "created": "CREATION"
+    },
+    "form": {
+      "inspector_information": "Inspector Information",
+      "name_of_inspector": "Name of inspector",
+      "assign": "Assign parking area",
+      "permissions": "Permissions"
+    },
+    "events": {
+      "history": "Events History",
+      "new_penalty": "New Penalty",
+      "form": {
+        "description": "Penalty description",
+        "vehicle_plate": "Plate of vehicle",
+        "photographic": "Photographic"
+      },
+      "table": {
+        "description": "DESCRIPTION",
+        "vehicle_plate": "VEHICLE PLATE",
+        "type": "TYPE",
+        "photographic": "PHOTOGRAPHICS",
+        "created": "CREATION"
+      }
+    }
+  },
+  "users": {
+    "users": "All users",
+    "first_user": "Create your firts user",
+    "add": "Add User",
+    "add_new": "Add new User",
+    "table": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "created": "CREATION"
+    }
+  },
+  "vehicles": {
+    "all": "All Vehicles",
+    "add": "Create new vehicle",
+    "table": {
+      "name": "NAME",
+      "description": "DESCRIPTION",
+      "created": "CREATION"
+    },
+    "form": {
+      "vehicle_information": "Vehicle Information",
+      "name_of_vehicle": "Name of vehicle",
+      "description": "Description of vehicle"
+    }
+  },
+  "cities": {
+    "cities": "Cities",
+    "no_content": "No cities to display...",
+    "table": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "phone": "PHONE",
+      "created": "CREATION"
+    }
+  },
+  "third_party_company": {
+    "companies": "Distributors",
+    "company": "Distributor",
+    "add": "Create distributor",
+    "first": "Create your first distributor...",
+    "add_new": "Add new distributor",
+    "no_users": "There are no users",
+    "no_payouts": "There are no registered payouts",
+    "no_tickets": "There are no registered tickets...",
+    "table": {
+      "name": "NAME",
+      "tax_id": "TAX ID",
+      "email": "EMAIL",
+      "address": "ADDRESS",
+      "commission": "COMMISSION",
+      "created": "CREATION"
+    },
+    "form": {
+      "company_information": "Distributor Information",
+      "name": "Distributors name",
+      "name_real": "Distributors real name",
+      "description": "Distributors description",
+      "email": "Email of distributor",
+      "address": "Address of distributor",
+      "tax_id": "Tax ID of distributor",
+      "commission_types": "Commission Types",
+      "commission": "Commission",
+      "commission_by": "Commision by: ",
+      "commission_transactional": "Transactional Commission",
+      "commission_monthly": "Monthly Commission",
+      "define_commission": "Define the type of commission"
+    },
+    "user": {
+      "user_information": "User information",
+      "username": "Username"
+    },
+    "payout_commissions": {
+      "title": "Payout Commissions",
+      "table": {
+        "period": "PERIOD",
+        "year": "YEAR",
+        "total_commission": "TOTAL COMMISSION",
+        "start_date": "START DATE",
+        "end_date": "END DATE",
+        "created": "CREATION"
+      }
+    },
+    "tickets": {
+      "title": "Tickets",
+      "table": {
+        "plate": "PLATE",
+        "amount": "AMOUNT",
+        "duration": "DURATION",
+        "status": "STATUS",
+        "created": "CREATION"
+      }
+    }
+  },
+  "help": {
+    "area": {
+      "title": "How to create an Area?",
+      "description": " You must choose a name to identify your area. * You must graph on the map with a polygon delimiting the area that you want to represent. * Parking spaces is a field with an approximate value, this value is calculated taking into account a block of 400 m2. * We can indicate if we want these parking spaces to be numbered."
+    },
+    "schedule": {
+      "title": "How to create a Schedule?",
+      "description": "You must choose a name to identify your schedule. * You must select the working days in which this schedule will be available. * You must select the start time and the end time of your schedule * You must select the currency that will be used in the billing block. * You must indicate the minimum time to generate the billing block. * You must indicate what types of vehicles will be considered in this schedule. * You must generate the billing block and indicate the price of each block."
+    },
+    "subscriptions": {
+      "title": "How to create a Subscription?",
+      "description": "You must choose a name to identify your subscription. * You must select the currency that will be used in the billing block. * You must indicate what types of vehicles will be considered in this schedule."
+    },
+    "parking_area": {
+      "title": "How to create a Parking Area?",
+      "description": " You must choose a name to identify your parking area. * You must select or create an area. * You must select or create one or more Schedules that you want to assign to your parking area."
+    },
+    "vehicle": {
+      "title": "How to create a Vehicle?",
+      "description": " You must choose a name to identify your vehicle."
+    },
+    "inspector": {
+      "title": "How to create an Inspector?",
+      "description": " You must fill in the personal data of the inspector. * You must assign the parking areas for this inspector. * You must assign the permissions that this inspector will have."
+    },
+    "thrid_party_company": {
+      "title": "How to create Distributors?",
+      "description": " You must fill in the distributor information. * You must indicate the type of commission that the distributor will have."
+    },
+    "parking_space": {
+      "title": "How to create/edit Parking Space?",
+      "description": " You must indicate if the parking space will have an assigned sensor. * You must geolocate the parking space."
+    }
+  },
+  "home": {
+    "continue_area": "Continue with the creation of an Area",
+    "continue_area_btn": "Continue with creation",
+    "steps": {
+      "one": {
+        "title": "Step 1: ",
+        "description": "Create an area indicating the points of the parking zone"
+      }
+    }
+  },
+  "stats": {
+    "tickets": {
+      "title": "Evolution of ticket sales per hour",
+      "description": "Sales volume by hour",
+      "by_methods": "Tickets by methods of payment",
+      "methods": {
+        "time": "Shopping time (minutes)",
+        "payment": "Methods payment",
+        "access": "Means of access"
+      }
+    },
+    "inspectors": {
+      "title": "Evolution of inspections",
+      "description": "Statistics of inspections and penalties"
+    }
+  },
+  "configuration": {
+    "continue": "Continue with the configuration",
+    "menu": {
+      "fleets": "Fleets",
+      "payment_methods": {
+        "title": "Payment Methods",
+        "add_description": "There is no payment method to display, you must register a new one",
+        "add_btn": "Add new payment method",
+        "select": "Select a payment method"
+      },
+      "messaging_channels": {
+        "title": "Messaging Channels",
+        "add_description": "There is no messaging channel to display, you must register a new one",
+        "add_btn": "Add new messaging channel",
+        "select": "Select a messaging channel"
+      },
+      "distributors": "Distributors"
+    },
+    "fleet_check": "Allow users to create fleets",
+    "distributors_check": "Allow the sales portal for distributors"
+  },
+  "menu": {
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "password": "Password",
+  "email": "Email",
+  "continue": "Continue",
+  "check": "Check",
+  "rows_per_page": "Rows per page",
+  "create": "Create",
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "detail": "Detail",
+  "delete": "Delete",
+  "want_delete": "You want to delete ",
+  "cant_delete": " cannot be removed because it is being used in a parking area...",
+  "ok_delete": " has been successfully deleted",
+  "close": "Close",
+  "previous": "Previous",
+  "next": "Next",
+  "skip": "Skip",
+  "save": "Save",
+  "today": "Today",
+  "sales_volume":"Sales volume by ",
+  "subscription": "Subscription"
+}
