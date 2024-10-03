@@ -10,11 +10,12 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material'
-import { BaseSyntheticEvent, FC, PropsWithChildren } from 'react'
+import { BaseSyntheticEvent, FC, PropsWithChildren, ReactNode } from 'react'
 
 import { TransitionSlide, TransitionZoom } from './Animations'
 import { PortalProps } from '@mui/base/Portal'
 import { Icono } from '../Icono'
+import InfoPopper from '../botones/InfoPopper'
 
 interface Props {
   isOpen: boolean
@@ -30,6 +31,7 @@ interface Props {
   titleColor?: string
   disablePortal?: PortalProps['disablePortal']
   disableScrollLock?: boolean
+  info?: ReactNode | null
 }
 
 export const CustomDialog: FC<PropsWithChildren<Props>> = ({
@@ -47,6 +49,7 @@ export const CustomDialog: FC<PropsWithChildren<Props>> = ({
   titleColor,
   disablePortal,
   disableScrollLock,
+  info,
 }) => {
   const theme = useTheme()
   let dsm = useMediaQuery(theme.breakpoints.down('sm'))
@@ -84,9 +87,12 @@ export const CustomDialog: FC<PropsWithChildren<Props>> = ({
             alignItems="center"
           >
             {title ? (
-              <Typography sx={{ fontWeight: '600', fontSize: 18, color: titleColor }}>
-                {title}
-              </Typography>
+              <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <Typography sx={{ fontWeight: '600', fontSize: 18, color: titleColor }}>
+                  {title}
+                </Typography>
+                { info }
+              </Box>
             ) : (
               <Box />
             )}

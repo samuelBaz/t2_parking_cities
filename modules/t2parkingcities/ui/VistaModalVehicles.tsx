@@ -65,10 +65,9 @@ export const VistaModalVehicles = ({
         name: vehicle.name,
         description: vehicle.description,
         byDefault: false,
-        cityId: usuario?.id!,
+        cityId: usuario?.dependency!,
         version: vehicle.version,
       }
-      await delay(1000)
       const respuesta = await sesionPeticion({
         url: `${Constantes.baseUrl}/api/vehicles`,
         method: !!vehicle.id ? 'put' : 'post',

@@ -11,12 +11,15 @@ import {
 	Filler,
 	Legend,
 } from 'chart.js'
+import { useTheme } from '@mui/material'
 
 ChartJS.register(
 	CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend
 )
 
 const AreaChart = () => {
+
+	const { palette } = useTheme()
 	const options = {
 		responsive: true,
 		plugins: {
@@ -40,8 +43,8 @@ const AreaChart = () => {
 				fill: true,
 				label: 'Dataset 2',
 				data: dataN,
-				borderColor: 'rgb(53, 162, 235)',
-				backgroundColor: 'rgba(53, 162, 235, 0.5)',
+				borderColor: palette.primary.main,
+				backgroundColor: palette.secondary.main,
 			}
 		],
 	}

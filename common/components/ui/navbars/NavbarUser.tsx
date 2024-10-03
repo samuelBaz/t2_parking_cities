@@ -28,6 +28,8 @@ import { imprimir } from '../../../utils/imprimir'
 import { useThemeContext } from '../../../../context/ui/ThemeContext'
 import { useSession } from '../../../hooks'
 import Grid from '@mui/material/Grid'
+import { useTranslation } from '@/common/hooks/useTranslation'
+import VistaModalConfiguracion from '@/modules/configuracion/ui/VistaModalConfiguracion'
 // import { RolNivelType } from '../../../../modules/login/types/loginTypes'
 // import { VistaModalCambioRolNivel } from '../../../../modules/admin/roles/ui/ModalCambioRolNivel'
 // import { DependenciaType } from '../../../../modules/admin/usuarios/types/usuariosCRUDTypes'
@@ -46,6 +48,7 @@ export const NavbarUser = () => {
   const { sideMenuOpen, closeSideMenu, openSideMenu } = useSidebar()
 
   const { mostrarFullScreen, ocultarFullScreen } = useFullScreenLoading()
+  const [modalConfiguracion, setModalConfiguracion] = useState<boolean>(false)
 
   const [mostrarAlertaCerrarSesion, setMostrarAlertaCerrarSesion] =
     useState(false)
@@ -53,6 +56,7 @@ export const NavbarUser = () => {
   const router = useRouter()
 
   const { themeMode, toggleTheme } = useThemeContext()
+  const { t } = useTranslation()
 
   // Indicador para mostrar el modal de cambio de rol nivel
   const [modalRolNivel, setModalRolNivel] = useState(false)
@@ -173,20 +177,24 @@ export const NavbarUser = () => {
           Aceptar
         </Button>
       </AlertDialog>
-      {/* <CustomDialog
-        maxWidth="lg"
-        isOpen={modalRolNivel}
-        handleClose={cerrarModalRolNivel}
-        title="Cambio de Rol/Nivel de Acceso"
+      <CustomDialog
+        isOpen={modalConfiguracion}
+        handleClose={() => {
+          setModalConfiguracion(false)
+        }}
+        title={t('configuration.continue')}
+        fullScreen
       >
-        <VistaModalCambioRolNivel
-          idRolNivelActual={usuarioRolNivel?.idRolNivel!}
-          rolesNiveles={rolesNiveles}
-          dependenciaActual={dependencia}
-          accionCorrecta={cambiarRolNivel}
-          accionCancelar={cerrarModalRolNivel}
+        <VistaModalConfiguracion
+          accionCorrecta={() => {
+            // obtenerUsuariosPeticion().finally()
+            // setModalUser(false)
+          }}
+          accionCancelar={() => {
+            setModalConfiguracion(false)
+          }}
         />
-      </CustomDialog> */}
+      </CustomDialog>
 
       <AppBar
         position="fixed"
@@ -301,6 +309,36 @@ export const NavbarUser = () => {
               <Box width={'15px'} />
               <Typography variant={'body2'} fontWeight={'500'}>
                 {themeMode === 'light' ? `Modo oscuro` : `Modo claro`}{' '}
+              </Typography>
+            </MenuItem>
+            <Divider />
+            <MenuItem
+              sx={{ px: 2.5, py: 1.5, mt: 1 }}
+              onClick={() => {
+                router.push('/t2parkingcities/profile')
+              }}
+            >
+              <Icono color={'inherit'} fontSize={'small'}>
+                manage_accounts
+              </Icono>
+              <Box width={'15px'} />
+              <Typography variant={'body2'} fontWeight={'600'}>
+                {t('menu.profile')}
+              </Typography>
+            </MenuItem>
+            <Divider />
+            <MenuItem
+              sx={{ px: 2.5, py: 1.5, mt: 1 }}
+              onClick={() => {
+                setModalConfiguracion(true)
+              }}
+            >
+              <Icono color={'inherit'} fontSize={'small'}>
+                miscellaneous_services
+              </Icono>
+              <Box width={'15px'} />
+              <Typography variant={'body2'} fontWeight={'600'}>
+                {t('configuration.continue')}
               </Typography>
             </MenuItem>
             <Divider />

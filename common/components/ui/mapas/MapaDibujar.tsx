@@ -57,6 +57,12 @@ const MapaDibujar = ({
     return null
   }
 
+  useEffect(() => {
+    console.log(poligono)
+    
+  }, [poligono])
+  
+
   const retornarPoligonos = () => {
     // Obtener todas las capas de características dentro del FeatureGroup
     const featureGroup = featureGroupRef.current
@@ -164,9 +170,9 @@ const MapaDibujar = ({
                 onEdited={retornarPoligonos}
                 draw={{
                   marker: false,
-                  // circle: !onlyread,
-                  // rectangle: !onlyread,
-                  // polyline: !onlyread,
+                  circle: false,
+                  rectangle: !onlyread,
+                  polyline: false,
                   polygon: !onlyread,
                   circlemarker: false,
                 }}

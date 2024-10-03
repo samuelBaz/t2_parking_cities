@@ -2,6 +2,7 @@ import { LayoutLogin } from "@/common/components/layouts"
 import { Icono } from "@/common/components/ui"
 import { FormInputText, optionType } from "@/common/components/ui/form"
 import { FormInputAutocomplete } from "@/common/components/ui/form/FormInputAutocomplete"
+import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useAlerts, useSession } from "@/common/hooks"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { delay, InterpreteMensajes } from "@/common/utils"
@@ -216,6 +217,7 @@ const Register = () => {
                     </Grid>
                   </Grid>
               </CardContent>
+              <ProgresoLineal mostrar={loading}/>
               <CardActions sx={{paddingX:4, pb: 4}} >
                 <Button
                   size='small' 

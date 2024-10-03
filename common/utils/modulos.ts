@@ -1,4 +1,4 @@
-export const modulosApp = [
+export const modulosAppAdmin = [
   {
     label: 'Inicio',
     url: '/',
@@ -74,7 +74,7 @@ export const modulosApp = [
         subModulo: []
       },
       {
-        label: 'Subscripciones',
+        label: 'Abonos',
         nombre: 'subscriptions',
         url: '/t2parkingcities/parking-areas/subscriptions',
         id: '',
@@ -85,7 +85,7 @@ export const modulosApp = [
         subModulo: []
       },
       {
-        label: 'Vehicles',
+        label: 'Vehiculos',
         nombre: 'vehicles',
         url: '/t2parkingcities/parking-areas/vehicles',
         id: '',
@@ -134,7 +134,7 @@ export const modulosApp = [
       {
         label: 'Inspector History',
         nombre: 'inspector_history',
-        url: '/t2parkingcities/users/inspectors_history',
+        url: '/t2parkingcities/users/inspectors-history',
         id: '',
         descripcion: '',
         icono: 'manage_search',
@@ -153,23 +153,12 @@ export const modulosApp = [
         estado: '',
         subModulo: []
       },
-      {
-        label: 'Inspectores APP',
-        nombre: 'app_inspectors',
-        url: '/t2parkingcities/users/inspectors-app',
-        id: '',
-        descripcion: '',
-        icono: 'app_settings_alt',
-        propiedades: {orden: 3},
-        estado: '',
-        subModulo: []
-      }
     ],
     descripcion: '',
     estado: '',
     icono: '',
     id: '',
-    open: false,
+    open: true,
     showed: true,
     propiedades: {orden: 3}
   },
@@ -198,4 +187,112 @@ export const modulosApp = [
     showed: true,
     propiedades: {orden: 4}
   }
+]
+
+export const modulosAppUser = [
+  {
+    label: 'Inicio',
+    url: '/',
+    nombre: 'inicio',
+    subModulo: [
+      {
+        label: 'Home',
+        nombre: 'home',
+        url: '/t2parkingcities/home',
+        id: '',
+        descripcion: '',
+        icono: 'home',
+        propiedades: {orden: 1},
+        estado: '',
+        subModulo: []
+      },
+      {
+        label: 'Stats',
+        nombre: 'stats',
+        url: '/t2parkingcities/stats',
+        id: '',
+        descripcion: '',
+        icono: 'query_stats',
+        propiedades: {orden: 2},
+        estado: '',
+        subModulo: []
+      },
+    ],
+    descripcion: '',
+    estado: '',
+    icono: '',
+    id: '',
+    open: true,
+    showed: true,
+    propiedades: {orden: 1}
+  },
+  {
+    label: 'Areas de Parqueo',
+    url: 'parking-areas',
+    nombre: 'parking_areas',
+    subModulo: [
+      {
+        label: 'Todas',
+        nombre: 'all_parking_areas',
+        url: '/t2parkingcities/parking-areas',
+        id: '',
+        descripcion: '',
+        icono: 'local_parking',
+        propiedades: {orden: 1},
+        estado: '',
+        subModulo: []
+      },
+      {
+        label: 'Zonas',
+        nombre: 'areas',
+        url: '/t2parkingcities/parking-areas/areas',
+        id: '',
+        descripcion: '',
+        icono: 'crop',
+        propiedades: {orden: 2},
+        estado: '',
+        subModulo: []
+      },
+      {
+        label: 'Horarios',
+        nombre: 'schedules',
+        url: '/t2parkingcities/parking-areas/schedules',
+        id: '',
+        descripcion: '',
+        icono: 'schedule',
+        propiedades: {orden: 3},
+        estado: '',
+        subModulo: []
+      },
+      {
+        label: 'Abonos',
+        nombre: 'subscriptions',
+        url: '/t2parkingcities/parking-areas/subscriptions',
+        id: '',
+        descripcion: '',
+        icono: 'card_membership',
+        propiedades: {orden: 4},
+        estado: '',
+        subModulo: []
+      },
+      {
+        label: 'Vehiculos',
+        nombre: 'vehicles',
+        url: '/t2parkingcities/parking-areas/vehicles',
+        id: '',
+        descripcion: '',
+        icono: 'no_crash',
+        propiedades: {orden: 5},
+        estado: '',
+        subModulo: []
+      }
+    ],
+    descripcion: '',
+    estado: '',
+    icono: '',
+    id: '',
+    open: true,
+    showed: true,
+    propiedades: {orden: 2}
+  },
 ]

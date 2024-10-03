@@ -2,7 +2,7 @@ import { LayoutUser } from "@/common/components/layouts"
 import AreaChart from "@/common/components/stats/AreaChart"
 import DoughnutChart from "@/common/components/stats/DoughnutChart"
 import { useTranslation } from "@/common/hooks/useTranslation"
-import { Grid } from "@mui/material"
+import { Grid, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 
 const Stats = () => {
@@ -51,13 +51,19 @@ const Stats = () => {
       <div className='flex column'>
         <h3 className="mt-3 f-size-16 f-weigth-700">{t('today')}</h3>
         <h4 className="stats-sub-title mb-3">{t('stats.tickets.title')}</h4>
-        <Grid container>
+        <Grid container spacing={1}>
           {
             areaCharts.map((e: any, index: number) => {
               return (
                 <Grid item key={'chart-'+index} className="chart" xs={12} sm={6} md={4} lg={3}>
-                  <h3 className="title-chart">{t('sales_volume')} {payments[index].region}</h3>
-                  <h3 className="subtitle-chart">{payments[index].val} Tickets</h3>
+                  <Typography variant={'h6'} fontSize={15} sx={{ fontWeight: '600' }}>
+                    {t('sales_volume')} {payments[index].region}
+                  </Typography>
+                  <Typography variant={'h6'} fontSize={13} sx={{ fontWeight: '700', color: '#00000080' }}>
+                    {payments[index].val} Tickets
+                  </Typography>
+                  {/* <h3 className="title-chart">{t('sales_volume')} {payments[index].region}</h3>
+                  <h3 className="subtitle-chart">{payments[index].val} Tickets</h3> */}
                   <AreaChart />
                 </Grid>
               )
@@ -72,8 +78,14 @@ const Stats = () => {
             areaCharts.map((e: any, index: number) => {
               return (
                 <Grid item key={'chart-'+index} className="chart" xs={12} sm={12} md={4} lg={4}>
-                  <h3 className="title-chart">{t('sales_volume')} {payments[index].region}</h3>
-                  <h3 className="subtitle-chart">{payments[index].val} Tickets</h3>
+                  <Typography variant={'h6'} fontSize={15} sx={{ fontWeight: '600' }}>
+                    {t('sales_volume')} {payments[index].region}
+                  </Typography>
+                  <Typography variant={'h6'} fontSize={13} sx={{ fontWeight: '700', color: '#00000080' }}>
+                    {payments[index].val} Tickets
+                  </Typography>
+                  {/* <h3 className="title-chart">{t('sales_volume')} {payments[index].region}</h3>
+                  <h3 className="subtitle-chart">{payments[index].val} Tickets</h3> */}
                   <DoughnutChart />
                 </Grid>
               )

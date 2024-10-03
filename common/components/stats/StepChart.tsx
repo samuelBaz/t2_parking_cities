@@ -1,3 +1,4 @@
+import { useTheme } from '@mui/material'
 import Paper from '@mui/material/Paper'
 import {
 	Chart as ChartJS,
@@ -16,6 +17,8 @@ ChartJS.register(
 )
 
 const StepChart = () => {
+
+	const { palette } = useTheme()
 
 	const options = {
 		plugins: {
@@ -46,12 +49,12 @@ const StepChart = () => {
 			{
 				label: 'Inspection',
 				data: [25,24,12,5,23],
-				backgroundColor: '#7A73FF',
+				backgroundColor: palette.primary.main,
 			},
 			{
 				label: 'Penalize',
 				data: [12,4,1,0,6],
-				backgroundColor: '#c0c0c0',
+				backgroundColor: palette.secondary.main,
 			},
 		],
 	}

@@ -154,7 +154,8 @@ export const AuthProvider = ({ children }: AuthContextType) => {
         email: respuesta.user.email,
         access_token: respuesta.token.access_token,
         rol: respuesta.user.role,
-        id: respuesta.user.id
+        id: respuesta.user.id,
+        dependency: respuesta.user.dependency
       }
 
       setUser(userType)
@@ -230,9 +231,12 @@ export const AuthProvider = ({ children }: AuthContextType) => {
     const userType: UsuarioType = {
       email: respuestaUsuario.data.email,
       access_token: '',
-      rol: respuestaUsuario.data.rol,
-      id: respuestaUsuario.data.id
+      rol: respuestaUsuario.data.role,
+      id: respuestaUsuario.data.id,
+      dependency: respuestaUsuario.data.dependency
     }
+    console.log(userType);
+    
     setUser(userType)
   }
 

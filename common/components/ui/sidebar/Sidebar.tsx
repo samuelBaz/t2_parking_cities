@@ -12,7 +12,7 @@ import { useFullScreenLoading, useSidebar } from '../../../../context/ui'
 import { useAuth } from '../../../../context/auth'
 import { imprimir } from '../../../utils/imprimir'
 import { CustomDrawer, SidebarModuloType } from './CustomDrawer'
-import { modulosApp } from '@/common/utils/modulos'
+import { modulosAppAdmin, modulosAppUser } from '@/common/utils/modulos'
 // import { obtenerDescripcionDependencia, titleCase } from '../../../utils'
 // import { ConstanteRol } from '../../../../modules/admin/usuarios/types/usuariosCRUDTypes'
 
@@ -28,7 +28,7 @@ export const Sidebar = () => {
     progresoLogin
   } = useAuth()
 
-  const [modulos, setModulos] = useState<SidebarModuloType[]>(modulosApp)
+  const [modulos, setModulos] = useState<SidebarModuloType[]>([])
 
   const theme = useTheme()
   const router = useRouter()
@@ -42,16 +42,13 @@ export const Sidebar = () => {
   const interpretarModulos = () => {
     imprimir(`Cambio en módulos`)
 
-    // const rolSeleccionado = usuario?.rolesNiveles.find(
-    //   (itemRol: any) => itemRol.idRolNivel == usuarioRolNivel?.idRolNivel
-    // )
+    const rolSeleccionado = usuario?.rol
 
-    // imprimir(`rolSeleccionado`, rolSeleccionado)
+    imprimir(`rolSeleccionado`, rolSeleccionado)
 
-    // setModulos(
-    //   rolSeleccionado?.modulos.map((modulo: any) => ({ ...modulo, open: true })) ??
-    //     []
-    // )
+    setModulos(
+      rolSeleccionado === 'USER' ? modulosAppUser : modulosAppAdmin
+    )
   }
 
   const navigateTo = async (url: string) => {
@@ -71,11 +68,13 @@ export const Sidebar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sm, xs, md])
 
-  // useEffect(() => {
-  //   imprimir(`reinterpretando módulos`)
-  //   interpretarModulos()
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [usuario])
+  useEffect(() => {
+    imprimir(`reinterpretando módulos`)
+    console.log('Me ejecuto', usuario?.rol);
+    
+    interpretarModulos()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [usuario])
 
   // const obtenerIcono = (idRol: string) => {
   //   if(idRol===ConstanteRol.ADMINISTRADOR)

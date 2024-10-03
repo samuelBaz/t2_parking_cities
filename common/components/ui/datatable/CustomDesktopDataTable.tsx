@@ -34,6 +34,7 @@ export interface CustomDataTableType {
   paginacion?: ReactNode
   seleccionable?: boolean
   seleccionados?: (indices: Array<number>) => void
+  seleccionadosDefault?: Array<number>
 }
 
 export const CustomDesktopDataTable = ({
@@ -51,6 +52,7 @@ export const CustomDesktopDataTable = ({
   paginacion,
   seleccionable,
   seleccionados,
+  seleccionadosDefault = []
 }: CustomDataTableType) => {
   const [todoSeleccionado, setTodoSeleccionado] = useState(false)
 
@@ -112,8 +114,18 @@ export const CustomDesktopDataTable = ({
   useEffect(
     () => {
       if (!cargando) {
-        setIndicesSeleccionados(new Array(contenidoTabla.length).fill(false))
-        setTodoSeleccionado(false)
+        if(seleccionadosDefault){
+          setIndicesSeleccionados((prev) => {
+            const newState = Array(contenidoTabla.length).fill(false)
+            seleccionadosDefault.forEach(index => {
+              newState[index] = true
+            })
+            return newState
+          })
+        } else {
+          setIndicesSeleccionados(new Array(contenidoTabla.length).fill(false))
+          setTodoSeleccionado(false)
+        }
       }
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
     [cargando, contenidoTabla.length]

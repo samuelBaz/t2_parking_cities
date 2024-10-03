@@ -38,4 +38,5 @@ export interface UsuarioType {
   id: string
   email: string
   rol: string
+  dependency: string
 }

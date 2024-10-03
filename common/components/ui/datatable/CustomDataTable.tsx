@@ -19,6 +19,7 @@ export interface CustomDataTableType {
   paginacion?: ReactNode
   seleccionable?: boolean
   seleccionados?: (indices: Array<number>) => void
+  seleccionadosDefault?: Array<number>
 }
 
 export const CustomDataTable = ({
@@ -36,6 +37,7 @@ export const CustomDataTable = ({
   paginacion,
   seleccionable,
   seleccionados,
+  seleccionadosDefault = []
 }: CustomDataTableType) => {
   const theme = useTheme()
   const sm = useMediaQuery(theme.breakpoints.only('sm'))
@@ -73,5 +75,6 @@ export const CustomDataTable = ({
         paginacion,
         seleccionable,
         seleccionados,
+        seleccionadosDefault,
       })
 }

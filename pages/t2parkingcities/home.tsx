@@ -1,8 +1,9 @@
 import { LayoutUser } from '@/common/components/layouts'
 import GlobalStats from '@/common/components/stats/GlobalStats'
 import StepChart from '@/common/components/stats/StepChart'
+import { Icono } from '@/common/components/ui'
 import { useTranslation } from '@/common/hooks/useTranslation'
-import { Box, Grid } from '@mui/material'
+import { Box, Button, Grid, Typography, useTheme } from '@mui/material'
 import { useRouter } from 'next/router'
 
 const data = [
@@ -72,25 +73,44 @@ const Home = () => {
 
 	const { t } = useTranslation()
 	const router = useRouter()
+  const { palette } = useTheme()
 
 	return (
 		<LayoutUser>
       <div className='flex column full-w'>
-        <h2 className="mt-3">{t('home.continue_area')}</h2>
+        <Typography variant={'h5'} sx={{ fontWeight: '600' }}>
+          {t('home.continue_area')}
+        </Typography>
         <Grid container sx={{display: 'flex', flexDirection: 'row'}}>
           <Grid item xs={6}>
-            <Grid container sx={{direction: 'flex', mt: 1, flexDirection: 'row'}} className="line-step mt-2">
-              <Grid item xs={3} className="step step-active">
-                1
+            <Grid container sx={{direction: 'flex', mt: 1, flexDirection: 'row', backgroundColor: palette.secondary.main, borderRadius: 3}} className="line-step mt-2">
+              <Grid item xs={3}>
+                <Box sx={{backgroundColor: palette.primary.main, borderRadius: 3, display: 'flex', justifyContent: 'center', alignItems: 'center'}} width={24} height={24}>
+                  <Typography fontWeight={600} color={'white'}>
+                    1
+                  </Typography>
+                </Box>
               </Grid>
-              <Grid item xs={3} className="step">
-                2
+              <Grid item xs={3}>
+                <Box sx={{border: `1px solid ${palette.primary.main}`, backgroundColor: 'white', borderRadius: 3, display: 'flex', justifyContent: 'center', alignItems: 'center'}} width={24} height={24}>
+                  <Typography fontWeight={600} color={palette.primary.main}>
+                    2
+                  </Typography>
+                </Box>
               </Grid>
-              <Grid item xs={3} className="step">
-                3
+              <Grid item xs={3}>
+                <Box sx={{border: `1px solid ${palette.primary.main}`, backgroundColor: 'white', borderRadius: 3, display: 'flex', justifyContent: 'center', alignItems: 'center'}} width={24} height={24}>
+                  <Typography fontWeight={600} color={palette.primary.main}>
+                    3
+                  </Typography>
+                </Box>
               </Grid>
-              <Grid item xs={3} className="step">
-                4
+              <Grid item xs={3}>
+                <Box sx={{border: `1px solid ${palette.primary.main}`, backgroundColor: 'white', borderRadius: 3, display: 'flex', justifyContent: 'center', alignItems: 'center'}} width={24} height={24}>
+                  <Typography fontWeight={600} color={palette.primary.main}>
+                    4
+                  </Typography>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
@@ -101,24 +121,33 @@ const Home = () => {
               <b className="bold">{t('home.steps.one.title')}</b>{t('home.steps.one.description')}</h4>
           </div>
         </div>
-        <div className="flex full-w mt-2">
-          <div className="add" onClick={() => 
-            { 
-              router.push('/t2parkingcities/create-new-parking-area')
-            } }>
+        <Grid mb={2}>
+          <Button 
+            variant='contained' 
+            onClick={() => {
+              router.push('/t2parkingcities/parking-areas/areas')
+            }}>
             {t('home.continue_area_btn')}
-            {/* <ArrowForwardOutlined className="c-white ml-2" fontSize="small" /> */}
-          </div>
-        </div>
-        <Grid container>
+            <Icono color='inherit'>arrow_forward</Icono>
+          </Button>
+        </Grid>
+        <Grid container spacing={1}>
           <Grid item xs={12} md={12} lg={9}>
-            <h2 className="mt-2">{t('stats.tickets.title')}</h2>
-            <h3 className="title-chart">{t('stats.tickets.description')}</h3>
+            <Typography variant={'h5'} sx={{ fontWeight: '600' }}>
+              {t('stats.tickets.title')}
+            </Typography>
+            <Typography variant={'h6'} fontSize={13} sx={{ fontWeight: '700', color: '#00000080' }}>
+              {t('stats.tickets.description')}
+            </Typography>
             <GlobalStats data={data}/>
           </Grid>
           <Grid item xs={12} md={12} lg={3}>
-            <h2 className="mt-2">{t('stats.inspectors.title')}</h2>
-            <h3 className="title-chart">{t('stats.inspectors.description')}</h3>
+            <Typography variant={'h5'} sx={{ fontWeight: '600' }}>
+              {t('stats.inspectors.title')}
+            </Typography>
+            <Typography variant={'h6'} fontSize={13} sx={{ fontWeight: '700', color: '#00000080' }}>
+              {t('stats.inspectors.description')}
+            </Typography>
             <StepChart/>
           </Grid>
         </Grid>

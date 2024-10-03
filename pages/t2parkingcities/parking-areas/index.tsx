@@ -1,5 +1,7 @@
 import { LayoutUser } from "@/common/components/layouts"
-import { CustomDataTable, IconoTooltip } from "@/common/components/ui"
+import { CustomDataTable, CustomDialog, IconoTooltip } from "@/common/components/ui"
+import { IconoBoton } from "@/common/components/ui/botones/IconoBoton"
+import InfoPopper from "@/common/components/ui/botones/InfoPopper"
 import { CriterioOrdenType } from "@/common/components/ui/datatable/ordenTypes"
 import { Paginacion } from "@/common/components/ui/datatable/Paginacion"
 import { useAlerts, useSession } from "@/common/hooks"
@@ -8,8 +10,11 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { ParkingArea } from "@/modules/t2parkingcities/ParkingArea"
-import { Grid, Typography } from "@mui/material"
+import { ParkingArea } from "@/modules/t2parkingcities/types/parkinAreaTypes"
+import { Schedule } from "@/modules/t2parkingcities/types/scheduleTypes"
+import { Subscription } from "@/modules/t2parkingcities/types/subscriptionTypes"
+import VistaModalParkingArea from "@/modules/t2parkingcities/ui/VistaModalParkingArea"
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
 import { ReactNode, useEffect, useState } from "react"
 
@@ -19,7 +24,11 @@ const ParkingAreas = () => {
   const { sesionPeticion } = useSession()
   const { estaAutenticado, usuario } = useAuth()
 
+  const theme = useTheme()
+  const xs = useMediaQuery(theme.breakpoints.only('xs'))
   const { Alerta } = useAlerts()
+
+  const [modalParkingArea, setModalParkingArea] = useState<boolean>(false)
 
   const [openFilters, setOpenFilters] = useState(false)
   // const [filter, setFilter] = useState<PaymentFilterType>({email: '', licensePlate: '', ticket: '', state: ''})
@@ -38,7 +47,7 @@ const ParkingAreas = () => {
     try {
       setLoading(true)
       const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/parking_areas/getAll/${usuario!.id}`,
+        url: `${Constantes.baseUrl}/api/parking_areas/getAll/${usuario!.dependency}`,
         method: 'get',
       })
       imprimir(`Respuesta estado parametro: ${respuesta}`)
@@ -47,6 +56,7 @@ const ParkingAreas = () => {
         variant: 'success',
       })
       setParkingAreas(respuesta.data)
+      setTotal(respuesta.data.length)
     } catch (e) {
       imprimir(`Error obteniendo areas de parqueo`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -74,15 +84,15 @@ const ParkingAreas = () => {
       <Typography
         key={`${parkinAreaData.id}-${indexParking}-plate`}
         variant={'body2'}
-      >{parkinAreaData.area.name}</Typography>,
+      >{parkinAreaData.areaName}</Typography>,
       <Typography
         key={`${parkinAreaData.id}-${indexParking}-idTicket`}
         variant={'body2'}
-      >{parkinAreaData.area.name}</Typography>,
+      >{parkinAreaData.schedules.map((schedule : Schedule) => schedule.name).toString()}</Typography>,
       <Typography
         key={`${parkinAreaData.id}-${indexParking}-state`}
         variant={'body2'}
-      >{parkinAreaData.area.name}</Typography>,
+      >{parkinAreaData.subscriptions.map((subscription: Subscription) => subscription.name).toString()}</Typography>,
       <Grid key={`${parkinAreaData.id}-${indexParking}-acciones`}>
         
       </Grid>
@@ -100,7 +110,7 @@ const ParkingAreas = () => {
   )
 
   useEffect(() => {
-    obtenerParkingAreasPeticion().finally(() => {})
+    if(estaAutenticado) obtenerParkingAreasPeticion().finally(() => {})
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     estaAutenticado,
@@ -111,32 +121,54 @@ const ParkingAreas = () => {
   ])
 
   const acciones: Array<ReactNode> = [
-  <IconoTooltip
-    key={'filtrar-parking-areas'}
-    id={`filtrar-parking-areas`}
-    titulo={'Filtrar Parking Areas'}
-    color={'primary'}
-    accion={() => {
-      // setOpenFilters((openFilters: any) => !openFilters)
-    }}
-    icono={'filter_list'}
-    name={'Filtrar PArking Areas'}
-  />
+    <IconoTooltip
+      key={'filtrar-parking-areas'}
+      id={`filtrar-parking-areas`}
+      titulo={'Filtrar Parking Areas'}
+      color={'primary'}
+      accion={() => {
+        // setOpenFilters((openFilters: any) => !openFilters)
+      }}
+      icono={'filter_list'}
+      name={'Filtrar PArking Areas'}
+    />,
+    <IconoBoton
+      id={'agregarParqueo'}
+      key={'agregarParqueo'}
+      texto={t('parking_areas.add')}
+      variante={xs ? 'icono' : 'boton'}
+      icono={'add_circle_outline'}
+      descripcion={t('parking_areas.add')}
+      accion={() => {
+        setModalParkingArea(true)
+      }}
+    />
   ]
   return (
     <LayoutUser>
+      <CustomDialog
+        isOpen={modalParkingArea}
+        info={<InfoPopper title={t('help.parking_area.title')} description={t('help.parking_area.description')}/>}
+        handleClose={() => {
+          setModalParkingArea(false)
+        }}
+        title={t('parking_areas.add')}
+      >
+        <VistaModalParkingArea
+          accionCorrecta={() => {
+            setModalParkingArea(false)
+            obtenerParkingAreasPeticion().finally()
+          }}
+          accionCancelar={() => {
+            setModalParkingArea(false)
+          }}
+        />
+      </CustomDialog>
       <CustomDataTable
-          // tituloPersonalizado={
-          //   <Typography color="text.primary" fontSize="18px" fontWeight={700} >
-          //     Listado de Pagos
-          //   </Typography>
-          // }
           titulo={t('parking_areas.title')}
           error={!!errorPaymentsData}
           cargando={loading}
-          acciones={[
-            
-          ]}
+          acciones={acciones}
           columnas={ordenCriterios}
           cambioOrdenCriterios={setOrdenCriterios}
           paginacion={paginacion}

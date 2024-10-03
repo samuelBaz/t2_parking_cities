@@ -19,16 +19,16 @@
       "create_account": "Crea una Cuenta",
       "login_account": "Inicia sesión en tu cuenta"
   },
-    "language": {
-      "language": "Idioma",
-      "spanish": "Español",
-      "english": "Ingles",
-      "portuguese": "Portuguese",
-      "german": "Alemán",
-      "french": "Frances",
-      "italian": "Italiano",
-      "sweden": "Sueco",
-      "select": "Selecciona tu idioma preferido"
+  "language": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "Ingles",
+    "portuguese": "Portuguese",
+    "german": "Alemán",
+    "french": "Frances",
+    "italian": "Italiano",
+    "sweden": "Sueco",
+    "select": "Selecciona tu idioma preferido"
   },
     "reset": {
       "title": "Resetea tu contraseña",
@@ -144,21 +144,21 @@
         "minutes": "Minutos"
     }
   },
-    "subscriptions": {
-      "add": "Añadir Abono",
-      "first": "Crea tu primer abono...",
-      "tables": {
-        "name": "NOMBRE",
-        "currency": "MONEDA",
-        "created": "FECHA DE CREACIÓN"
-    },
-      "form": {
-        "subscription_information": "Información del Abono",
-        "name_of_subscription": "Nombre del Abono",
-        "type_vehicles": "Tipos de Vehículos",
-        "billing_block": "Precios",
-        "want_subs": "Deseo asignar abonos"
-    }
+  "subscriptions": {
+    "add": "Añadir Abono",
+    "first": "Crea tu primer abono...",
+    "tables": {
+      "name": "NOMBRE",
+      "currency": "MONEDA",
+      "created": "FECHA DE CREACIÓN"
+  },
+    "form": {
+      "subscription_information": "Información del Abono",
+      "name_of_subscription": "Nombre del Abono",
+      "type_vehicles": "Tipos de Vehículos",
+      "billing_block": "Precios",
+      "want_subs": "Deseo asignar abonos"
+  }
   },
     "inspectors": {
       "inspectors": "Inspectores",

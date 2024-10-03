@@ -1,6 +1,7 @@
 import { LayoutLogin } from "@/common/components/layouts"
 import { Icono } from "@/common/components/ui"
 import { FormInputText } from "@/common/components/ui/form"
+import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
 import { LoginType } from "@/modules/login/types/loginTypes"
@@ -99,6 +100,7 @@ const Login = () => {
                     </Grid>
                   </Grid>
               </CardContent>
+              <ProgresoLineal mostrar={progresoLogin}/>
               <CardActions sx={{paddingX:4, pb: 4}} >
                 <Button
                   size='small' 

@@ -9,7 +9,6 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { ParkingArea } from "@/modules/t2parkingcities/ParkingArea"
 import { Vehicle } from "@/modules/t2parkingcities/Schedule"
 import VistaModalVehicles from "@/modules/t2parkingcities/ui/VistaModalVehicles"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
@@ -46,7 +45,7 @@ const Vehicles = () => {
     try {
       setLoading(true)
       const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/vehicles/getAll/${usuario?.id}`,
+        url: `${Constantes.baseUrl}/api/vehicles/getAll/${usuario?.dependency}`,
         method: 'get',
       })
       imprimir(`Respuesta obtener vehiculos: `, respuesta)
@@ -55,6 +54,7 @@ const Vehicles = () => {
         variant: 'success',
       })
       setVehicles(respuesta.data)
+      setTotal(respuesta.data.length )
     } catch (e) {
       imprimir(`Error obteniendo vehiculos`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })

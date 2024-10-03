@@ -75,7 +75,7 @@ export const Bitacora = ({
                   <TimelineItem key={`accion-${index}`} sx={{ py: 0 }}>
                     <TimelineSeparator>
                       <TimelineDot
-                        color={item.color_icono as ColorIconoType}
+                        color={'primary'}
                         sx={{
                           boxShadow: 'none',
                         }}

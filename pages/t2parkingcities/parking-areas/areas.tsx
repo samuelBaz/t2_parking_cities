@@ -1,6 +1,7 @@
 import { LayoutUser } from "@/common/components/layouts"
 import { CustomDataTable, CustomDialog, IconoTooltip } from "@/common/components/ui"
 import { IconoBoton } from "@/common/components/ui/botones/IconoBoton"
+import InfoPopper from "@/common/components/ui/botones/InfoPopper"
 import { CriterioOrdenType } from "@/common/components/ui/datatable/ordenTypes"
 import { Paginacion } from "@/common/components/ui/datatable/Paginacion"
 import { useAlerts, useSession } from "@/common/hooks"
@@ -45,7 +46,7 @@ const Areas = () => {
     try {
       setLoading(true)
       const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/areas/getAll/${usuario?.id}`,
+        url: `${Constantes.baseUrl}/api/areas/getAll/${usuario?.dependency}`,
         method: 'get',
       })
       imprimir(`Respuesta obtener areas: `, respuesta)
@@ -54,6 +55,7 @@ const Areas = () => {
         variant: 'success',
       })
       setAreas(respuesta.data)
+      setTotal(respuesta.data? respuesta.data.length : 0)
     } catch (e) {
       imprimir(`Error obteniendo areas`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -74,31 +76,31 @@ const Areas = () => {
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = areas.map(
-    (vehicleData, indexVehicle) => [
+    (areaData, indexArea) => [
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-name`}
+        key={`${areaData.id}-${indexArea}-name`}
         variant={'body2'}
-      >{vehicleData.name}</Typography>,
+      >{areaData.name}</Typography>,
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-description`}
+        key={`${areaData.id}-${indexArea}-description`}
         variant={'body2'}
-      >{vehicleData.spaces.length}</Typography>,
+      >{areaData.parkingSpaces}</Typography>,
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-description`}
+        key={`${areaData.id}-${indexArea}-description`}
         variant={'body2'}
-      >{vehicleData.typeNumbering}</Typography>,
+      >{areaData.typeNumbering}</Typography>,
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-createdAt`}
+        key={`${areaData.id}-${indexArea}-createdAt`}
         variant={'body2'}
-      >{dayjs(vehicleData.createdAt).format('DD/MM/YYYY HH:mm')}</Typography>,
-      <Grid key={`${vehicleData.id}-${indexVehicle}-acciones`}>
+      >{dayjs(areaData.createdAt).format('DD/MM/YYYY HH:mm')}</Typography>,
+      <Grid key={`${areaData.id}-${indexArea}-acciones`}>
         <IconoTooltip
           key={'editar-areas'}
           id={`editar-areas`}
           titulo={'Editar Area'}
           color={'primary'}
           accion={() => {
-            setAreaEdicion(vehicleData)
+            setAreaEdicion(areaData)
             setModalArea(true)
           }}
           icono={'edit'}
@@ -171,6 +173,7 @@ const Areas = () => {
     <LayoutUser>
       <CustomDialog
         isOpen={modalArea}
+        info={<InfoPopper title={t('help.area.title')} description={t('help.area.description')}/>}
         handleClose={cerrarModalArea}
         title={areaAdicion ? 'Editar area' : t('areas.add')}
       >

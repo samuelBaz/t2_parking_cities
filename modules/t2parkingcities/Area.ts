@@ -1,7 +1,7 @@
 export interface Area {
   id?: number
   name: string
-  points: Point[]
+  points: any
   parkingSpaces: number
   numbering: boolean
   typeNumbering: TypeNumbering
