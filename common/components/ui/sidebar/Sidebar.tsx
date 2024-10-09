@@ -12,7 +12,7 @@ import { useFullScreenLoading, useSidebar } from '../../../../context/ui'
 import { useAuth } from '../../../../context/auth'
 import { imprimir } from '../../../utils/imprimir'
 import { CustomDrawer, SidebarModuloType } from './CustomDrawer'
-import { modulosAppAdmin, modulosAppUser } from '@/common/utils/modulos'
+import { modulosAppAdmin, modulosAppDistributor, modulosAppUser } from '@/common/utils/modulos'
 // import { obtenerDescripcionDependencia, titleCase } from '../../../utils'
 // import { ConstanteRol } from '../../../../modules/admin/usuarios/types/usuariosCRUDTypes'
 
@@ -47,7 +47,7 @@ export const Sidebar = () => {
     imprimir(`rolSeleccionado`, rolSeleccionado)
 
     setModulos(
-      rolSeleccionado === 'USER' ? modulosAppUser : modulosAppAdmin
+      rolSeleccionado === 'USER' ? modulosAppUser : rolSeleccionado === 'DISTRIBUTOR' ? modulosAppDistributor : modulosAppAdmin
     )
   }
 

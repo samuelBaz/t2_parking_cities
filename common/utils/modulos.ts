@@ -188,6 +188,58 @@ export const modulosAppAdmin = [
     propiedades: {orden: 4}
   }
 ]
+export const modulosAppDistributor = [
+  {
+    label: 'Inicio',
+    url: '/',
+    nombre: 'inicio',
+    subModulo: [
+      {
+        label: 'Home',
+        nombre: 'home',
+        url: '/t2parkingcities/home',
+        id: '',
+        descripcion: '',
+        icono: 'home',
+        propiedades: {orden: 1},
+        estado: '',
+        subModulo: []
+      },
+    ],
+    descripcion: '',
+    estado: '',
+    icono: '',
+    id: '',
+    open: true,
+    showed: true,
+    propiedades: {orden: 1}
+  },
+  {
+    label: 'Distributors',
+    url: 'distributors',
+    nombre: 'districutors',
+    subModulo: [
+      {
+        label: 'Tickets',
+        nombre: 'tickets',
+        url: '/t2parkingcities/distributors/tickets',
+        id: '',
+        descripcion: '',
+        icono: 'local_activity',
+        propiedades: {orden: 1},
+        estado: '',
+        subModulo: []
+      },
+    ],
+    descripcion: '',
+    estado: '',
+    icono: '',
+    id: '',
+    open: true,
+    showed: true,
+    propiedades: {orden: 1}
+  }
+]
 
 export const modulosAppUser = [
   {

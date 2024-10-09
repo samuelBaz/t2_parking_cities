@@ -327,21 +327,26 @@ export const NavbarUser = () => {
               </Typography>
             </MenuItem>
             <Divider />
-            <MenuItem
-              sx={{ px: 2.5, py: 1.5, mt: 1 }}
-              onClick={() => {
-                setModalConfiguracion(true)
-              }}
-            >
-              <Icono color={'inherit'} fontSize={'small'}>
-                miscellaneous_services
-              </Icono>
-              <Box width={'15px'} />
-              <Typography variant={'body2'} fontWeight={'600'}>
-                {t('configuration.continue')}
-              </Typography>
-            </MenuItem>
-            <Divider />
+            {
+              usuario?.rol === 'ADMIN' && 
+              <>
+                <MenuItem
+                  sx={{ px: 2.5, py: 1.5, mt: 1 }}
+                  onClick={() => {
+                    setModalConfiguracion(true)
+                  }}
+                >
+                  <Icono color={'inherit'} fontSize={'small'}>
+                    miscellaneous_services
+                  </Icono>
+                  <Box width={'15px'} />
+                  <Typography variant={'body2'} fontWeight={'600'}>
+                    {t('configuration.continue')}
+                  </Typography>
+                </MenuItem>
+                <Divider />
+              </>
+            }
             <MenuItem
               sx={{ px: 2.5, py: 1.5, mt: 1 }}
               onClick={accionMostrarAlertaCerrarSesion}

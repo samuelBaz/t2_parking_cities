@@ -144,7 +144,10 @@ export const AuthProvider = ({ children }: AuthContextType) => {
         withCredentials: false,
         headers: {},
       })
-      
+
+      if(respuesta.status != 0){
+        throw new Error(`${respuesta.message}`)
+      }
 
       guardarCookie('token', respuesta.token.access_token)
       guardarCookie('refresh_token', respuesta.token.refresh_token)
