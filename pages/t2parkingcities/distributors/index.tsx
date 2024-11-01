@@ -57,8 +57,8 @@ const Distributors = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setDistributors(respuesta.data)
-      setTotal(respuesta.data.length)
+      setDistributors(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
       imprimir(`Error obteniendo eventos de los inspectores`, e)
       setErrorUsersData(e)
@@ -76,8 +76,8 @@ const Distributors = () => {
     { campo: 'email', nombre: t('third_party_company.table.email'), ordenar: true },
     { campo: 'address', nombre: t('third_party_company.table.address'), ordenar: true },
     { campo: 'commission', nombre: t('third_party_company.table.commission'), ordenar: true },
-    { campo: 'createdAt', nombre: t('third_party_company.table.created'), ordenar: true },
-    { campo: 'acciones', nombre: 'Acciones', ordenar: false },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = distributors.map(
@@ -144,8 +144,18 @@ const Distributors = () => {
     JSON.stringify(ordenCriterios)
   ])
 
-
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-companies'}
+      id={`refresh-comapnies`}
+      titulo={'Actualizar Distribuidores'}
+      color={'primary'}
+      accion={() => {
+        obetenerDistributorPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Distribuidores'}
+    />,
     <IconoTooltip
       key={'filtrar-distributors'}
       id={`filtrar-distributors`}

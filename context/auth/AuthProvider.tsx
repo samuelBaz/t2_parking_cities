@@ -238,7 +238,6 @@ export const AuthProvider = ({ children }: AuthContextType) => {
       id: respuestaUsuario.data.id,
       dependency: respuestaUsuario.data.dependency
     }
-    console.log(userType);
     
     setUser(userType)
   }

@@ -4,6 +4,7 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import {
   Box,
@@ -17,7 +18,6 @@ import {
   Typography,
 } from '@mui/material'
 import { optionType } from './FormInputDropdown'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import React from 'react'
 import { Variant } from '@mui/material/styles/createTypography'
 

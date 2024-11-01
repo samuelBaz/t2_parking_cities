@@ -15,7 +15,7 @@ import {
 
 import { useFullScreenLoading, useSidebar } from '../../../../context/ui'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ThemeSwitcherButton from '../botones/ThemeSwitcherButton'
 import { CustomDialog } from '../modales/CustomDialog'
 
@@ -30,6 +30,7 @@ import { useSession } from '../../../hooks'
 import Grid from '@mui/material/Grid'
 import { useTranslation } from '@/common/hooks/useTranslation'
 import VistaModalConfiguracion from '@/modules/configuracion/ui/VistaModalConfiguracion'
+import LanguageMenu from '../language/LanguageMenu'
 // import { RolNivelType } from '../../../../modules/login/types/loginTypes'
 // import { VistaModalCambioRolNivel } from '../../../../modules/admin/roles/ui/ModalCambioRolNivel'
 // import { DependenciaType } from '../../../../modules/admin/usuarios/types/usuariosCRUDTypes'
@@ -186,10 +187,6 @@ export const NavbarUser = () => {
         fullScreen
       >
         <VistaModalConfiguracion
-          accionCorrecta={() => {
-            // obtenerUsuariosPeticion().finally()
-            // setModalUser(false)
-          }}
           accionCancelar={() => {
             setModalConfiguracion(false)
           }}
@@ -255,6 +252,8 @@ export const NavbarUser = () => {
               </Grid>
             </Box>
           </Grid>
+          
+          <LanguageMenu/>
           {!xs && <ThemeSwitcherButton />}
           <ToggleButton
             sx={{ px: 1.2, minWidth: 0, borderWidth: 0 }}
@@ -308,7 +307,7 @@ export const NavbarUser = () => {
 
               <Box width={'15px'} />
               <Typography variant={'body2'} fontWeight={'500'}>
-                {themeMode === 'light' ? `Modo oscuro` : `Modo claro`}{' '}
+                {themeMode === 'light' ? t('dark_mode') : t('light_mode')}{' '}
               </Typography>
             </MenuItem>
             <Divider />
@@ -356,7 +355,7 @@ export const NavbarUser = () => {
               </Icono>
               <Box width={'15px'} />
               <Typography variant={'body2'} fontWeight={'600'} color={'error'}>
-                Cerrar sesión
+                {t('menu.logout')}
               </Typography>
             </MenuItem>
           </Menu>

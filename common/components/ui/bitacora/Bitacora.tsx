@@ -101,7 +101,7 @@ export const Bitacora = ({
                       }}
                     >
                       {item.titulo && (
-                        <Typography variant="subtitle2" fontWeight={'medium'}>
+                        <Typography variant="subtitle2" fontWeight={'medium'} sx={{cursor: 'pointer'}}>
                           {`${item.titulo}`}
                         </Typography>
                       )}

@@ -1,0 +1,407 @@
+{
+  "authentication": {
+    "login": {
+      "title": "Melden Sie sich bei Ihrem TOKEN an.",
+      "forgot": "Haben Sie Ihr Passwort vergessen?",
+      "keep": "Die Sitzung eine Woche lang aktiv halten",
+      "no_account": "Haben Sie kein Konto?",
+      "create_account": "Ein Konto erstellen"
+    },
+    "register": {
+      "title": "Ein Konto erstellen",
+      "terms": "Ich akzeptiere die Geschäftsbedingungen",
+      "already_account": "Haben Sie bereits ein Konto?",
+      "country": "Land",
+      "city": "Stadt",
+      "name_city": "Name der Stadt",
+      "phone": "Telefonnummer"
+    },
+    "create_account": "Ein Konto erstellen",
+    "login_account": "Melden Sie sich in Ihrem Konto an"
+  },
+  "language": {
+    "language": "Sprache",
+    "spanish": "Spanisch",
+    "english": "Englisch",
+    "portuguese": "Portugiesisch",
+    "german": "Deutsch",
+    "french": "Französisch",
+    "italian": "Italienisch",
+    "sweden": "Schwedisch",
+    "select": "Wählen Sie Ihre bevorzugte Sprache"
+  },
+  "reset": {
+    "title": "Passwort zurücksetzen",
+    "description": "Bestätigen Sie Ihr Konto und starten Sie",
+    "open_email": "E-Mail öffnen",
+    "already_update": "Habe mein Passwort bereits aktualisiert"
+  },
+  "verify": {
+    "title": "E-Mail bestätigen",
+    "description": "Um Ihr Konto zu überprüfen und zu starten",
+    "already_verify": "Konto bereits verifiziert"
+  },
+  "nav_menu": {
+    "home": "Startseite",
+    "parking_areas": "Parkbereiche",
+    "users": "Benutzer",
+    "stats": "Statistiken",
+    "vehicles": "Fahrzeuge",
+    "super_user": "Superbenutzer",
+    "third_party_company": "Vertriebspartner"
+  },
+  "parking_areas": {
+    "title": "Parkbereiche",
+    "all": "Parkplätze",
+    "first": "Erstellen Sie Ihren ersten Parkbereich...",
+    "areas": "Bereiche",
+    "area": "Bereich",
+    "schedules": "Zeitpläne",
+    "subscriptions": "Abonnements",
+    "new": "Neuer Parkbereich",
+    "new_tooltip": "Neuen Parkbereich hinzufügen",
+    "add": "Parkbereich hinzufügen",
+    "add_a": "Einen neuen Parkbereich hinzufügen",
+    "create": "Parkbereich erstellen",
+    "information": "Informationen zum Parkbereich",
+    "name_of": "Name des Parkbereichs",
+    "add_area": "Neuen Bereich hinzufügen",
+    "add_schedule": "Neuen Zeitplan hinzufügen",
+    "add_subscription": "Neues Abonnement hinzufügen",
+    "no_parking_areas": "Es sind keine registrierten Parkbereiche vorhanden...",
+    "tables": {
+      "name": "NAME",
+      "area": "BEREICH",
+      "schedules": "ZEITPLÄNE",
+      "subscriptions": "ABONNEMENTS"
+    }
+  },
+  "areas": {
+    "add": "Bereich hinzufügen",
+    "edit": "Bereich bearbeiten",
+    "first": "Erstellen Sie Ihren ersten Bereich...",
+    "tables": {
+      "name": "NAME",
+      "parking_spaces": "PARKPLÄTZE",
+      "type_numbering": "ART DER NUMMERIERUNG",
+      "sensor": "SENSOR",
+      "geolocalization": "GEOLOKALISIERUNG",
+      "points": "PUNKTE"
+    },
+    "form": {
+      "area_information": "Bereichsinformationen",
+      "name_of_area": "Name des Bereichs",
+      "points": "Punkte",
+      "spaces": "Parkplätze",
+      "spaces_information": "Informationen zu Parkplätzen",
+      "numbering": "Nummerierung der Parkplätze",
+      "want_to_list": "Ich möchte die Parkplätze auflisten",
+      "type_numbering": "Art der Nummerierung der Parkplätze"
+    },
+    "detail": {
+      "number_parking_spaces": "Anzahl der Parkplätze"
+    }
+  },
+  "spaces": {
+    "edit": "Parkplatz Bearbeiten",
+    "form": {
+      "title": "Parkplatz",
+      "id_sensor": "Sensor-ID",
+      "lat": "Breitengrad",
+      "long": "Längengrad"
+    }
+  },
+  "schedules": {
+    "add": "Zeitplan hinzufügen",
+    "edit": "Zeitplan bearbeiten",
+    "first": "Erstellen Sie Ihren ersten Zeitplan...",
+    "from": "Von",
+    "until": "Bis",
+    "hours": "Stunden",
+    "tables": {
+      "name": "NAME",
+      "days": "TAGE",
+      "hours": "STUNDEN",
+      "minimum_time": "MINDESTZEIT",
+      "currency": "WÄHRUNG",
+      "vehicles": "FAHRZEUGE"
+    },
+    "form": {
+      "schedule_information": "Informationen zum Zeitplan",
+      "name_of_schedule": "Name des Zeitplans",
+      "days": "Tage",
+      "hours": "Stunden",
+      "start_hour": "Startstunde",
+      "end_hour": "Endstunde",
+      "price": "Preis",
+      "currency": "Währung",
+      "units": "Einheiten",
+      "minimum_time": "Mindestzeit (Minuten)",
+      "type_vehicles": "Fahrzeugtypen",
+      "billing_block": "Abrechnungsblock",
+      "minutes": "Minuten"
+    }
+  },
+  "subscriptions": {
+    "add": "Abonnement hinzufügen",
+    "edit": "Abonnement bearbeiten",
+    "first": "Erstellen Sie Ihr erstes Abonnement...",
+    "tables": {
+      "name": "NAME",
+      "currency": "WÄHRUNG"
+    },
+    "form": {
+      "subscription_information": "Abonnementinformationen",
+      "name_of_subscription": "Name des Abonnements",
+      "type_vehicles": "Fahrzeugtypen",
+      "billing_block": "Abrechnungsblock",
+      "want_subs": "Ich möchte Abonnements zuweisen"
+    }
+  },
+  "inspectors": {
+    "inspectors": "Inspektoren",
+    "tracking": "Inspektorenverfolgung",
+    "app": "Inspektoren-App",
+    "add": "Inspektor hinzufügen",
+    "add_new": "Neuen Inspektor hinzufügen",
+    "table": {
+      "name": "NAME",
+      "email": "E-MAIL",
+      "parking_area": "PARKBEREICH",
+      "permissions": "BERECHTIGUNGEN"
+    },
+    "form": {
+      "inspector_information": "Inspektoreninformationen",
+      "name_of_inspector": "Name des Inspektors",
+      "assign": "Parkbereich zuweisen",
+      "permissions": "Berechtigungen"
+    },
+    "events": {
+      "history": "Ereignisverlauf",
+      "new_penalty": "Neue Strafe",
+      "form": {
+        "description": "Strafbeschreibung",
+        "vehicle_plate": "Kennzeichen des Fahrzeugs",
+        "photographic": "Fotografisch"
+      },
+      "table": {
+        "description": "BESCHREIBUNG",
+        "vehicle_plate": "KENNZEICHEN DES FAHRZEUGS",
+        "type": "ART",
+        "photographic": "FOTOGRAFISCH"
+      }
+    }
+  },
+  "users": {
+    "users": "Alle Benutzer",
+    "first_user": "Erstellen Sie Ihren ersten Benutzer",
+    "add": "Benutzer hinzufügen",
+    "add_new": "Neuen Benutzer hinzufügen",
+    "table": {
+      "name": "NAME",
+      "email": "E-MAIL"
+    }
+  },
+  "vehicles": {
+    "all": "Alle Fahrzeuge",
+    "add": "Fahrzeug hinzufügen",
+    "edit": "Fahrzeug bearbeiten",
+    "table": {
+      "name": "NAME",
+      "description": "BESCHREIBUNG"
+    },
+    "form": {
+      "vehicle_information": "Fahrzeuginformationen",
+      "name_of_vehicle": "Name des Fahrzeugs",
+      "description": "Beschreibung des Fahrzeugs"
+    }
+  },
+  "cities": {
+    "cities": "Städte",
+    "no_content": "Keine Städte zum Anzeigen...",
+    "table": {
+      "name": "NAME",
+      "email": "E-MAIL",
+      "phone": "TELEFON"
+    }
+  },
+  "third_party_company": {
+    "companies": "Vertreiber",
+    "company": "Vertreiber",
+    "add": "Vertreiber erstellen",
+    "first": "Erstellen Sie Ihren ersten Vertreiber...",
+    "add_new": "Neuen Vertreiber hinzufügen",
+    "no_users": "Es gibt keine Benutzer",
+    "no_payouts": "Es gibt keine registrierten Auszahlungen",
+    "no_tickets": "Es gibt keine registrierten Tickets...",
+    "table": {
+      "name": "NAME",
+      "tax_id": "STEUER-ID",
+      "email": "EMAIL",
+      "address": "ADRESSE",
+      "commission": "KOMMISSION"
+    },
+    "form": {
+      "company_information": "Vertreiberinformationen",
+      "name": "Name des Vertriebs",
+      "name_real": "Echter Name des Vertreibers",
+      "description": "Beschreibung des Vertreibers",
+      "email": "E-Mail des Vertreibers",
+      "address": "Adresse des Vertreibers",
+      "tax_id": "Steuer-ID des Vertreibers",
+      "commission_types": "Provisionsarten",
+      "commission": "Provision",
+      "commission_by": "Provision von: ",
+      "commission_transactional": "Transaktionale Provision",
+      "commission_monthly": "Monatliche Provision",
+      "define_commission": "Definieren Sie die Art der Provision"
+    },
+    "user": {
+      "user_information": "Benutzerinformationen",
+      "username": "Benutzername"
+    },
+    "payout_commissions": {
+      "title": "Auszahlungsprovisionen",
+      "table": {
+        "period": "ZEITRAUM",
+        "year": "JAHR",
+        "total_commission": "GESAMTPROVISION",
+        "start_date": "STARTDATUM",
+        "end_date": "ENDDATUM"
+      }
+    },
+    "tickets": {
+      "title": "Tickets",
+      "table": {
+        "plate": "KENNZEICHEN",
+        "amount": "BETRAG",
+        "duration": "DAUER",
+        "status": "STATUS"
+      }
+    }
+  },
+  "help": {
+    "area": {
+      "title": "Wie erstelle ich ein Gebiet?",
+      "description": " Sie müssen einen Namen wählen, um Ihr Gebiet zu identifizieren. * Sie müssen auf der Karte mit einem Polygon grafisch darstellen, welches Gebiet Sie darstellen möchten. * Parkplätze ist ein Feld mit einem ungefähren Wert, dieser Wert wird unter Berücksichtigung eines Blocks von 400 m² berechnet. * Wir können angeben, ob wir möchten, dass diese Parkplätze nummeriert sind."
+    },
+    "schedule": {
+      "title": "Wie erstelle ich einen Zeitplan?",
+      "description": "Sie müssen einen Namen wählen, um Ihren Zeitplan zu identifizieren. * Sie müssen die Arbeitstage auswählen, an denen dieser Zeitplan verfügbar ist. * Sie müssen die Start- und Endzeit Ihres Zeitplans auswählen. * Sie müssen die Währung auswählen, die im Abrechnungsblock verwendet wird. * Sie müssen die Mindestzeit angeben, um den Abrechnungsblock zu erstellen. * Sie müssen angeben, welche Fahrzeugtypen in diesem Zeitplan berücksichtigt werden. * Sie müssen den Abrechnungsblock erstellen und den Preis jedes Blocks angeben."
+    },
+    "subscriptions": {
+      "title": "Wie erstelle ich ein Abonnement?",
+      "description": "Sie müssen einen Namen wählen, um Ihr Abonnement zu identifizieren. * Sie müssen die Währung auswählen, die im Abrechnungsblock verwendet wird. * Sie müssen angeben, welche Fahrzeugtypen in diesem Zeitplan berücksichtigt werden."
+    },
+    "parking_area": {
+      "title": "Wie erstelle ich ein Parkgebiet?",
+      "description": " Sie müssen einen Namen wählen, um Ihr Parkgebiet zu identifizieren. * Sie müssen ein Gebiet auswählen oder erstellen. * Sie müssen einen oder mehrere Zeitpläne auswählen oder erstellen, die Sie Ihrem Parkgebiet zuweisen möchten."
+    },
+    "vehicle": {
+      "title": "Wie erstelle ich ein Fahrzeug?",
+      "description": " Sie müssen einen Namen wählen, um Ihr Fahrzeug zu identifizieren."
+    },
+    "inspector": {
+      "title": "Wie erstelle ich einen Inspektor?",
+      "description": " Sie müssen die persönlichen Daten des Inspektors ausfüllen. * Sie müssen die Parkgebiete für diesen Inspektor zuweisen. * Sie müssen die Berechtigungen zuweisen, die dieser Inspektor haben wird."
+    },
+    "thrid_party_company": {
+      "title": "Wie erstelle ich Vertreiber?",
+      "description": " Sie müssen die Informationen des Vertreibers ausfüllen. * Sie müssen angeben, welche Art von Provision der Vertreiber haben wird."
+    },
+    "parking_space": {
+      "title": "Wie erstelle/bearbeite ich einen Parkplatz?",
+      "description": " Sie müssen angeben, ob der Parkplatz einen zugewiesenen Sensor haben wird. * Sie müssen den Parkplatz geolokalisieren."
+    }
+  },
+  "home": {
+    "continue_area": "Fahren Sie mit der Erstellung eines Gebiets fort",
+    "continue_area_btn": "Mit der Erstellung fortfahren",
+    "steps": {
+      "one": {
+        "title": "Schritt 1: ",
+        "description": "Erstellen Sie ein Gebiet, indem Sie die Punkte der Parkzone angeben"
+      }
+    }
+  },
+  "stats": {
+    "tickets": {
+      "title": "Entwicklung des Ticketverkaufs pro Stunde",
+      "description": "Verkaufsvolumen nach Stunde",
+      "by_methods": "Tickets nach Zahlungsmethoden",
+      "methods": {
+        "time": "Einkaufszeit (Minuten)",
+        "payment": "Zahlungsmethoden",
+        "access": "Zugangsmittel"
+      }
+    },
+    "inspectors": {
+      "title": "Entwicklung der Inspektionen",
+      "description": "Statistiken über Inspektionen und Strafen"
+    }
+  },
+  "configuration": {
+    "continue": "Fahren Sie mit der Konfiguration fort",
+    "menu": {
+      "fleets": "Flotten",
+      "payment_methods": {
+        "title": "Zahlungsmethoden",
+        "add_description": "Es gibt keine Zahlungsmethode anzuzeigen, Sie müssen eine neue registrieren",
+        "add_btn": "Neue Zahlungsmethode hinzufügen",
+        "select": "Wählen Sie eine Zahlungsmethode"
+      },
+      "messaging_channels": {
+        "title": "Messaging-Kanäle",
+        "add_description": "Es gibt keinen Messaging-Kanal anzuzeigen, Sie müssen einen neuen registrieren",
+        "add_btn": "Neuen Messaging-Kanal hinzufügen",
+        "select": "Wählen Sie einen Messaging-Kanal"
+      },
+      "distributors": "Vertreiber"
+    },
+    "fleet_check": "Benutzern erlauben, Flotten zu erstellen",
+    "distributors_check": "Das Verkaufsportal für Vertreiber aktivieren",
+    "distributors_description": "Diese Funktion ermöglicht es dem Portal, kostenpflichtiges Parken zu verkaufen, und gibt den Vertriebspartnern Zugriff auf eine exklusive Plattform, auf der sie ihre Verkäufe und Bestellungen verwalten, den Produktkatalog einsehen, den Status ihrer Transaktionen überprüfen, auf Sonderaktionen zugreifen und Verkaufsberichte erstellen können. All dies ermöglicht es ihnen, autonom zu agieren, ihre Prozesse zu optimieren und die Effizienz bei der Verwaltung ihrer Geschäftstätigkeiten zu verbessern.",
+    "fleet_description": "Die Flottenfunktionalität ermöglicht es den Benutzern, mehrere Fahrzeuge unter einem gemeinsamen Satz zu gruppieren, der als Flotte bekannt ist. Eine Flotte wird als eine organisierte Sammlung von Autos oder Fahrzeugen definiert, die einem Benutzer oder Unternehmen gehören und zentral verwaltet werden können. Diese Funktionalität ist darauf ausgelegt, die Verwaltung großer Fahrzeugmengen zu erleichtern und einen konsolidierten Überblick über alle Fahrzeugbestände eines Benutzers zu bieten."
+  },
+  "menu": {
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "settings": "Einstellungen"
+  },
+  "days": {
+    "MONDAY": "Montag",
+    "TUESDAY": "Dienstag",
+    "WEDNESDAY": "Mittwoch",
+    "THURSDAY": "Donnerstag",
+    "FRIDAY": "Freitag",
+    "SATURDAY": "Samstag",
+    "SUNDAY": "Sonntag"
+  },
+  "table": {
+    "createdAt": "ERSTELLUNGSDATUM",
+    "actions": "AKTIONEN"
+  },
+  "password": "Passwort",
+  "email": "E-Mail",
+  "continue": "Fortfahren",
+  "check": "Überprüfen",
+  "rows_per_page": "Zeilen pro Seite",
+  "create": "Erstellen",
+  "edit": "Bearbeiten",
+  "cancel": "Abbrechen",
+  "detail": "Detail",
+  "delete": "Löschen",
+  "want_delete": "Sie möchten löschen ",
+  "cant_delete": " kann nicht entfernt werden, da es in einem Parkbereich verwendet wird...",
+  "ok_delete": " wurde erfolgreich gelöscht",
+  "close": "Schließen",
+  "previous": "Vorherige",
+  "next": "Nächste",
+  "skip": "Überspringen",
+  "save": "Speichern",
+  "today": "Heute",
+  "sales_volume": "Verkaufsvolumen nach ",
+  "subscription": "Abonnement",
+  "dark_mode": "Dunkelmodus",
+  "light_mode": "Hellmodus"
+}

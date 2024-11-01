@@ -41,7 +41,17 @@ export interface Space {
   latitude: number
   longitude: number
   areaId: number
-  hasSensor: boolean
   sensorId: string
+  version: number
   createdAt: Date
+}
+
+export interface EditSpace {
+  id: number
+  name: string
+  latitude?: number | null
+  longitude?: number | null
+  areaId: number
+  sensorId?: string | null
+  version: number
 }

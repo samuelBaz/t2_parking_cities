@@ -1,10 +1,11 @@
-import Cookies, { CookieAttributes } from 'js-cookie'
+import Cookies from 'js-cookie'
+
 import { imprimir } from './imprimir'
 
 export const guardarCookie = (
   key: string,
   value: string,
-  options?: CookieAttributes
+  options?: Cookies.CookieAttributes
 ) => {
   Cookies.set(key, value, options)
   imprimir(`🍪 ✅`, key, value)

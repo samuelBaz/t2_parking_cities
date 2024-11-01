@@ -12,7 +12,7 @@ import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
 import { Currency, Vehicle } from "@/modules/t2parkingcities/types/scheduleTypes"
-import { Subscription } from "@/modules/t2parkingcities/types/subscriptionTypes"
+import { Subscription, SubscriptionBlock } from "@/modules/t2parkingcities/types/subscriptionTypes"
 import VistaModalSubscriptions from "@/modules/t2parkingcities/ui/VistaModalSubscriptions"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
@@ -58,8 +58,8 @@ const Subscriptions = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setSubscriptions(respuesta.data)
-      setTotal(respuesta.data? respuesta.data.length : 0)
+      setSubscriptions(respuesta.data.content)
+      setTotal(respuesta.data? respuesta.data.totalElements : 0)
     } catch (e) {
       imprimir(`Error obteniendo abonos`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -77,9 +77,9 @@ const Subscriptions = () => {
         method: 'get',
       })
       imprimir(`Respuesta obtener monedas: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setCurrencies(
-          respuesta.data.map((currency: Currency) => {
+          respuesta.data.content.map((currency: Currency) => {
             return { label: currency.name, key: currency.id.toString(), value: currency.id.toString()} as optionType
           })
         )
@@ -100,9 +100,9 @@ const Subscriptions = () => {
         method: 'get',
       })
       imprimir(`Respuesta obtener vehiculos: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setVehicles(
-          respuesta.data
+          respuesta.data.content
         )
       }
     } catch (e) {
@@ -118,8 +118,8 @@ const Subscriptions = () => {
   >([
     { campo: 'name', nombre: t('subscriptions.tables.name'), ordenar: true },
     { campo: 'currency', nombre: t('subscriptions.tables.currency'), ordenar: true },
-    { campo: 'createdAt', nombre: t('subscriptions.tables.created'), ordenar: true },
-    { campo: 'acciones', nombre: 'ACCIONES', ordenar: false },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = subscriptions.map(
@@ -186,6 +186,17 @@ const Subscriptions = () => {
 
   const acciones: Array<ReactNode> = [
     <IconoTooltip
+      key={'refresh-subs'}
+      id={`refresh-subs`}
+      titulo={'Actualizar Abonos'}
+      color={'primary'}
+      accion={() => {
+        obtenerSubscriptionPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Abonos'}
+    />,
+    <IconoTooltip
       key={'filtrar-areas'}
       id={`filtrar-areas`}
       titulo={'Filtrar horarios'}
@@ -220,7 +231,7 @@ const Subscriptions = () => {
         isOpen={modalSubscripcion}
         info={<InfoPopper title={t('help.subscriptions.title')} description={t('help.subscriptions.description')}/>}
         handleClose={cerrarModalArea}
-        title={subscriptionEdicion ? 'Editar abono' : t('subscriptions.add')}
+        title={subscriptionEdicion ? t('subscriptions.edit') : t('subscriptions.add')}
       >
         <VistaModalSubscriptions
           subscription={subscriptionEdicion}

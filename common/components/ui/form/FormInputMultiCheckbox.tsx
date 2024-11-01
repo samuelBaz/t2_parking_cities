@@ -4,6 +4,8 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
+  UseFormSetValue,
 } from 'react-hook-form'
 import {
   Checkbox,
@@ -11,8 +13,6 @@ import {
   FormControlLabel,
   FormLabel,
 } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
-import { UseFormSetValue } from 'react-hook-form/dist/types/form'
 import React from 'react'
 
 export interface multiOptionType {

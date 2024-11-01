@@ -6,6 +6,7 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import {
@@ -16,7 +17,6 @@ import {
   TextFieldVariants,
   Typography,
 } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import esMX from 'dayjs/locale/es-mx'
 import { validarFechaFormato } from '../../../utils/fechas'
 import { Variant } from '@mui/material/styles/createTypography'

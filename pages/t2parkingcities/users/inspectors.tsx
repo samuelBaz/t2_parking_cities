@@ -15,7 +15,7 @@ import { ParkingArea } from "@/modules/t2parkingcities/types/parkinAreaTypes"
 import { Schedule } from "@/modules/t2parkingcities/types/scheduleTypes"
 import { Subscription } from "@/modules/t2parkingcities/types/subscriptionTypes"
 import VistaModalParkingArea from "@/modules/t2parkingcities/ui/VistaModalParkingArea"
-import { UserCRUDTypes } from "@/modules/users/types/UserTypes"
+import { InspectorCRUDTypes, Permission, UserCRUDTypes } from "@/modules/users/types/UserTypes"
 import VistaModalInspector from "@/modules/users/ui/VistaModalInspector"
 import VistaModalUser from "@/modules/users/ui/VistaModalUser"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
@@ -60,8 +60,8 @@ const Users = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setUsers(respuesta.data)
-      setTotal(respuesta.data.length)
+      setUsers(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
       imprimir(`Error obteniendo usuarios inspectores`, e)
       setErrorUsersData(e)
@@ -79,9 +79,9 @@ const Users = () => {
         method: 'get',
       })
       imprimir(`Respuesta peticion parking areas: ${respuesta}`)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setParkingAreas(
-          respuesta.data.map((pa : ParkingArea) => {
+          respuesta.data.content.map((pa : ParkingArea) => {
             return {key: pa.id.toString(), value: pa.id.toString(), label: pa.name}
           })
         )
@@ -100,25 +100,39 @@ const Users = () => {
   >([
     { campo: 'name', nombre: t('users.table.name'), ordenar: true },
     { campo: 'email', nombre: t('users.table.email'), ordenar: true },
-    { campo: 'createdAt', nombre: t('users.table.created'), ordenar: true },
+    { campo: 'parking_areas', nombre: t('inspectors.table.parking_area'), ordenar: true },
+    { campo: 'permissions', nombre: t('inspectors.table.permissions'), ordenar: true },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     // { campo: 'acciones', nombre: 'Acciones', ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = users.map(
-    (parkinAreaData, indexParking) => [
+    (inspectorData, indexInspector) => [
       <Typography
-        key={`${parkinAreaData.id}-${indexParking}-email`}
+        key={`${inspectorData.id}-${indexInspector}-email`}
         variant={'body2'}
-      >{parkinAreaData.name}</Typography>,
+      >{inspectorData.name}</Typography>,
       <Typography
-        key={`${parkinAreaData.id}-${indexParking}-plate`}
+        key={`${inspectorData.id}-${indexInspector}-plate`}
         variant={'body2'}
-      >{parkinAreaData.email}</Typography>,
+      >{inspectorData.email}</Typography>,
       <Typography
-        key={`${parkinAreaData.id}-${indexParking}-idTicket`}
+        key={`${inspectorData.id}-${indexInspector}-parkingAreas`}
         variant={'body2'}
-      >{parkinAreaData.createdAt ? dayjs(parkinAreaData.createdAt).format('DD/MM/YYYY'): ''}</Typography>,
-      // <Grid key={`${parkinAreaData.id}-${indexParking}-acciones`}>
+      >
+        {inspectorData.inspector?.parkingAreas ? inspectorData.inspector?.parkingAreas.map((parkingArea: ParkingArea) => parkingArea.name).toString() : ''}
+      </Typography>,
+      <Typography
+        key={`${inspectorData.id}-${indexInspector}-parkingAreas`}
+        variant={'body2'}
+      >
+        {inspectorData.inspector?.permissions ? inspectorData.inspector?.permissions.map((permission: Permission) => permission).toString() : ''}
+      </Typography>,
+      <Typography
+        key={`${inspectorData.id}-${indexInspector}-idTicket`}
+        variant={'body2'}
+      >{inspectorData.createdAt ? dayjs(inspectorData.createdAt).format('DD/MM/YYYY HH:mm'): ''}</Typography>,
+      // <Grid key={`${inspectorData.id}-${indexInspector}-acciones`}>
         
       // </Grid>
     ]
@@ -153,6 +167,17 @@ const Users = () => {
   ])
 
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-inspectors'}
+      id={`refresh-inspectors`}
+      titulo={'Actualizar Inspectores'}
+      color={'primary'}
+      accion={() => {
+        obtenerInspectoresPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Inspectores'}
+    />,
     <IconoTooltip
       key={'filtrar-users'}
       id={`filtrar-users`}

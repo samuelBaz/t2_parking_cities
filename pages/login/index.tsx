@@ -1,6 +1,7 @@
 import { LayoutLogin } from "@/common/components/layouts"
 import { Icono } from "@/common/components/ui"
 import { FormInputText } from "@/common/components/ui/form"
+import LanguageMenu from "@/common/components/ui/language/LanguageMenu"
 import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
@@ -46,7 +47,7 @@ const Login = () => {
               </Box>
               <CardContent sx={{paddingX:4}}>
                   <Typography align={'center'} sx={{ fontWeight: '600' }}>
-                    {t('authentication.login.title')} T2 Parking Cities
+                    {t('authentication.login.title').replace('TOKEN', 'T2 Parking Cities')} 
                   </Typography>
                   <Divider sx={{my: 2}}/>
                   <Grid container direction="column" spacing={{ xs: 2, sm: 1, md: 2 }}>
@@ -123,11 +124,11 @@ const Login = () => {
                     <Typography variant="caption" color={palette.primary.main}>{t('authentication.create_account')}</Typography>
                   </Box>
                 </Box>
-                <Box>
+                <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                   <Typography variant="caption">
                     {t('language.language')}
                   </Typography>
-                  {/* <LanguageMenu/> */}
+                  <LanguageMenu/>
                 </Box>
               </Box>
             </Card>

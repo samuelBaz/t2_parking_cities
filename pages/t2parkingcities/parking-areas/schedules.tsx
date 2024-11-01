@@ -11,13 +11,10 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { Area } from "@/modules/t2parkingcities/Area"
-import { Vehicle } from "@/modules/t2parkingcities/Schedule"
-import { Currency, Day, Schedule } from "@/modules/t2parkingcities/types/scheduleTypes"
+import { Currency, Schedule, Vehicle } from "@/modules/t2parkingcities/types/scheduleTypes"
 import VistaModalSchedules from "@/modules/t2parkingcities/ui/VistaModalSchedules"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
-import dynamic from "next/dynamic"
 import { ReactNode, useEffect, useMemo, useState } from "react"
 
 const Schedules = () => {
@@ -41,7 +38,6 @@ const Schedules = () => {
   const [schedules, setSchedules] = useState<Array<Schedule>>([])
   const [currencies, setCurrencies] = useState<Array<optionType>>([])
   const [vehicles, setVehicles] = useState<Array<optionType>>([])
-  const [days, setDays] = useState<Array<optionType>>([])
   const [loading, setLoading] = useState(true)
 
   const [modalSchedule, setModalSchedule] = useState<boolean>(false)
@@ -61,8 +57,8 @@ const Schedules = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setSchedules(respuesta.data)
-      setTotal(respuesta.data? respuesta.data.length : 0)
+      setSchedules(respuesta.data.content)
+      setTotal(respuesta.data? respuesta.data.totalElements : 0)
     } catch (e) {
       imprimir(`Error obteniendo areas`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -80,9 +76,9 @@ const Schedules = () => {
         method: 'get',
       })
       imprimir(`Respuesta obtener monedas: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setCurrencies(
-          respuesta.data.map((currency: Currency) => {
+          respuesta.data.content.map((currency: Currency) => {
             return { label: currency.name, key: currency.id.toString(), value: currency.id.toString()} as optionType
           })
         )
@@ -103,33 +99,10 @@ const Schedules = () => {
         method: 'get',
       })
       imprimir(`Respuesta obtener vehiculos: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setVehicles(
-          respuesta.data.map((vehicle: Vehicle) => {
+          respuesta.data.content.map((vehicle: Vehicle) => {
             return { label: vehicle.name, key: vehicle.id.toString(), value: vehicle.id.toString()} as optionType
-          })
-        )
-      }
-    } catch (e) {
-      imprimir(`Error obteniendo vehiculos`, e)
-      Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const obtenerDaysPeticion = async (): Promise<void> => {
-    try {
-      setLoading(true)
-      const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/days`,
-        method: 'get',
-      })
-      imprimir(`Respuesta obtener dias: `, respuesta)
-      if(respuesta.data){
-        setDays(
-          respuesta.data.map((day: Day) => {
-            return { label: day.name, key: day.id.toString(), value: day.id.toString()} as optionType
           })
         )
       }
@@ -149,8 +122,8 @@ const Schedules = () => {
     { campo: 'hours', nombre: t('schedules.tables.hours'), ordenar: true },
     { campo: 'minimumTime', nombre: t('schedules.tables.minimum_time'), ordenar: true },
     { campo: 'vehicles', nombre: t('schedules.tables.vehicles'), ordenar: true },
-    { campo: 'createdAt', nombre: t('schedules.tables.created'), ordenar: true },
-    { campo: 'acciones', nombre: 'ACCIONES', ordenar: false },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = schedules.map(
@@ -162,7 +135,7 @@ const Schedules = () => {
       <Typography
         key={`${scheduleData.id}-${indexSchedule}-days`}
         variant={'body2'}
-      >{scheduleData.days.map(day => day.name).toString()}</Typography>,
+      >{scheduleData.days.map(day => t(`days.${day}`)).toString()}</Typography>,
       <Typography
         key={`${scheduleData.id}-${indexSchedule}-hours`}
         variant={'body2'}
@@ -221,7 +194,6 @@ const Schedules = () => {
     if(estaAutenticado){
       obtenerCurrenciesPeticion().finally(() => {})
       obtenerVehiclesPeticion().finally(() => {})
-      obtenerDaysPeticion().finally(() => {})
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -229,6 +201,17 @@ const Schedules = () => {
   ])
 
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-schedules'}
+      id={`refresh-schedules`}
+      titulo={'Actualizar Horarios'}
+      color={'primary'}
+      accion={() => {
+        obtenerSchedulesPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Horarios'}
+    />,
     <IconoTooltip
       key={'filtrar-areas'}
       id={`filtrar-areas`}
@@ -264,12 +247,11 @@ const Schedules = () => {
         isOpen={modalSchedule}
         info={<InfoPopper title={t('help.schedule.title')} description={t('help.schedule.description')}/>}
         handleClose={cerrarModalArea}
-        title={scheduleEdicion ? 'Editar horario' : t('schedules.add')}
+        title={scheduleEdicion ? t('schedules.edit') : t('schedules.add')}
       >
         <VistaModalSchedules
           schedule={scheduleEdicion}
           vehicles={vehicles}
-          days={days}
           currencies={currencies}
           accionCorrecta={() => {
             cerrarModalArea().finally()

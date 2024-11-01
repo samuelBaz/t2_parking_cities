@@ -6,11 +6,11 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
+  UseFormSetValue,
 } from 'react-hook-form'
 import { InputLabel, Slider, Typography } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { Variant } from '@mui/material/styles/createTypography'
-import { UseFormSetValue } from 'react-hook-form/dist/types/form'
 
 type FormInputSliderProps<T extends FieldValues> = {
   id: string

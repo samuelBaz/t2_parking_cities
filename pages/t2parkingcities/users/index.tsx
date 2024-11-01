@@ -57,8 +57,8 @@ const Users = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setUsers(respuesta.data)
-      setTotal(respuesta.data.length)
+      setUsers(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
       imprimir(`Error obteniendo usuarios`, e)
       setErrorUsersData(e)
@@ -73,7 +73,7 @@ const Users = () => {
   >([
     { campo: 'name', nombre: t('users.table.name'), ordenar: true },
     { campo: 'email', nombre: t('users.table.email'), ordenar: true },
-    { campo: 'createdAt', nombre: t('users.table.created'), ordenar: true },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     // { campo: 'acciones', nombre: 'Acciones', ordenar: false },
   ])
 
@@ -119,6 +119,17 @@ const Users = () => {
   ])
 
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-users'}
+      id={`refresh-users`}
+      titulo={'Actualizar Usuarios'}
+      color={'primary'}
+      accion={() => {
+        obtenerUsuariosPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Usuarios'}
+    />,
     <IconoTooltip
       key={'filtrar-users'}
       id={`filtrar-users`}

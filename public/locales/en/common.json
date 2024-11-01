@@ -1,10 +1,11 @@
 {
   "authentication": {
     "login": {
-      "title": "Login in your account of",
+      "title": "Login in to your TOKEN account.",
       "forgot": "Did you forget your password?",
       "keep": "Keep the session active for 1 week",
-      "no_account": "Do you not have a account?"
+      "no_account": "Do you not have a account?",
+      "create_account": "Create an Account"
     },
     "register": {
       "title": "Create an account of",
@@ -51,14 +52,14 @@
   },
   "parking_areas": {
     "title": "Parking Areas",
-    "all": "All parking areas",
+    "all": "Parkings",
     "first": "Create your first parking area...",
     "areas": "Areas",
     "area": "Area",
     "schedules": "Schedules",
     "subscriptions": "Subscriptions",
     "new": "New Parking Area",
-    "new_tooltip": "Create New Parkign Area",
+    "new_tooltip": "Add new Parking Area",
     "add": "Add Parking Area",
     "add_a": "Add a new Parking Area",
     "create": "Create Parking Area",
@@ -72,18 +73,17 @@
       "name": "NAME",
       "area": "AREA",
       "schedules": "SCHEDULES",
-      "subscriptions": "SUBSCRIPTIONS",
-      "created": "CREATION"
+      "subscriptions": "SUBSCRIPTIONS"
     }
   },
   "areas": {
     "add": "Add Area",
+    "edit": "Edit Area",
     "first": "Create your first area...",
     "tables": {
       "name": "NAME",
       "parking_spaces": "PARKING SPACES",
       "type_numbering": "TYPE NUMBERING",
-      "created": "CREATION",
       "sensor": "SENSOR",
       "geolocalization": "GEOLOCALIZATION",
       "points": "POINTS"
@@ -103,17 +103,17 @@
     }
   },
   "spaces": {
+    "edit": "Edit Parking Space",
     "form": {
-      "title": "Parking Space ",
-      "select_space": "Select a parking space to geolocate",
-      "sensor": "Sensor",
-      "check_sensor": "I want to add a sensor to this parking space",
+      "title": "Parking Space",
       "id_sensor": "Sensor ID",
-      "geolocate": "Geolocate"
+      "lat": "Latitude",
+      "long": "Longitude"
     }
   },
   "schedules": {
     "add": "Add Schedule",
+    "edit": "Edit Schedule",
     "first": "Create your first schedule...",
     "from": "From",
     "until": "until",
@@ -124,15 +124,14 @@
       "hours": "HOURS",
       "minimum_time": "MINIMUM TIME",
       "currency": "CURRENCY",
-      "vehicles": "VEHICLES",
-      "created": "CREATION"
+      "vehicles": "VEHICLES"
     },
     "form": {
       "schedule_information": "Schedule Information",
       "name_of_schedule": "Name of the Schedule",
       "days": "Days",
       "hours": "Hours",
-      "start_hour": "Strat hour",
+      "start_hour": "Start hour",
       "end_hour": "End hour",
       "price": "Price",
       "currency": "Currency",
@@ -145,11 +144,11 @@
   },
   "subscriptions": {
     "add": "Add Subscription",
+    "edit": "Edit Subscription",
     "first": "Create your first subscription...",
     "tables": {
       "name": "NAME",
-      "currency": "CURRENCY",
-      "created": "CREATION"
+      "currency": "CURRENCY"
     },
     "form": {
       "subscription_information": "Subscription Information",
@@ -161,7 +160,7 @@
   },
   "inspectors": {
     "inspectors": "Inspectors",
-    "tracking": "Inspectors tracking",
+    "tracking": "Inspectors Tracking",
     "app": "Inspectors App",
     "add": "Add Inspector",
     "add_new": "Add new Inspector",
@@ -169,8 +168,7 @@
       "name": "NAME",
       "email": "EMAIL",
       "parking_area": "PARKING AREA",
-      "permissions": "PERMISSIONS",
-      "created": "CREATION"
+      "permissions": "PERMISSIONS"
     },
     "form": {
       "inspector_information": "Inspector Information",
@@ -190,8 +188,7 @@
         "description": "DESCRIPTION",
         "vehicle_plate": "VEHICLE PLATE",
         "type": "TYPE",
-        "photographic": "PHOTOGRAPHICS",
-        "created": "CREATION"
+        "photographic": "PHOTOGRAPHIC"
       }
     }
   },
@@ -202,17 +199,16 @@
     "add_new": "Add new User",
     "table": {
       "name": "NAME",
-      "email": "EMAIL",
-      "created": "CREATION"
+      "email": "EMAIL"
     }
   },
   "vehicles": {
     "all": "All Vehicles",
-    "add": "Create new vehicle",
+    "add": "Add Vehicle",
+    "edit": "Edit Vehicle",
     "table": {
       "name": "NAME",
-      "description": "DESCRIPTION",
-      "created": "CREATION"
+      "description": "DESCRIPTION"
     },
     "form": {
       "vehicle_information": "Vehicle Information",
@@ -226,8 +222,7 @@
     "table": {
       "name": "NAME",
       "email": "EMAIL",
-      "phone": "PHONE",
-      "created": "CREATION"
+      "phone": "PHONE"
     }
   },
   "third_party_company": {
@@ -244,17 +239,16 @@
       "tax_id": "TAX ID",
       "email": "EMAIL",
       "address": "ADDRESS",
-      "commission": "COMMISSION",
-      "created": "CREATION"
+      "commission": "COMMISSION"
     },
     "form": {
       "company_information": "Distributor Information",
-      "name": "Distributors name",
-      "name_real": "Distributors real name",
-      "description": "Distributors description",
-      "email": "Email of distributor",
-      "address": "Address of distributor",
-      "tax_id": "Tax ID of distributor",
+      "name": "Distributor name",
+      "name_real": "Distributor real name",
+      "description": "Distributor description",
+      "email": "Distributor Email",
+      "address": "Distributor Address",
+      "tax_id": "Distributor Tax ID",
       "commission_types": "Commission Types",
       "commission": "Commission",
       "commission_by": "Commision by: ",
@@ -273,8 +267,7 @@
         "year": "YEAR",
         "total_commission": "TOTAL COMMISSION",
         "start_date": "START DATE",
-        "end_date": "END DATE",
-        "created": "CREATION"
+        "end_date": "END DATE"
       }
     },
     "tickets": {
@@ -283,8 +276,7 @@
         "plate": "PLATE",
         "amount": "AMOUNT",
         "duration": "DURATION",
-        "status": "STATUS",
-        "created": "CREATION"
+        "status": "STATUS"
       }
     }
   },
@@ -367,12 +359,27 @@
       "distributors": "Distributors"
     },
     "fleet_check": "Allow users to create fleets",
-    "distributors_check": "Allow the sales portal for distributors"
+    "distributors_check": "Allow the sales portal for distributors",
+    "distributors_description": "This functionality allows the portal to sell metered parking and gives distributors access to an exclusive platform where they can manage their sales and orders, view the product catalog, check the status of their transactions, access special promotions, and generate sales reports. All of this allows them to operate autonomously, optimizing their processes and improving the efficiency of managing their business activities.",
+    "fleet_description": "The fleet creation functionality allows users to group several vehicles under a common set, known as a fleet. A fleet is defined as an organized collection of cars or vehicles that belong to a user or company and can be managed centrally. This functionality is designed to facilitate the management of large numbers of vehicles and offer a consolidated view of all the vehicular assets of a user."
   },
   "menu": {
     "logout": "Logout",
     "profile": "Profile",
     "settings": "Settings"
+  },
+  "days": {
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday"
+  },
+  "table": {
+    "createdAt": "CREATION DATE",
+    "actions": "ACTIONS"
   },
   "password": "Password",
   "email": "Email",
@@ -394,5 +401,7 @@
   "save": "Save",
   "today": "Today",
   "sales_volume":"Sales volume by ",
-  "subscription": "Subscription"
+  "subscription": "Subscription",
+  "dark_mode": "Dark mode",
+  "light_mode": "Light mode"
 }

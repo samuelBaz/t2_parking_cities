@@ -6,6 +6,7 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import {
   FormHelperText,
@@ -15,7 +16,6 @@ import {
   TextFieldVariants,
   Typography,
 } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import esMX from 'dayjs/locale/es-mx'
 import { Variant } from '@mui/material/styles/createTypography'
 import { Dayjs } from 'dayjs'

@@ -4,6 +4,7 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import {
   Autocomplete,
@@ -17,7 +18,6 @@ import {
   TextFieldVariants,
   Typography,
 } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import React, { Fragment } from 'react'
 import { Variant } from '@mui/material/styles/createTypography'
 import { AutocompleteInputChangeReason } from '@mui/base/useAutocomplete/useAutocomplete'

@@ -76,20 +76,14 @@ export const VistaModalInspector = ({
         permissions: user.permissions.map((permission: any) => permission.value),
         version: 0
       }
-      console.log(body);
       
-      await delay(500)
       const respuesta = await sesionPeticion({
         url: `${Constantes.baseUrl}/api/inspectors`,
         method: !!user.id ? 'put' : 'post',
         body: body,
       })
       if(respuesta.status !== 200){
-        Alerta({
-          mensaje: respuesta.message,
-          variant: 'error',
-        })
-        return
+        throw new Error(respuesta.message)
       }
       Alerta({
         mensaje: InterpreteMensajes(respuesta),

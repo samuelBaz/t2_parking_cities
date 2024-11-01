@@ -107,9 +107,9 @@ export const VistaModalParkingArea = ({
         method: 'get',
       })
       imprimir(`Respuesta obtener areas: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setAreas(
-          respuesta.data.map((area: Area) => {
+          respuesta.data.content.map((area: Area) => {
             return {key: area.id?.toString(), value: area.id?.toString(), label: area.name} as optionType
           })
         )
@@ -130,9 +130,9 @@ export const VistaModalParkingArea = ({
         method: 'get',
       })
       imprimir(`Respuesta obtener schedules: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setSchedules(
-          respuesta.data.map((schedule: Schedule) => {
+          respuesta.data.content.map((schedule: Schedule) => {
             return {key: schedule.id?.toString(), value: schedule.id?.toString(), label: schedule.name} as optionType
           })
         )
@@ -153,9 +153,9 @@ export const VistaModalParkingArea = ({
         method: 'get',
       })
       imprimir(`Respuesta obtener areas: `, respuesta)
-      if(respuesta.data){
+      if(respuesta.data.content){
         setSubscriptions(
-          respuesta.data.map((sub: Subscription) => {
+          respuesta.data.content.map((sub: Subscription) => {
             return {key: sub.id?.toString(), value: sub.id?.toString(), label: sub.name} as optionType
           })
         )

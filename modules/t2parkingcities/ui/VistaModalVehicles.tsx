@@ -1,16 +1,16 @@
 import { FormInputText } from "@/common/components/ui/form"
 import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useAlerts, useSession } from "@/common/hooks"
-import { delay, InterpreteMensajes } from "@/common/utils"
+import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { Box, Button, DialogActions, DialogContent, Grid } from "@mui/material"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { Vehicle } from "../Schedule"
 import { CreateEditVehicleType } from "../types/vehicleTypes"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
+import { Vehicle } from "../types/scheduleTypes"
 
 interface CreateEditVehicleTypeForm {
   id?: number
@@ -133,10 +133,10 @@ export const VistaModalVehicles = ({
           disabled={loadingModal}
           onClick={accionCancelar}
         >
-          Cancelar
+          {t('cancel')}
         </Button>
         <Button variant={'contained'} disabled={loadingModal} type={'submit'}>
-          Guardar
+          {t('save')}
         </Button>
       </DialogActions>
     </form>

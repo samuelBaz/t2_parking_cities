@@ -23,8 +23,6 @@ const InspectorsHistory = () => {
   const xs = useMediaQuery(theme.breakpoints.only('xs'))
   const { Alerta } = useAlerts()
 
-  const [modalUser, setModalUser] = useState<boolean>(false)
-
   const [openFilters, setOpenFilters] = useState(false)
   // const [filter, setFilter] = useState<PaymentFilterType>({email: '', licensePlate: '', ticket: '', state: ''})
 
@@ -52,8 +50,8 @@ const InspectorsHistory = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setEvents(respuesta.data)
-      setTotal(respuesta.data.length)
+      setEvents(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
       imprimir(`Error obteniendo eventos de los inspectores`, e)
       setErrorUsersData(e)
@@ -69,7 +67,7 @@ const InspectorsHistory = () => {
     { campo: 'description', nombre: t('inspectors.events.table.description'), ordenar: true },
     { campo: 'type', nombre: t('inspectors.events.table.type'), ordenar: true },
     { campo: 'plate', nombre: t('inspectors.events.table.vehicle_plate'), ordenar: true },
-    { campo: 'createdAt', nombre: t('users.table.created'), ordenar: true },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     // { campo: 'acciones', nombre: 'Acciones', ordenar: false },
   ])
 
@@ -90,7 +88,7 @@ const InspectorsHistory = () => {
       <Typography
         key={`${eventData.id}-${indexEvent}-idTicket`}
         variant={'body2'}
-      >{eventData.createdAt ? dayjs(eventData.createdAt).format('DD/MM/YYYY'): ''}</Typography>,
+      >{eventData.createdAt ? dayjs(eventData.createdAt).format('DD/MM/YYYY HH:mm'): ''}</Typography>,
       // <Grid key={`${eventData.id}-${indexEvent}-acciones`}>
         
       // </Grid>
@@ -118,8 +116,18 @@ const InspectorsHistory = () => {
     JSON.stringify(ordenCriterios)
   ])
 
-
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-inspectors-h'}
+      id={`refresh-inspectors-h`}
+      titulo={'Actualizar Historial de Inspectores'}
+      color={'primary'}
+      accion={() => {
+        obtenerInspectoresEventHistoryPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Historial de Inspectores'}
+    />,
     <IconoTooltip
       key={'filtrar-eventos'}
       id={`filtrar-users`}

@@ -1,9 +1,9 @@
 import { FormInputDropdown, FormInputText, optionType } from "@/common/components/ui/form"
 import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useAlerts, useSession } from "@/common/hooks"
-import { delay, InterpreteMensajes } from "@/common/utils"
+import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
-import { Alert, Box, Button, Checkbox, DialogActions, DialogContent, FormControlLabel, Grid, Paper, TextField, Typography } from "@mui/material"
+import { Box, Button, Checkbox, DialogActions, DialogContent, FormControlLabel, Grid, Paper, TextField, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "@/common/hooks/useTranslation"
@@ -11,7 +11,6 @@ import { useAuth } from "@/context/auth"
 import { CreateUpdateSubscriptionBlockType, CreateUpdateSubscriptionType, Subscription, SubscriptionBlock } from "../types/subscriptionTypes"
 import { Vehicle } from "../types/scheduleTypes"
 import { Constantes } from "@/config"
-import { Currency } from "../Schedule"
 
 interface CreateEditSusbcriptionTypeForm {
   id?: number
@@ -199,7 +198,7 @@ export const VistaModalSubscriptions = ({
                         name={`prices.[${vehicle.id}].value`}
                         label={''}
                         disabled={watch(`prices.[${vehicle.id}].checked`) === undefined ? false : !watch(`prices.[${vehicle.id}].checked`)}
-                        rules={{ required: { value: watch(`prices.[${vehicle.id}].checked`),mensaje:'Este campo es requerido'}}}
+                        rules={{ required: { value: watch(`prices.[${vehicle.id}].checked`), message:'Este campo es requerido'}}}
                       />
                     </Grid>
                   </Grid>

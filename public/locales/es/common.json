@@ -1,7 +1,7 @@
 {
   "authentication": {
     "login": {
-      "title": "Inicie sesión en",
+      "title": "Inicie sesión en TOKEN",
       "forgot": "Olvidaste tu contraseña?",
       "keep": "Guardar la sesión activa por 1 semana",
       "no_account": "No tienes una cuenta?",
@@ -53,7 +53,7 @@
     "parking_areas": {
       "title": "Areas de Parqueo",
       "first": "Crea tu primer Area de Parqueo...",
-      "all": "Todas areas de parqueo",
+      "all": "Parqueos",
       "areas": "Zonas",
       "area": "Zona",
       "schedules": "Horarios",
@@ -73,18 +73,17 @@
         "name": "NOMBRE",
         "area": "ZONA",
         "schedules": "HORARIOS",
-        "subscriptions": "ABONOS",
-        "created": "FECHA DE CREACIÓN"
+        "subscriptions": "ABONOS"
     }
   },
     "areas": {
       "add": "Añadir Zona",
+      "edit": "Editar Zona",
       "first": "Crea tu primer zona...",
       "tables": {
         "name": "NOMBRE",
         "parking_spaces": "PLAZAS DE ESTACIONAMIENTO",
         "type_numbering": "TIPO DE NUMERACIÓN",
-        "created": "FECHA DE CREACIÓN",
         "sensor": "SENSOR",
         "geolocalization": "GEOLOCALIZACION",
         "points": "PUNTOS"
@@ -99,22 +98,22 @@
         "want_to_list": "Deseo numerar las plazas de estacionamiento",
         "type_numbering": "Tipo de numeración de las plazas de estacionamiento"
     },
-      "detail": {
+    "detail": {
         "number_parking_spaces": "Cantidad de plazas de estacionamiento"
     }
   },
-    "spaces": {
-      "form": {
-        "title": "Plaza de Estacionamiento ",
-        "select_space": "Selecciona una plaza de estacionamiento para geolocalizarlo",
-        "sensor": "Sensor",
-        "check_sensor": "Deseo agregar un sensor a esta plaza de estacionamiento",
-        "id_sensor": "ID del Sensor",
-        "geolocate": "Geolocalizar"
+  "spaces": {
+    "edit": "Editar Plaza de Estacionamiento",
+    "form": {
+      "title": "Plaza de Estacionamiento",
+      "id_sensor": "ID del Sensor",
+      "lat": "Latitud",
+      "long": "Longitud"
     }
   },
     "schedules": {
       "add": "Añadir Horario",
+      "edit": "Editar Horario",
       "first": "Crea tu primer horario...",
       "from": "Desde las",
       "until": "hasta las",
@@ -125,8 +124,7 @@
         "hours": "HORAS",
         "minimum_time": "TIEMPO MÍNIMO",
         "vehicles": "VEHÍCULOS",
-        "currency": "MONEDA",
-        "created": "FECHA DE CREACIÓN"
+        "currency": "MONEDA"
     },
       "form": {
         "schedule_information": "Información del Horario",
@@ -146,11 +144,11 @@
   },
   "subscriptions": {
     "add": "Añadir Abono",
+    "edit": "Editar Abono",
     "first": "Crea tu primer abono...",
     "tables": {
       "name": "NOMBRE",
-      "currency": "MONEDA",
-      "created": "FECHA DE CREACIÓN"
+      "currency": "MONEDA"
   },
     "form": {
       "subscription_information": "Información del Abono",
@@ -170,8 +168,7 @@
         "name": "NOMBRE",
         "email": "CORREO ELECTRÓNICO",
         "parking_area": "AREAS DE PARQUEO",
-        "permissions": "PERMISOS",
-        "created": "FECHA DE CREACION"
+        "permissions": "PERMISOS"
     },
       "form": {
         "inspector_information": "Información del Inspector",
@@ -191,8 +188,7 @@
           "description": "DESCRIPCIÓN",
           "vehicle_plate": "MATRICULA DEL VEHÍCULO",
           "type": "TIPO DE EVENTO",
-          "photographic": "FOTOGRAFÍA",
-          "created": "FECHA DE CREACIÓN"
+          "photographic": "FOTOGRAFÍA"
       }
     }
   },
@@ -203,17 +199,16 @@
       "add_new": "Añadir nuevo usuario",
       "table": {
         "name": "NOMBRE",
-        "email": "CORREO ELECTRONICO",
-        "created": "FECHA DE CREACION"
+        "email": "CORREO ELECTRONICO"
     }
   },
     "vehicles": {
-      "all": "Todos los Vehiculos",
-      "add": "Crear nuevo vehiculo",
+      "all": "Todos los Vehículos",
+      "add": "Añadir Vehículo",
+      "edit": "Editar vehículo",
       "table": {
         "name": "NOMBRE",
-        "description": "DESCRIPCION",
-        "created": "FECHA DE CREACION"
+        "description": "DESCRIPCION"
     },
       "form": {
         "vehicle_information": "Informacion del Vehiculo",
@@ -227,11 +222,10 @@
       "table": {
         "name": "NOMBRE",
         "email": "CORREO ELECTRONICO",
-        "phone": "TELEFONO",
-        "created": "FECHA DE CREACION"
+        "phone": "TELEFONO"
     }
   },
-    "third_party_company": {
+  "third_party_company": {
       "companies": "Distribuidores",
       "company": "Distribuidor",
       "add": "Crear distribuidor",
@@ -245,8 +239,7 @@
         "tax_id": "NIT",
         "email": "CORREO ELECTRONICO",
         "address": "DIRECCION",
-        "commission": "COMISION",
-        "created": "FECHA DE CREACION"
+        "commission": "COMISION"
     },
       "form": {
         "company_information": "Informacion del distribuidor",
@@ -274,8 +267,7 @@
           "total_commission": "COMISION TOTAL",
           "year": "AÑO",
           "start_date": "FECHA INICIAL",
-          "end_date": "FECHA FINAL",
-          "created": "FECHA DE CREACION"
+          "end_date": "FECHA FINAL"
       }
     },
       "tickets": {
@@ -284,19 +276,18 @@
           "plate": "MATRICULA",
           "amount": "IMPORTE",
           "duration": "DURACION",
-          "status": "ESTADO",
-          "created": "FECHA DE CREACION"
+          "status": "ESTADO"
       }
     }
   },
-    "help": {
-      "area": {
+  "help": {
+    "area": {
         "title": "Como crear un Area?",
-        "description": " Debes elegir un nombre para identificar tu area. * Debes graficar en el mapa con un poligono delimitando el area que se desea representar. * Las plazas de estacionamiento es un campo con un valor aproximado, este valor se calcula tomando en cuenta una cuadra de 400 m2. * Podemos indicar si deseamos que estas plazas de estacionamiento seran numeradas."
+        "description": " Debes elegir un nombre para identificar tu area. * Debes graficar en el mapa con un polígono delimitando el area que se desea representar. * Las plazas de estacionamiento es un campo con un valor aproximado, este valor se calcula tomando en cuenta una cuadra de 400 m2. * Podemos indicar si deseamos que estas plazas de estacionamiento seran numeradas."
     },
       "schedule": {
         "title": "Como crear un Horario?",
-        "description": " Debes elegir un nombre para identificar tu horario. * Debes seleccionar los dias habiles en los que estara disponible este horario. * Debes seleccionar la hora de inicio y la hora final de tu horario * Debes seleccionar la moneda que se utilizara en el billing block. * Debes indicar el tiempo minimo para generar el bloque de pagos. * Debes indicar que tipos de vehiculos seran conciderados en este horario. * Debes generar el bloque de pagos e indicar el precio de cada bloque."
+        "description": " Debes elegir un nombre para identificar tu horario. * Debes seleccionar los días hábiles en los que estara disponible este horario. * Debes seleccionar la hora de inicio y la hora final de tu horario * Debes seleccionar la moneda que se utilizara en el billing block. * Debes indicar el tiempo minimo para generar el bloque de pagos. * Debes indicar que tipos de vehiculos seran conciderados en este horario. * Debes generar el bloque de pagos e indicar el precio de cada bloque."
     },
       "subscriptions": {
         "title": "Como crear un Abono?",
@@ -307,20 +298,20 @@
         "description": " Debes elegir un nombre para identificar tu area de parqueo. * Debes seleccionar o crear un area. * Debes seleccionar o crear uno o mas Horarios que desee asignar a su area de parqueo."
     },
       "vehicle": {
-        "title": "Como crear un Vehiculo?",
-        "description": " Debes elegir un nombre para identificar tu vehiculo."
+        "title": "Como crear un Vehículo?",
+        "description": " Debes elegir un nombre para identificar tu vehículo."
     },
       "inspector": {
         "title": "Como crear un Inspector?",
-        "description": " Debes llenar los datos personales del inspector. * Debes asignar las areas de parqueo para este inpector. * Debes asignar los permisos que este inspector tendra."
+        "description": " Debes llenar los datos personales del inspector. * Debes asignar las areas de parqueo para este inspector. * Debes asignar los permisos que este inspector tendra."
     },
       "thrid_party_company": {
         "title": "Como crear un Distribuidor?",
-        "description": " Debes llenar los datos del distribuidor. * Debes indicar el tipo de comision que tendra el distribuidor."
+        "description": " Debes llenar los datos del distribuidor. * Debes indicar el tipo de comision que tendrá el distribuidor."
     },
       "parking_space": {
         "title": "Como crear/editar una Plaza de Estacionamiento?",
-        "description": " Debes indicar si la plaza de estacionamiento tendra un sesnor asignado. * Debes geolocalizar la plaza de estacionamiento."
+        "description": " Debes indicar si la plaza de estacionamiento tendrá un sensor asignado. * Debes geolocalizar la plaza de estacionamiento."
     }
   },
     "home": {
@@ -349,51 +340,68 @@
         "description": "Estadísticas de inspecciones y sanciones"
     }
   },
-    "configuration": {
-      "continue": "Continuar con la configuracion",
-      "menu": {
-        "fleets": "Flotas",
-        "payment_methods": {
-          "title": "Metodos de Pago",
-          "add_description": "No hay ningun metodo de pago para mostrar, debes registrar uno nuevo...",
-          "add_btn": "Agrega un nuevo metodo de pago",
-          "select": "Seleciona el metodo de pago"
+  "configuration": {
+    "continue": "Continuar con la configuracion",
+    "menu": {
+      "fleets": "Flotas",
+      "payment_methods": {
+        "title": "Metodos de Pago",
+        "add_description": "No hay ningun metodo de pago para mostrar, debes registrar uno nuevo...",
+        "add_btn": "Agrega un nuevo metodo de pago",
+        "select": "Seleciona el metodo de pago"
       },
-        "messaging_channels": {
-          "title": "Canales de Mensajeria",
-          "add_description": "No hay ningun canal de mensajeria para mostrar, debes registrar uno nuevo...",
-          "add_btn": "Agrega un canal de mensajeria",
-          "select": "Selecciona un canal de mensajeria"
+      "messaging_channels": {
+        "title": "Canales de Mensajeria",
+        "add_description": "No hay ningun canal de mensajeria para mostrar, debes registrar uno nuevo...",
+        "add_btn": "Agrega un canal de mensajeria",
+        "select": "Selecciona un canal de mensajeria"
       },
-        "distributors": "Distribuidores"
+      "distributors": "Distribuidores"
     },
-      "fleet_check": "Permitir a los usuarios crear flotas",
-      "distributors_check": "Permitir el portal de ventas para distibuidores"
+    "fleet_check": "Permitir a los usuarios crear flotas",
+    "distributors_check": "Permitir el portal de ventas para distibuidores",
+    "distributors_description": "La funcionalidad permite al portal, la venta de estacionamiento tarifado, brinda a los distribuidores acceso a una plataforma exclusiva donde pueden gestionar sus ventas y pedidos, visualizar el catálogo de productos, revisar el estado de sus transacciones, acceder a promociones especiales, y generar reportes de ventas. Todo esto les permite operar de manera autónoma, optimizando sus procesos y mejorando la eficiencia en la gestión de sus actividades comerciales.",
+    "fleet_description": "La funcionalidad de crear flotas permite a los usuarios agrupar varios vehículos bajo un conjunto común, conocido como flota. Una flota se define como una colección organizada de automóviles o vehículos que pertenecen a un usuario o empresa y pueden ser gestionados de manera centralizada. Esta funcionalidad está diseñada para facilitar la administración de grandes cantidades de vehículos y ofrecer una visión consolidada de todos los activos vehiculares de un usuario."
   },
     "menu": {
       "logout": "Cerrar Sesión",
       "profile": "Perfil",
       "settings": "Ajustes"
   },
-    "password": "Contraseña",
-    "email": "Correo electrónico",
-    "continue": "Continuar",
-    "check": "Comprueba",
-    "rows_per_page": "Filas por pagina",
-    "create": "Crear",
-    "edit": "Editar",
-    "cancel": "Cancelar",
-    "detail": "Detalle",
-    "delete": "Eliminar",
-    "want_delete": "Deseas eliminar ",
-    "cant_delete": " no puede ser eliminado por que esta siendo utilizado en un area de parqueo...",
-    "ok_delete": " a sido eliminado correctamente",
-    "close": "Cerrar",
-    "previous": "Anterior",
-    "skip": "Saltar",
-    "next": "Siguiente",
-    "save": "Guardar",
-    "today": "Hoy",
-    "sales_volume": "Volumen de ventas por ",
-    "subscription": "Abono"
+  "days": {
+    "MONDAY": "Lunes",
+    "TUESDAY": "Martes",
+    "WEDNESDAY": "Miercoles",
+    "THURSDAY": "Jueves",
+    "FRIDAY": "Viernes",
+    "SATURDAY": "Sabado",
+    "SUNDAY": "Domingo"
+  },
+  "table": {
+    "createdAt": "FECHA DE CREACIÓN",
+    "actions": "ACCIONES"
+  },
+  "password": "Contraseña",
+  "email": "Correo electrónico",
+  "continue": "Continuar",
+  "check": "Comprueba",
+  "rows_per_page": "Filas por página",
+  "create": "Crear",
+  "edit": "Editar",
+  "cancel": "Cancelar",
+  "detail": "Detalle",
+  "delete": "Eliminar",
+  "want_delete": "Deseas eliminar ",
+  "cant_delete": " no puede ser eliminado por que esta siendo utilizado en un area de parqueo...",
+  "ok_delete": " a sido eliminado correctamente",
+  "close": "Cerrar",
+  "previous": "Anterior",
+  "skip": "Saltar",
+  "next": "Siguiente",
+  "save": "Guardar",
+  "today": "Hoy",
+  "sales_volume": "Volumen de ventas por ",
+  "subscription": "Abono",
+  "dark_mode": "Modo oscuro",
+  "light_mode": "Modo claro"
 }

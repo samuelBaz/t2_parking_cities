@@ -4,6 +4,7 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import {
   FormHelperText,
@@ -14,7 +15,6 @@ import {
   SelectChangeEvent,
   Typography,
 } from '@mui/material'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import React from 'react'
 import { Variant } from '@mui/material/styles/createTypography'
 import { Icono } from '../Icono'

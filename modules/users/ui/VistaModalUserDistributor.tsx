@@ -66,13 +66,14 @@ export const VistaModalUserDistributor = ({
         dependency: dependency,
         version: 0
       }
-
-      await delay(500)
       const respuesta = await sesionPeticion({
         url: `${Constantes.baseUrl}/api/users`,
         method: !!user.id ? 'put' : 'post',
         body: body,
       })
+      if(respuesta.status !== 200){
+        throw new Error(respuesta.message)
+      }
       Alerta({
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',

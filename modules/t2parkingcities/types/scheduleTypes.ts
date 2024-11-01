@@ -1,7 +1,7 @@
 export interface Schedule {
   id: number
   name: string
-  days: Day[]
+  days: Days[]
   vehicles: Vehicle[]
   startHour: string
   endHour: string
@@ -16,7 +16,7 @@ export interface Schedule {
 export interface CreateUpdateScheduleType {
   id: number
   name: string
-  days: CreateUpdateDayType[]
+  days: string[]
   vehicles: Vehicle[]
   startHour: string
   endHour: string
@@ -25,12 +25,6 @@ export interface CreateUpdateScheduleType {
   billingBlocks: BillingBlock[]
   cityId: number | string
   version: number
-}
-
-export interface Day {
-  id: number
-  name: string
-  number: number
 }
 
 export interface CreateUpdateDayType {
@@ -59,5 +53,15 @@ export interface BillingBlock {
   price: number
   scheduleId: number
   version: number
+}
+
+export enum Days {
+  MONDAY = 'MONDAY',
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+  THURSDAY = "THURSDAY",
+  FRIDAY = "FRIDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY"
 }
 

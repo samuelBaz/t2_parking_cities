@@ -61,9 +61,9 @@ const InspectorsTracking = () => {
         url: `${Constantes.baseUrl}/api/users/getAllInspectors/${usuario!.dependency}`,
         method: 'get',
       })
-      if(respuesta.data){
+      if(respuesta.data.content){
         setInspectors(
-          respuesta.data.map((inspector: UserCRUDTypes) => {
+          respuesta.data.content.map((inspector: UserCRUDTypes) => {
             return {key: inspector.id.toString(), value: inspector.id.toString(), label: inspector.email}
           })
         )

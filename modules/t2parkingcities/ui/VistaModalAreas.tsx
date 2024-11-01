@@ -10,10 +10,9 @@ import { useForm } from "react-hook-form"
 import * as turf from '@turf/turf'
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
-import { Area } from "../Area"
 import { FeatureGroup, Map } from "leaflet"
 import MapaDibujar from "@/common/components/ui/mapas/MapaDibujar"
-import { CreateEditAreaType, TypeNumbering } from "../types/areaTypes"
+import { Area, CreateEditAreaType, TypeNumbering } from "../types/areaTypes"
 import { Feature } from "geojson"
 
 interface CreateEditAreaTypeForm {
@@ -164,7 +163,7 @@ export const VistaModalAreas = ({
                 id={'name'}
                 control={control}
                 name="name"
-                label={t('vehicles.form.name_of_vehicle')}
+                label={t('areas.form.name_of_area')}
                 disabled={loadingModal}
                 rules={{ required: 'Este campo es requerido' }}
               />

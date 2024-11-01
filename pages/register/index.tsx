@@ -2,6 +2,7 @@ import { LayoutLogin } from "@/common/components/layouts"
 import { Icono } from "@/common/components/ui"
 import { FormInputText, optionType } from "@/common/components/ui/form"
 import { FormInputAutocomplete } from "@/common/components/ui/form/FormInputAutocomplete"
+import LanguageMenu from "@/common/components/ui/language/LanguageMenu"
 import ProgresoLineal from "@/common/components/ui/progreso/ProgresoLineal"
 import { useAlerts, useSession } from "@/common/hooks"
 import { useTranslation } from "@/common/hooks/useTranslation"
@@ -51,6 +52,9 @@ const Register = () => {
         body: body,
         withCredentials: false
       })
+      if(respuesta.status !== 200){
+        throw new Error(respuesta.message)
+      }
       Alerta({ mensaje: "Registro exitoso, verifica tu email.", variant:'success' })
       router.push('/verify-email')
     } catch (e) {
@@ -240,11 +244,11 @@ const Register = () => {
                     <Typography variant="caption" color={palette.primary.main}>{t('authentication.login_account')}</Typography>
                   </Box>
                 </Box>
-                <Box>
+                <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                   <Typography variant="caption">
                     {t('language.language')}
                   </Typography>
-                  {/* <LanguageMenu/> */}
+                  <LanguageMenu/>
                 </Box>
               </Box>
             </Card>

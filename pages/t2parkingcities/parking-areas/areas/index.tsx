@@ -10,10 +10,11 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { Area } from "@/modules/t2parkingcities/Area"
+import { Area } from "@/modules/t2parkingcities/types/areaTypes"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
 import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 import { ReactNode, useEffect, useMemo, useState } from "react"
 
 const Areas = () => {
@@ -21,6 +22,7 @@ const Areas = () => {
   const { t } = useTranslation()
   const { sesionPeticion } = useSession()
   const { estaAutenticado, usuario } = useAuth()
+  const router = useRouter()
   const theme = useTheme()
   const xs = useMediaQuery(theme.breakpoints.only('xs'))
 
@@ -54,8 +56,8 @@ const Areas = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setAreas(respuesta.data)
-      setTotal(respuesta.data? respuesta.data.length : 0)
+      setAreas(respuesta.data.content)
+      setTotal(respuesta.data? respuesta.data.totalElements : 0)
     } catch (e) {
       imprimir(`Error obteniendo areas`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -71,8 +73,8 @@ const Areas = () => {
     { campo: 'name', nombre: t('areas.tables.name'), ordenar: true },
     { campo: 'spaces', nombre: t('areas.tables.parking_spaces'), ordenar: true },
     { campo: 'typeNumbering', nombre: t('areas.tables.type_numbering'), ordenar: true },
-    { campo: 'createdAt', nombre: t('areas.tables.created'), ordenar: true },
-    { campo: 'acciones', nombre: 'ACCIONES', ordenar: false },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false, fija: 150 },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = areas.map(
@@ -97,14 +99,25 @@ const Areas = () => {
         <IconoTooltip
           key={'editar-areas'}
           id={`editar-areas`}
-          titulo={'Editar Area'}
+          titulo={t('areas.edit')}
           color={'primary'}
           accion={() => {
             setAreaEdicion(areaData)
             setModalArea(true)
           }}
           icono={'edit'}
-          name={'Editar Area'}
+          name={t('areas.edit')}
+        />
+        <IconoTooltip
+          key={'editar-spaces'}
+          id={`editar-spaces`}
+          titulo={t('areas.form.spaces')}
+          color={'primary'}
+          accion={() => {
+            router.push(`areas/${areaData.id}/spaces`)
+          }}
+          icono={'workspaces'}
+          name={t('areas.form.spaces')}
         />
       </Grid>
     ]
@@ -132,6 +145,17 @@ const Areas = () => {
   ])
 
   const acciones: Array<ReactNode> = [
+    <IconoTooltip
+      key={'refresh-areas'}
+      id={`refresh-areas`}
+      titulo={'Actualizar Areas'}
+      color={'primary'}
+      accion={() => {
+        obtenerAreasPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Areas'}
+    />,
     <IconoTooltip
       key={'filtrar-areas'}
       id={`filtrar-areas`}
@@ -163,7 +187,7 @@ const Areas = () => {
 
   const VistaModalAreas = useMemo(
     () =>
-      dynamic(() => import('./../../../modules/t2parkingcities/ui/VistaModalAreas'), {
+      dynamic(() => import('./../../../../modules/t2parkingcities/ui/VistaModalAreas'), {
         ssr: false,
       }),
     []
@@ -175,7 +199,7 @@ const Areas = () => {
         isOpen={modalArea}
         info={<InfoPopper title={t('help.area.title')} description={t('help.area.description')}/>}
         handleClose={cerrarModalArea}
-        title={areaAdicion ? 'Editar area' : t('areas.add')}
+        title={areaAdicion ? t('areas.edit') : t('areas.add')}
       >
         <VistaModalAreas
           area={areaAdicion}

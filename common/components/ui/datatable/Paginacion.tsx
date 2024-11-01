@@ -11,6 +11,7 @@ import { IconoTooltip } from '../botones/IconoTooltip'
 import { FC } from 'react'
 import { imprimir } from '../../../utils/imprimir'
 import { styled } from '@mui/material/styles'
+import { useTranslation } from '@/common/hooks/useTranslation'
 
 interface Props {
   pagina: number
@@ -58,6 +59,7 @@ export const Paginacion: FC<Props> = ({
   cambioPagina,
   cambioLimite,
 }) => {
+  const { t } = useTranslation()
   const handleChange = (event: SelectChangeEvent) => {
     imprimir(`cambio limite: ${event.target.value}`)
     cambioPagina(1)
@@ -82,7 +84,7 @@ export const Paginacion: FC<Props> = ({
           }}
         >
           <Typography color={'text.secondary'} variant={'body2'} sx={{ pr: 2 }}>
-            Filas por página
+            {t('rows_per_page')}
           </Typography>
           <Select
             id="selector-limite"
@@ -109,7 +111,7 @@ export const Paginacion: FC<Props> = ({
           }}
         >
           <Typography color={'text.secondary'} variant={'body2'}>
-            {`${Math.max((pagina - 1) * limite, 1)}-${Math.min(
+            {`${Math.max(((pagina - 1) * limite) + 1, 1)}-${Math.min(
               pagina * limite,
               total
             )} de ${total}`}

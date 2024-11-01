@@ -4,6 +4,7 @@ import { CustomDialog } from '../modales/CustomDialog'
 import React, { useState } from 'react'
 import ThemeSwitcherButton from '../botones/ThemeSwitcherButton'
 import { IconoTooltip } from '../botones/IconoTooltip'
+import LanguageMenu from '../language/LanguageMenu'
 
 export const NavbarLogin = () => {
   const [modalAyuda, setModalAyuda] = useState(false)
@@ -36,6 +37,7 @@ export const NavbarLogin = () => {
       >
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
+          <LanguageMenu/>
           <IconoTooltip
             id={'ayudaLogin'}
             name={'Ayuda'}

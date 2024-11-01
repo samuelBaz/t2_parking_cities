@@ -1,6 +1,7 @@
 import { delay, eliminarCookie, guardarCookie, leerCookie } from '../utils'
 import { imprimir } from '../utils/imprimir'
 import {
+  estadosRutasSinPermiso,
   estadosSinPermiso,
   peticionFormatoMetodo,
   Servicios,
@@ -63,9 +64,6 @@ export const useSession = () => {
         return response.data
       }
     } catch (e: import('axios').AxiosError | any) {
-
-      console.log(e);
-      await delay(5000)
       
       if (e.code === 'ECONNABORTED') {
         throw new Error('La petición está tardando demasiado')
@@ -81,6 +79,12 @@ export const useSession = () => {
       if (estadosSinPermiso.includes(e.response?.status)) {
         mostrarFullScreen()
         await cerrarSesion()
+        ocultarFullScreen()
+        return
+      }
+      if(estadosRutasSinPermiso.includes(e.response?.status)){
+        mostrarFullScreen()
+        router.back()
         ocultarFullScreen()
         return
       }

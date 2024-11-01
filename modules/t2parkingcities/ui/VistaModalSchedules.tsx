@@ -8,22 +8,16 @@ import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
-import { BillingBlock, CreateUpdateDayType, CreateUpdateScheduleType, Day, Schedule, Vehicle } from "../types/scheduleTypes"
+import { BillingBlock, CreateUpdateScheduleType, Days, Schedule, Vehicle } from "../types/scheduleTypes"
 import { FormInputAutocomplete } from "@/common/components/ui/form/FormInputAutocomplete"
 import { FormInputTime } from "@/common/components/ui/form/FormInputTime"
 import dayjs from "dayjs"
 import { Constantes } from "@/config"
 
-interface VehicleFormType {
-  key: string
-  value: boolean
-  label: string
-}
-
 interface CreateEditSusbcriptionTypeForm {
   id?: number
   name: string
-  dayIds?: optionType[] | [] 
+  days?: Array<optionType>
   startHour: Date | undefined
   endHour: Date | undefined
   currencyId: string | undefined
@@ -35,7 +29,6 @@ interface CreateEditSusbcriptionTypeForm {
 
 export interface ModalParametroType {
   schedule?: Schedule | null
-  days: Array<optionType>
   currencies: Array<optionType>
   vehicles: Array<optionType>
   accionCorrecta: () => void
@@ -44,7 +37,6 @@ export interface ModalParametroType {
 
 export const VistaModalSchedules = ({
   schedule,
-  days,
   currencies,
   vehicles,
   accionCorrecta,
@@ -66,9 +58,9 @@ export const VistaModalSchedules = ({
     defaultValues: {
       id: schedule?.id,
       name: schedule?.name,
-      dayIds: schedule?.days? schedule.days
-        .map((day: Day) => {
-         return {key:day.id.toString(), value: day.id.toString(), label: day.name} as optionType
+      days: schedule?.days? schedule.days
+        .map((day: string) => {
+         return {key: day, value: day, label: t(`days.${day}`)} as optionType
         }): [],
       startHour: schedule?.startHour? dayjs(dayjs().format('YYYY-MM-DD') + schedule.startHour).toDate(): undefined,
       endHour: schedule?.endHour? dayjs(dayjs().format('YYYY-MM-DD') + schedule.endHour).toDate() : undefined,
@@ -160,9 +152,7 @@ export const VistaModalSchedules = ({
             return {id: watchId? billing.id : undefined, price: billing.price, minutes: billing.minutes, version: billing.version}
           }),
         cityId: usuario?.dependency!,
-        days: scheduleForm.dayIds ? scheduleForm.dayIds?.map((day) => {
-          return {id: day.key, name: day.label} as CreateUpdateDayType
-        }) : [],
+        days: scheduleForm.days? scheduleForm.days?.map((day: any) => day.value) : [],
         startHour: scheduleForm.startHour?.toISOString()!,
         endHour: scheduleForm.endHour?.toISOString()!,
         minimumTime: scheduleForm.minimumTime!,
@@ -217,9 +207,45 @@ export const VistaModalSchedules = ({
               <FormInputAutocomplete
                 id={'name'}
                 control={control}
-                name="dayIds"
+                name="days"
                 label={t('schedules.form.days')}
-                options={days}
+                options={[
+                  {
+                    key: Days.MONDAY.toString(), 
+                    value: Days.MONDAY.toString(), 
+                    label: t(`days.${Days.MONDAY.toString()}`)
+                  }, 
+                  {
+                    key: Days.TUESDAY.toString(), 
+                    value: Days.TUESDAY.toString(), 
+                    label: t(`days.${Days.TUESDAY.toString()}`)
+                  },
+                  {
+                    key: Days.WEDNESDAY.toString(), 
+                    value: Days.WEDNESDAY.toString(), 
+                    label: t(`days.${Days.WEDNESDAY.toString()}`)
+                  },
+                  {
+                    key: Days.THURSDAY.toString(), 
+                    value: Days.THURSDAY.toString(), 
+                    label: t(`days.${Days.THURSDAY.toString()}`)
+                  },
+                  {
+                    key: Days.FRIDAY.toString(), 
+                    value: Days.FRIDAY.toString(), 
+                    label: t(`days.${Days.FRIDAY.toString()}`)
+                  },
+                  {
+                    key: Days.SATURDAY.toString(), 
+                    value: Days.SATURDAY.toString(), 
+                    label: t(`days.${Days.SATURDAY.toString()}`)
+                  },
+                  {
+                    key: Days.SUNDAY.toString(), 
+                    value: Days.SUNDAY.toString(), 
+                    label: t(`days.${Days.SUNDAY.toString()}`)
+                  }
+                ]}
                 multiple
                 disabled={false}
                 rules={{ required: 'Este campo es requerido' }}

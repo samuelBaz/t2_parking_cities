@@ -12,7 +12,7 @@ import { useFullScreenLoading, useSidebar } from '../../../../context/ui'
 import { useAuth } from '../../../../context/auth'
 import { imprimir } from '../../../utils/imprimir'
 import { CustomDrawer, SidebarModuloType } from './CustomDrawer'
-import { modulosAppAdmin, modulosAppDistributor, modulosAppUser } from '@/common/utils/modulos'
+import useModulo from '@/common/utils/modulos'
 // import { obtenerDescripcionDependencia, titleCase } from '../../../utils'
 // import { ConstanteRol } from '../../../../modules/admin/usuarios/types/usuariosCRUDTypes'
 
@@ -27,11 +27,11 @@ export const Sidebar = () => {
     estaAutenticado,
     progresoLogin
   } = useAuth()
-
   const [modulos, setModulos] = useState<SidebarModuloType[]>([])
-
+  const { modulosAppAdmin, modulosAppDistributor, modulosAppUser, modulosAppInspector } = useModulo()
   const theme = useTheme()
   const router = useRouter()
+  
 
   const sm = useMediaQuery(theme.breakpoints.only('sm'))
   const md = useMediaQuery(theme.breakpoints.only('md'))
@@ -47,7 +47,11 @@ export const Sidebar = () => {
     imprimir(`rolSeleccionado`, rolSeleccionado)
 
     setModulos(
-      rolSeleccionado === 'USER' ? modulosAppUser : rolSeleccionado === 'DISTRIBUTOR' ? modulosAppDistributor : modulosAppAdmin
+      rolSeleccionado === 'USER' ? modulosAppUser 
+      : rolSeleccionado === 'DISTRIBUTOR' ? modulosAppDistributor 
+      : rolSeleccionado === 'ADMIN'? modulosAppAdmin 
+      : rolSeleccionado === 'INSPECTOR' ? modulosAppInspector
+      : [] 
     )
   }
 
@@ -70,7 +74,6 @@ export const Sidebar = () => {
 
   useEffect(() => {
     imprimir(`reinterpretando módulos`)
-    console.log('Me ejecuto', usuario?.rol);
     
     interpretarModulos()
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -71,13 +71,16 @@ export const VistaModalUser = ({
         method: !!user.id ? 'put' : 'post',
         body: body,
       })
+      if(respuesta.status !== 200){
+        throw new Error(respuesta.message)
+      }
       Alerta({
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
       accionCorrecta()
     } catch (e) {
-      imprimir(`Error al crear o actualizar parking area`, e)
+      imprimir(`Error al crear usuario: `, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
     } finally {
       setLoading(false)

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import { Grid, Typography } from '@mui/material'
 import { siteName } from '../common/utils'
-import './i18n'
 
 const Inicio: NextPage = () => {
   const nombreSitio: string = siteName()

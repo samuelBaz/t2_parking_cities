@@ -41,7 +41,7 @@ const ParkingAreas = () => {
   const [parkingAreas, setParkingAreas] = useState<Array<ParkingArea>>([])
   const [loading, setLoading] = useState(true)
   
-  const [errorPaymentsData, setErrorPaymentsData] = useState<any>()
+  const [errorParkingsData, setErrorParkingsData] = useState<any>()
 
   const obtenerParkingAreasPeticion = async (): Promise<void> => {
     try {
@@ -55,10 +55,11 @@ const ParkingAreas = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setParkingAreas(respuesta.data)
-      setTotal(respuesta.data.length)
+      setParkingAreas(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
       imprimir(`Error obteniendo areas de parqueo`, e)
+      setErrorParkingsData(e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
     } finally {
       setLoading(false)
@@ -68,11 +69,12 @@ const ParkingAreas = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: 'Nombre', ordenar: true },
-    { campo: 'area', nombre: 'Area', ordenar: true },
-    { campo: 'schedules', nombre: 'Horarios', ordenar: true },
-    { campo: 'subscriptions', nombre: 'Subscripciones', ordenar: true },
-    { campo: 'acciones', nombre: 'Acciones', ordenar: false },
+    { campo: 'name', nombre: t('parking_areas.tables.name'), ordenar: true },
+    { campo: 'area', nombre: t('parking_areas.tables.area'), ordenar: true },
+    { campo: 'schedules', nombre: t('parking_areas.tables.schedules'), ordenar: true },
+    { campo: 'subscriptions', nombre: t('parking_areas.tables.subscriptions'), ordenar: true },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = parkingAreas.map(
@@ -93,6 +95,10 @@ const ParkingAreas = () => {
         key={`${parkinAreaData.id}-${indexParking}-state`}
         variant={'body2'}
       >{parkinAreaData.subscriptions.map((subscription: Subscription) => subscription.name).toString()}</Typography>,
+      <Typography
+        key={`${parkinAreaData.id}-${indexParking}-createdAt`}
+        variant={'body2'}
+      >{dayjs(parkinAreaData.createdAt).format('DD/MM/YYYY')}</Typography>,
       <Grid key={`${parkinAreaData.id}-${indexParking}-acciones`}>
         
       </Grid>
@@ -122,6 +128,17 @@ const ParkingAreas = () => {
 
   const acciones: Array<ReactNode> = [
     <IconoTooltip
+      key={'refresh-parking-areas'}
+      id={`refresh-parking-areas`}
+      titulo={'Actualizar Parking Areas'}
+      color={'primary'}
+      accion={() => {
+        obtenerParkingAreasPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Parking Areas'}
+    />,
+    <IconoTooltip
       key={'filtrar-parking-areas'}
       id={`filtrar-parking-areas`}
       titulo={'Filtrar Parking Areas'}
@@ -130,7 +147,7 @@ const ParkingAreas = () => {
         // setOpenFilters((openFilters: any) => !openFilters)
       }}
       icono={'filter_list'}
-      name={'Filtrar PArking Areas'}
+      name={'Filtrar Parking Areas'}
     />,
     <IconoBoton
       id={'agregarParqueo'}
@@ -166,7 +183,7 @@ const ParkingAreas = () => {
       </CustomDialog>
       <CustomDataTable
           titulo={t('parking_areas.title')}
-          error={!!errorPaymentsData}
+          error={!!errorParkingsData}
           cargando={loading}
           acciones={acciones}
           columnas={ordenCriterios}

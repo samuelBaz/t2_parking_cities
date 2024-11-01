@@ -9,7 +9,7 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { Vehicle } from "@/modules/t2parkingcities/Schedule"
+import { Vehicle } from "@/modules/t2parkingcities/types/scheduleTypes"
 import VistaModalVehicles from "@/modules/t2parkingcities/ui/VistaModalVehicles"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
@@ -53,8 +53,8 @@ const Vehicles = () => {
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setVehicles(respuesta.data)
-      setTotal(respuesta.data.length )
+      setVehicles(respuesta.data.content)
+      setTotal(respuesta.data.totalElements )
     } catch (e) {
       imprimir(`Error obteniendo vehiculos`, e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
@@ -69,8 +69,8 @@ const Vehicles = () => {
   >([
     { campo: 'name', nombre: t('vehicles.table.name'), ordenar: true },
     { campo: 'description', nombre: t('vehicles.table.description'), ordenar: true },
-    { campo: 'createdAt', nombre: t('vehicles.table.created'), ordenar: true },
-    { campo: 'acciones', nombre: 'ACCIONES', ordenar: false },
+    { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
+    { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
   const contenidoTabla: Array<Array<ReactNode>> = vehicles.map(
@@ -130,6 +130,17 @@ const Vehicles = () => {
 
   const acciones: Array<ReactNode> = [
     <IconoTooltip
+      key={'refresh-vehiculos'}
+      id={`refresh-vehiculos`}
+      titulo={'Actualizar Vehículos'}
+      color={'primary'}
+      accion={() => {
+        obtenerVehiclesPeticion()
+      }}
+      icono={'refresh'}
+      name={'Actualizar Vehículos'}
+    />,
+    <IconoTooltip
       key={'filtrar-vehiculos'}
       id={`filtrar-vehiculos`}
       titulo={'Filtrar vehiculos'}
@@ -163,7 +174,7 @@ const Vehicles = () => {
       <CustomDialog
         isOpen={modalVehiculo}
         handleClose={cerrarModalVehiculo}
-        title={vehiculoEdicion ? 'Editar vehiculo' : 'Nuevo vehiculo'}
+        title={vehiculoEdicion ? t('vehicles.edit') : t('vehicles.add')}
       >
         <VistaModalVehicles
           vehicle={vehiculoEdicion}

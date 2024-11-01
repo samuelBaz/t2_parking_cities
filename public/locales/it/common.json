@@ -1,0 +1,407 @@
+{
+  "authentication": {
+    "login": {
+      "title": "Accedi al tuo account TOKEN.",
+      "forgot": "Hai dimenticato la tua password?",
+      "keep": "Mantieni la sessione attiva per 1 settimana",
+      "no_account": "Non hai un account?",
+      "create_account": "Crea un Account"
+    },
+    "register": {
+      "title": "Crea un account di",
+      "terms": "Accetto i termini e le condizioni",
+      "already_account": "Hai già un account?",
+      "country": "Paese",
+      "city": "Città",
+      "name_city": "Nome della città",
+      "phone": "Numero di telefono"
+    },
+    "create_account": "Crea un Account",
+    "login_account": "Accedi al tuo account"
+  },
+  "language": {
+    "language": "Lingua",
+    "spanish": "Spagnolo",
+    "english": "Inglese",
+    "portuguese": "Portoghese",
+    "german": "Tedesco",
+    "french": "Francese",
+    "italian": "Italiano",
+    "sweden": "Svedese",
+    "select": "Seleziona la tua lingua preferita"
+  },
+  "reset": {
+    "title": "Reimposta la tua password",
+    "description": "verifica il tuo account e inizia",
+    "open_email": "Apri email",
+    "already_update": "Già aggiornato la mia password"
+  },
+  "verify": {
+    "title": "Verifica la tua email",
+    "description": "per verificare il tuo account e iniziare",
+    "already_verify": "Già verificato l'account"
+  },
+  "nav_menu": {
+    "home": "Home",
+    "parking_areas": "Aree di parcheggio",
+    "users": "Utenti",
+    "stats": "Statistiche",
+    "vehicles": "Veicoli",
+    "super_user": "Super Utente",
+    "third_party_company": "Distributori"
+  },
+  "parking_areas": {
+    "title": "Aree di Parcheggio",
+    "all": "Parcheggi",
+    "first": "Crea la tua prima area di parcheggio...",
+    "areas": "Aree",
+    "area": "Area",
+    "schedules": "Orari",
+    "subscriptions": "Abbonamenti",
+    "new": "Nuova Area di Parcheggio",
+    "new_tooltip": "Aggiungi nuova Area di Parcheggio",
+    "add": "Aggiungi Area di Parcheggio",
+    "add_a": "Aggiungi una nuova Area di Parcheggio",
+    "create": "Crea Area di Parcheggio",
+    "information": "Informazioni sull'Area di Parcheggio",
+    "name_of": "Nome dell'Area di Parcheggio",
+    "add_area": "Aggiungi Nuova Area",
+    "add_schedule": "Aggiungi Nuovo Orario",
+    "add_subscription": "Aggiungi Nuovo Abbonamento",
+    "no_parking_areas": "Non ci sono aree di parcheggio registrate...",
+    "tables": {
+      "name": "NOME",
+      "area": "AREA",
+      "schedules": "ORARI",
+      "subscriptions": "ABONAMENTI"
+    }
+  },
+  "areas": {
+    "add": "Aggiungi Area",
+    "edit": "Modifica Area",
+    "first": "Crea la tua prima area...",
+    "tables": {
+      "name": "NOME",
+      "parking_spaces": "POSTI AUTO",
+      "type_numbering": "TIPO NUMERAZIONE",
+      "sensor": "SENSORE",
+      "geolocalization": "GEOLOCALIZZAZIONE",
+      "points": "PUNTI"
+    },
+    "form": {
+      "area_information": "Informazioni sull'Area",
+      "name_of_area": "Nome dell'Area",
+      "points": "Punti",
+      "spaces": "Posti auto",
+      "spaces_information": "Informazioni sui posti auto",
+      "numbering": "Numerazione dei posti auto",
+      "want_to_list": "Voglio elencare i posti auto",
+      "type_numbering": "Tipo di numerazione dei posti auto"
+    },
+    "detail": {
+      "number_parking_spaces": "Numero di posti auto"
+    }
+  },
+  "spaces": {
+    "edit": "Modifica Posto Auto",
+    "form": {
+      "title": "Posto Auto",
+      "id_sensor": "ID del Sensore",
+      "lat": "Latitudine",
+      "long": "Longitudine"
+    }
+  },
+  "schedules": {
+    "add": "Aggiungi Orario",
+    "edit": "Modifica Orario",
+    "first": "Crea il tuo primo orario...",
+    "from": "Da",
+    "until": "fino a",
+    "hours": "ore",
+    "tables": {
+      "name": "NOME",
+      "days": "GIORNI",
+      "hours": "ORE",
+      "minimum_time": "TEMPO MINIMO",
+      "currency": "VALUTA",
+      "vehicles": "VEICOLI"
+    },
+    "form": {
+      "schedule_information": "Informazioni sull'Orario",
+      "name_of_schedule": "Nome dell'Orario",
+      "days": "Giorni",
+      "hours": "Ore",
+      "start_hour": "Ora di inizio",
+      "end_hour": "Ora di fine",
+      "price": "Prezzo",
+      "currency": "Valuta",
+      "units": "Unità",
+      "minimum_time": "Tempo minimo (minuti)",
+      "type_vehicles": "Tipi di veicoli",
+      "billing_block": "Blocco di Fatturazione",
+      "minutes": "Minuti"
+    }
+  },
+  "subscriptions": {
+    "add": "Aggiungi Abbonamento",
+    "edit": "Modifica Abbonamento",
+    "first": "Crea il tuo primo abbonamento...",
+    "tables": {
+      "name": "NOME",
+      "currency": "VALUTA"
+    },
+    "form": {
+      "subscription_information": "Informazioni sull'Abbonamento",
+      "name_of_subscription": "Nome dell'Abbonamento",
+      "type_vehicles": "Tipi di veicoli",
+      "billing_block": "Blocco di Fatturazione",
+      "want_subs": "Voglio assegnare abbonamenti"
+    }
+  },
+  "inspectors": {
+    "inspectors": "Ispettori",
+    "tracking": "Tracciamento Ispettori",
+    "app": "App per Ispettori",
+    "add": "Aggiungi Ispettore",
+    "add_new": "Aggiungi nuovo Ispettore",
+    "table": {
+      "name": "NOME",
+      "email": "EMAIL",
+      "parking_area": "AREA DI PARCHEGGIO",
+      "permissions": "PERMESSI"
+    },
+    "form": {
+      "inspector_information": "Informazioni sull'Ispettore",
+      "name_of_inspector": "Nome dell'ispettore",
+      "assign": "Assegna area di parcheggio",
+      "permissions": "Permessi"
+    },
+    "events": {
+      "history": "Storia degli Eventi",
+      "new_penalty": "Nuova Penalità",
+      "form": {
+        "description": "Descrizione della penalità",
+        "vehicle_plate": "Targa del veicolo",
+        "photographic": "Fotografico"
+      },
+      "table": {
+        "description": "DESCRIZIONE",
+        "vehicle_plate": "TARGA VEICOLO",
+        "type": "TIPO",
+        "photographic": "FOTOGRAFICO"
+      }
+    }
+  },
+  "users": {
+    "users": "Tutti gli utenti",
+    "first_user": "Crea il tuo primo utente",
+    "add": "Aggiungi Utente",
+    "add_new": "Aggiungi nuovo Utente",
+    "table": {
+      "name": "NOME",
+      "email": "EMAIL"
+    }
+  },
+  "vehicles": {
+    "all": "Tutti i Veicoli",
+    "add": "Aggiungi Veicolo",
+    "edit": "Modifica Veicolo",
+    "table": {
+      "name": "NOME",
+      "description": "DESCRIZIONE"
+    },
+    "form": {
+      "vehicle_information": "Informazioni sul Veicolo",
+      "name_of_vehicle": "Nome del veicolo",
+      "description": "Descrizione del veicolo"
+    }
+  },
+  "cities": {
+    "cities": "Città",
+    "no_content": "Nessuna città da visualizzare...",
+    "table": {
+      "name": "NOME",
+      "email": "EMAIL",
+      "phone": "TELEFONO"
+    }
+  },
+  "third_party_company": {
+    "companies": "Rivenditori",
+    "company": "Rivenditore",
+    "add": "Crea Rivenditore",
+    "first": "Crea il tuo primo rivenditore...",
+    "add_new": "Aggiungi nuovo rivenditore",
+    "no_users": "Non ci sono utenti",
+    "no_payouts": "Non ci sono pagamenti registrati",
+    "no_tickets": "Non ci sono biglietti registrati...",
+    "table": {
+      "name": "NOME",
+      "tax_id": "ID FISCALE",
+      "email": "EMAIL",
+      "address": "INDIRIZZO",
+      "commission": "COMMISSIO"
+    },
+    "form": {
+      "company_information": "Informazioni sul Rivenditore",
+      "name": "Nome del Rivenditore",
+      "name_real": "Nome reale del Rivenditore",
+      "description": "Descrizione del Rivenditore",
+      "email": "Email del Rivenditore",
+      "address": "Indirizzo del Rivenditore",
+      "tax_id": "ID FISCALE del Rivenditore",
+      "commission_types": "Tipi di Commissione",
+      "commission": "Commissione",
+      "commission_by": "Commissione di: ",
+      "commission_transactional": "Commissione Transazionale",
+      "commission_monthly": "Commissione Mensile",
+      "define_commission": "Definisci il tipo di commissione"
+    },
+    "user": {
+      "user_information": "Informazioni sull'Utente",
+      "username": "Nome Utente"
+    },
+    "payout_commissions": {
+      "title": "Commissioni di Pagamento",
+      "table": {
+        "period": "PERIODO",
+        "year": "ANNO",
+        "total_commission": "COMMISSIONE TOTALE",
+        "start_date": "DATA INIZIO",
+        "end_date": "DATA FINE"
+      }
+    },
+    "tickets": {
+      "title": "Biglietti",
+      "table": {
+        "plate": "TARGA",
+        "amount": "IMPORTO",
+        "duration": "DURATA",
+        "status": "STATO"
+      }
+    }
+  },
+  "help": {
+    "area": {
+      "title": "Come creo un'area?",
+      "description": " Devi scegliere un nome per identificare la tua area. * Devi rappresentare graficamente sulla mappa quale area vuoi rappresentare con un poligono. * I parcheggi sono un campo con un valore approssimativo, questo valore è calcolato considerando un blocco di 400 m². * Possiamo specificare se vogliamo che questi parcheggi siano numerati."
+    },
+    "schedule": {
+      "title": "Come creo un programma?",
+      "description": "Devi scegliere un nome per identificare il tuo programma. * Devi selezionare i giorni lavorativi in cui questo programma è disponibile. * Devi selezionare l'orario di inizio e di fine del tuo programma. * Devi scegliere la valuta da utilizzare nel blocco di fatturazione. * Devi specificare il tempo minimo per creare il blocco di fatturazione. * Devi indicare quali tipi di veicoli saranno considerati in questo programma. * Devi creare il blocco di fatturazione e indicare il prezzo di ciascun blocco."
+    },
+    "subscriptions": {
+      "title": "Come creo un abbonamento?",
+      "description": "Devi scegliere un nome per identificare il tuo abbonamento. * Devi scegliere la valuta da utilizzare nel blocco di fatturazione. * Devi indicare quali tipi di veicoli saranno considerati in questo programma."
+    },
+    "parking_area": {
+      "title": "Come creo un'area di parcheggio?",
+      "description": " Devi scegliere un nome per identificare la tua area di parcheggio. * Devi selezionare o creare un'area. * Devi selezionare o creare uno o più programmi da assegnare alla tua area di parcheggio."
+    },
+    "vehicle": {
+      "title": "Come creo un veicolo?",
+      "description": " Devi scegliere un nome per identificare il tuo veicolo."
+    },
+    "inspector": {
+      "title": "Come creo un ispettore?",
+      "description": " Devi compilare i dati personali dell'ispettore. * Devi assegnare le aree di parcheggio a questo ispettore. * Devi assegnare i permessi che questo ispettore avrà."
+    },
+    "thrid_party_company": {
+      "title": "Come creo rivenditori?",
+      "description": " Devi compilare le informazioni del rivenditore. * Devi specificare quale tipo di commissione avrà il rivenditore."
+    },
+    "parking_space": {
+      "title": "Come creo/modifico un parcheggio?",
+      "description": " Devi specificare se il parcheggio avrà un sensore assegnato. * Devi geolocalizzare il parcheggio."
+    }
+  },
+  "home": {
+    "continue_area": "Continua con la creazione di un'area",
+    "continue_area_btn": "Continua con la creazione",
+    "steps": {
+      "one": {
+        "title": "Passo 1: ",
+        "description": "Crea un'area specificando i punti della zona di parcheggio"
+      }
+    }
+  },
+  "stats": {
+    "tickets": {
+      "title": "Sviluppo delle vendite di biglietti per ora",
+      "description": "Volume di vendite per ora",
+      "by_methods": "Biglietti per metodi di pagamento",
+      "methods": {
+        "time": "Tempo di acquisto (Minuti)",
+        "payment": "Metodi di pagamento",
+        "access": "Mezzi di accesso"
+      }
+    },
+    "inspectors": {
+      "title": "Sviluppo delle ispezioni",
+      "description": "Statistiche su ispezioni e sanzioni"
+    }
+  },
+  "configuration": {
+    "continue": "Continua con la configurazione",
+    "menu": {
+      "fleets": "Flotte",
+      "payment_methods": {
+        "title": "Metodi di pagamento",
+        "add_description": "Non ci sono metodi di pagamento da visualizzare, devi registrarne uno nuovo",
+        "add_btn": "Aggiungi nuovo metodo di pagamento",
+        "select": "Seleziona un metodo di pagamento"
+      },
+      "messaging_channels": {
+        "title": "Canali di messaggistica",
+        "add_description": "Non ci sono canali di messaggistica da visualizzare, devi registrarne uno nuovo",
+        "add_btn": "Aggiungi nuovo canale di messaggistica",
+        "select": "Seleziona un canale di messaggistica"
+      },
+      "distributors": "Rivenditori"
+    },
+    "fleet_check": "Consentire agli utenti di creare flotte",
+    "distributors_check": "Attivare il portale di vendita per rivenditori",
+    "distributors_description": "Questa funzionalità consente al portale di vendere parcheggi a pagamento e offre ai distributori l'accesso a una piattaforma esclusiva in cui possono gestire le loro vendite e ordini, visualizzare il catalogo dei prodotti, controllare lo stato delle loro transazioni, accedere a promozioni speciali e generare report di vendita. Tutto questo consente loro di operare autonomamente, ottimizzando i loro processi e migliorando l'efficienza nella gestione delle loro attività commerciali.",
+    "fleet_description": "La funzionalità di creazione della flotta consente agli utenti di raggruppare diversi veicoli sotto un insieme comune, noto come flotta. Una flotta è definita come una raccolta organizzata di auto o veicoli appartenenti a un utente o azienda e può essere gestita centralmente. Questa funzionalità è progettata per facilitare la gestione di un gran numero di veicoli e offrire una visione consolidata di tutti i beni veicolari di un utente."
+  },
+  "menu": {
+    "logout": "Disconnetti",
+    "profile": "Profilo",
+    "settings": "Impostazioni"
+  },
+  "days": {
+    "MONDAY": "Lunedì",
+    "TUESDAY": "Martedì",
+    "WEDNESDAY": "Mercoledì",
+    "THURSDAY": "Giovedì",
+    "FRIDAY": "Venerdì",
+    "SATURDAY": "Sabato",
+    "SUNDAY": "Domenica"
+  },
+  "table": {
+    "createdAt": "DATA CREAZIONE",
+    "actions": "AZIONI"
+  },
+  "password": "Password",
+  "email": "Email",
+  "continue": "Continua",
+  "check": "Controlla",
+  "rows_per_page": "Righe per pagina",
+  "create": "Crea",
+  "edit": "Modifica",
+  "cancel": "Annulla",
+  "detail": "Dettaglio",
+  "delete": "Elimina",
+  "want_delete": "Vuoi eliminare ",
+  "cant_delete": " non può essere rimosso, poiché è utilizzato in un'area di parcheggio...",
+  "ok_delete": " è stato eliminato con successo",
+  "close": "Chiudi",
+  "previous": "Precedente",
+  "next": "Successivo",
+  "skip": "Salta",
+  "save": "Salva",
+  "today": "Oggi",
+  "sales_volume": "Volume di vendite per ",
+  "subscription": "Abbonamento",
+  "dark_mode": "Modalità scura",
+  "light_mode": "Modalità chiara"
+}

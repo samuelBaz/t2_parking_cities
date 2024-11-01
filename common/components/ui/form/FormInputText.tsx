@@ -5,9 +5,9 @@ import {
   FieldValues,
   Path,
   PathValue,
+  RegisterOptions,
 } from 'react-hook-form'
 import Typography from '@mui/material/Typography'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { InputProps as StandardInputProps } from '@mui/material/Input/Input'
 import {
   FormHelperText,

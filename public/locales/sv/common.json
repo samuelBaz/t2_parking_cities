@@ -1,0 +1,407 @@
+{
+  "authentication": {
+    "login": {
+      "title": "Logga in på ditt TOKEN.",
+      "forgot": "Glömde du ditt lösenord?",
+      "keep": "Håll sessionen aktiv i 1 vecka",
+      "no_account": "Har du inget konto?",
+      "create_account": "Skapa ett konto"
+    },
+    "register": {
+      "title": "Skapa ett konto",
+      "terms": "Jag accepterar villkoren",
+      "already_account": "Har du redan ett konto?",
+      "country": "Land",
+      "city": "Stad",
+      "name_city": "Namn på staden",
+      "phone": "Telefonnummer"
+    },
+    "create_account": "Skapa ett konto",
+    "login_account": "Logga in på ditt konto"
+  },
+  "language": {
+    "language": "Språk",
+    "spanish": "Spanska",
+    "english": "Engelska",
+    "portuguese": "Portugisiska",
+    "german": "Tyska",
+    "french": "Franska",
+    "italian": "Italienska",
+    "sweden": "Svenska",
+    "select": "Välj ditt föredragna språk"
+  },
+  "reset": {
+    "title": "Återställ ditt lösenord",
+    "description": "Verifiera ditt konto och börja",
+    "open_email": "Öppna e-post",
+    "already_update": "Har redan uppdaterat mitt lösenord"
+  },
+  "verify": {
+    "title": "Verifiera din e-post",
+    "description": "För att verifiera ditt konto och börja",
+    "already_verify": "Har redan verifierat kontot"
+  },
+  "nav_menu": {
+    "home": "Hem",
+    "parking_areas": "Parkeringområden",
+    "users": "Användare",
+    "stats": "Statistik",
+    "vehicles": "Fordon",
+    "super_user": "Superanvändare",
+    "third_party_company": "Återförsäljare"
+  },
+  "parking_areas": {
+    "title": "Parkeringområden",
+    "all": "Parkeringar",
+    "first": "Skapa ditt första parkeringområde...",
+    "areas": "Områden",
+    "area": "Område",
+    "schedules": "Schema",
+    "subscriptions": "Prenumerationer",
+    "new": "Nytt Parkeringområde",
+    "new_tooltip": "Lägg till nytt parkeringområde",
+    "add": "Lägg till Parkeringområde",
+    "add_a": "Lägg till ett nytt Parkeringområde",
+    "create": "Skapa Parkeringområde",
+    "information": "Information om Parkeringområde",
+    "name_of": "Namn på Parkeringområde",
+    "add_area": "Lägg till Nytt Område",
+    "add_schedule": "Lägg till Nytt Schema",
+    "add_subscription": "Lägg till Ny Prenumeration",
+    "no_parking_areas": "Det finns inga registrerade parkeringområden...",
+    "tables": {
+      "name": "NAMN",
+      "area": "OMRÅDE",
+      "schedules": "SCHEMA",
+      "subscriptions": "PRENUMERATIONER"
+    }
+  },
+  "areas": {
+    "add": "Lägg till Område",
+    "edit": "Redigera Område",
+    "first": "Skapa ditt första område...",
+    "tables": {
+      "name": "NAMN",
+      "parking_spaces": "PARKERINGSPLATSER",
+      "type_numbering": "TYP NUMRERING",
+      "sensor": "SENSOR",
+      "geolocalization": "GEOLOKALISERING",
+      "points": "POÄNG"
+    },
+    "form": {
+      "area_information": "Områdeinformation",
+      "name_of_area": "Namn på Området",
+      "points": "Poäng",
+      "spaces": "Parkeringsplatser",
+      "spaces_information": "Information om Parkeringsplatser",
+      "numbering": "Numrering av parkeringsplatser",
+      "want_to_list": "Jag vill lista parkeringsplatserna",
+      "type_numbering": "Typ av numrering av parkeringsplatser"
+    },
+    "detail": {
+      "number_parking_spaces": "Antal parkeringsplatser"
+    }
+  },
+  "spaces": {
+    "edit": "Redigera Parkeringsplats",
+    "form": {
+      "title": "Parkeringsplats",
+      "id_sensor": "Sensor-ID",
+      "lat": "Latitud",
+      "long": "Longitud"
+    }
+  },
+  "schedules": {
+    "add": "Lägg till Schema",
+    "edit": "Redigera Schema",
+    "first": "Skapa ditt första schema...",
+    "from": "Från",
+    "until": "Till",
+    "hours": "Timmar",
+    "tables": {
+      "name": "NAMN",
+      "days": "DAGAR",
+      "hours": "TIMMAR",
+      "minimum_time": "MINIMITID",
+      "currency": "VALUTA",
+      "vehicles": "FORDON"
+    },
+    "form": {
+      "schedule_information": "Schemainformation",
+      "name_of_schedule": "Namn på Schemat",
+      "days": "Dagar",
+      "hours": "Timmar",
+      "start_hour": "Starttid",
+      "end_hour": "Sluttid",
+      "price": "Pris",
+      "currency": "Valuta",
+      "units": "Enheter",
+      "minimum_time": "Minimitid (minuter)",
+      "type_vehicles": "Typer av fordon",
+      "billing_block": "Fakturablok",
+      "minutes": "Minuter"
+    }
+  },
+  "subscriptions": {
+    "add": "Lägg till Prenumeration",
+    "edit": "Redigera Prenumeration",
+    "first": "Skapa din första prenumeration...",
+    "tables": {
+      "name": "NAMN",
+      "currency": "VALUTA"
+    },
+    "form": {
+      "subscription_information": "Prenumerationsinformation",
+      "name_of_subscription": "Namn på Prenumerationen",
+      "type_vehicles": "Typer av fordon",
+      "billing_block": "Fakturablok",
+      "want_subs": "Jag vill tilldela prenumerationer"
+    }
+  },
+  "inspectors": {
+    "inspectors": "Inspektörer",
+    "tracking": "Inspektörs Spårning",
+    "app": "Inspektörs App",
+    "add": "Lägg till Inspektör",
+    "add_new": "Lägg till ny Inspektör",
+    "table": {
+      "name": "NAMN",
+      "email": "E-POST",
+      "parking_area": "PARKERINGSOMRÅDE",
+      "permissions": "BEHÖRIGHETER"
+    },
+    "form": {
+      "inspector_information": "Inspektörsinformation",
+      "name_of_inspector": "Namn på inspektör",
+      "assign": "Tilldela parkeringsområde",
+      "permissions": "Behörigheter"
+    },
+    "events": {
+      "history": "Händelsehistorik",
+      "new_penalty": "Ny Böter",
+      "form": {
+        "description": "Beskrivning av böter",
+        "vehicle_plate": "Fordonsregistreringsskylt",
+        "photographic": "Fotografisk"
+      },
+      "table": {
+        "description": "BESKRIVNING",
+        "vehicle_plate": "FORDONSREGISTRERING",
+        "type": "TYP",
+        "photographic": "FOTOGRAFISK"
+      }
+    }
+  },
+  "users": {
+    "users": "Alla användare",
+    "first_user": "Skapa din första användare",
+    "add": "Lägg till Användare",
+    "add_new": "Lägg till ny Användare",
+    "table": {
+      "name": "NAMN",
+      "email": "E-POST"
+    }
+  },
+  "vehicles": {
+    "all": "Alla Fordon",
+    "add": "Lägg till Fordon",
+    "edit": "Redigera Fordon",
+    "table": {
+      "name": "NAMN",
+      "description": "BESKRIVNING"
+    },
+    "form": {
+      "vehicle_information": "Fordoninformation",
+      "name_of_vehicle": "Namn på fordon",
+      "description": "Beskrivning av fordon"
+    }
+  },
+  "cities": {
+    "cities": "Städer",
+    "no_content": "Inga städer att visa...",
+    "table": {
+      "name": "NAMN",
+      "email": "E-POST",
+      "phone": "TELEFON"
+    }
+  },
+  "third_party_company": {
+    "companies": "Distributörer",
+    "company": "Distributör",
+    "add": "Skapa distributör",
+    "first": "Skapa din första distributör...",
+    "add_new": "Lägg till ny distributör",
+    "no_users": "Det finns inga användare",
+    "no_payouts": "Det finns inga registrerade utbetalningar",
+    "no_tickets": "Det finns inga registrerade biljetter...",
+    "table": {
+      "name": "NAMN",
+      "tax_id": "SKATTE ID",
+      "email": "E-POST",
+      "address": "ADRESS",
+      "commission": "KOMMISSION"
+    },
+    "form": {
+      "company_information": "Distributörsinformation",
+      "name": "Distributörens namn",
+      "name_real": "Distributörens riktiga namn",
+      "description": "Distributörens beskrivning",
+      "email": "Distributörens e-post",
+      "address": "Distributörens adress",
+      "tax_id": "Distributörens skatte ID",
+      "commission_types": "Kommissionstyper",
+      "commission": "Kommission",
+      "commission_by": "Kommission av: ",
+      "commission_transactional": "Transaktionskommission",
+      "commission_monthly": "Månatlig kommission",
+      "define_commission": "Definiera typen av kommission"
+    },
+    "user": {
+      "user_information": "Användarinformation",
+      "username": "Användarnamn"
+    },
+    "payout_commissions": {
+      "title": "Utbetalningskommissioner",
+      "table": {
+        "period": "PERIOD",
+        "year": "ÅR",
+        "total_commission": "TOTAL KOMMISSION",
+        "start_date": "STARTDATUM",
+        "end_date": "SLUTDATUM"
+      }
+    },
+    "tickets": {
+      "title": "Biljetter",
+      "table": {
+        "plate": "PLATE",
+        "amount": "BELOPP",
+        "duration": "VARIGHET",
+        "status": "STATUS"
+      }
+    }
+  },
+  "help": {
+    "area": {
+      "title": "Hur skapar man ett område?",
+      "description": " Du måste välja ett namn för att identifiera ditt område. * Du måste rita på kartan med en polygon som avgränsar det område du vill representera. * Parkeringsplatser är ett fält med ett ungefärligt värde, detta värde beräknas med hänsyn till en block av 400 m2. * Vi kan ange om vi vill att dessa parkeringsplatser ska numreras."
+    },
+    "schedule": {
+      "title": "Hur skapar man ett schema?",
+      "description": "Du måste välja ett namn för att identifiera ditt schema. * Du måste välja arbetsdagarna då detta schema kommer att vara tillgängligt. * Du måste välja start- och sluttid för ditt schema. * Du måste välja den valuta som ska användas i faktureringsblocket. * Du måste ange den minimi tiden för att generera faktureringsblocket. * Du måste ange vilka typer av fordon som kommer att beaktas i detta schema. * Du måste generera faktureringsblocket och ange priset för varje block."
+    },
+    "subscriptions": {
+      "title": "Hur skapar man en prenumeration?",
+      "description": "Du måste välja ett namn för att identifiera din prenumeration. * Du måste välja den valuta som ska användas i faktureringsblocket. * Du måste ange vilka typer av fordon som kommer att beaktas i detta schema."
+    },
+    "parking_area": {
+      "title": "Hur skapar man ett parkeringsområde?",
+      "description": " Du måste välja ett namn för att identifiera ditt parkeringsområde. * Du måste välja eller skapa ett område. * Du måste välja eller skapa ett eller flera scheman som du vill tilldela ditt parkeringsområde."
+    },
+    "vehicle": {
+      "title": "Hur skapar man ett fordon?",
+      "description": " Du måste välja ett namn för att identifiera ditt fordon."
+    },
+    "inspector": {
+      "title": "Hur skapar man en inspektör?",
+      "description": " Du måste fylla i inspektörens personuppgifter. * Du måste tilldela parkeringsområden för denna inspektör. * Du måste tilldela de behörigheter som denna inspektör kommer att ha."
+    },
+    "thrid_party_company": {
+      "title": "Hur skapar man distributörer?",
+      "description": " Du måste fylla i distributörsinformationen. * Du måste ange vilken typ av kommission som distributören kommer att ha."
+    },
+    "parking_space": {
+      "title": "Hur skapar/redigerar man parkeringsplats?",
+      "description": " Du måste ange om parkeringsplatsen kommer att ha en tilldelad sensor. * Du måste geolokalisera parkeringsplatsen."
+    }
+  },
+  "home": {
+    "continue_area": "Fortsätt med skapandet av ett område",
+    "continue_area_btn": "Fortsätt med skapandet",
+    "steps": {
+      "one": {
+        "title": "Steg 1: ",
+        "description": "Skapa ett område genom att ange punkterna för parkeringszonen"
+      }
+    }
+  },
+  "stats": {
+    "tickets": {
+      "title": "Utveckling av biljettförsäljning per timme",
+      "description": "Försäljningsvolym per timme",
+      "by_methods": "Biljetter efter betalningsmetoder",
+      "methods": {
+        "time": "Köp tid (minuter)",
+        "payment": "Betalningsmetoder",
+        "access": "Ingångsmedel"
+      }
+    },
+    "inspectors": {
+      "title": "Utveckling av inspektioner",
+      "description": "Statistik över inspektioner och böter"
+    }
+  },
+  "configuration": {
+    "continue": "Fortsätt med konfigurationen",
+    "menu": {
+      "fleets": "Flottor",
+      "payment_methods": {
+        "title": "Betalningsmetoder",
+        "add_description": "Det finns ingen betalningsmetod att visa, du måste registrera en ny",
+        "add_btn": "Lägg till ny betalningsmetod",
+        "select": "Välj en betalningsmetod"
+      },
+      "messaging_channels": {
+        "title": "Meddelandekanaler",
+        "add_description": "Det finns ingen meddelandekanal att visa, du måste registrera en ny",
+        "add_btn": "Lägg till ny meddelandekanal",
+        "select": "Välj en meddelandekanal"
+      },
+      "distributors": "Distributörer"
+    },
+    "fleet_check": "Tillåt användare att skapa flottor",
+    "distributors_check": "Tillåt försäljningsportal för distributörer",
+    "distributors_description": "Denna funktion gör det möjligt för portalen att sälja avgiftsbelagd parkering och ger distributörer tillgång till en exklusiv plattform där de kan hantera sina försäljningar och beställningar, se produktkatalogen, kontrollera statusen för sina transaktioner, få tillgång till specialerbjudanden och generera försäljningsrapporter. Allt detta gör det möjligt för dem att arbeta självständigt, optimera sina processer och förbättra effektiviteten i hanteringen av sina affärsaktiviteter.",
+    "fleet_description": "Funktionaliteten för att skapa flottor gör det möjligt för användare att gruppera flera fordon under en gemensam uppsättning, känd som en flotta. En flotta definieras som en organiserad samling bilar eller fordon som tillhör en användare eller företag och kan hanteras centralt. Denna funktion är utformad för att underlätta hanteringen av ett stort antal fordon och erbjuda en konsoliderad översikt över alla användarens fordonsresurser."
+  },
+  "menu": {
+    "logout": "Logga ut",
+    "profile": "Profil",
+    "settings": "Inställningar"
+  },
+  "days": {
+    "MONDAY": "Måndag",
+    "TUESDAY": "Tisdag",
+    "WEDNESDAY": "Onsdag",
+    "THURSDAY": "Torsdag",
+    "FRIDAY": "Fredag",
+    "SATURDAY": "Lördag",
+    "SUNDAY": "Söndag"
+  },
+  "table": {
+    "createdAt": "SKAPAD DATUM",
+    "actions": "ÅTGÄRDER"
+  },
+  "password": "Lösenord",
+  "email": "E-post",
+  "continue": "Fortsätt",
+  "check": "Kontrollera",
+  "rows_per_page": "Rader per sida",
+  "create": "Skapa",
+  "edit": "Redigera",
+  "cancel": "Avbryt",
+  "detail": "Detalj",
+  "delete": "Ta bort",
+  "want_delete": "Vill du ta bort ",
+  "cant_delete": " kan inte tas bort eftersom det används i ett parkeringsområde...",
+  "ok_delete": " har tagits bort framgångsrikt",
+  "close": "Stäng",
+  "previous": "Föregående",
+  "next": "Nästa",
+  "skip": "Hoppa över",
+  "save": "Spara",
+  "today": "Idag",
+  "sales_volume": "Försäljningsvolym efter ",
+  "subscription": "Prenumeration",
+  "dark_mode": "Mörkt läge",
+  "light_mode": "Ljust läge"
+}

@@ -21,6 +21,7 @@ export type peticionFormato = {
 
 export const estadosCorrectos: number[] = [200, 201, 202, 204]
 export const estadosSinPermiso: number[] = [401]
+export const estadosRutasSinPermiso: number[] = [403]
 
 class ServiciosClass {
   peticionHTTP = ({

@@ -10,7 +10,6 @@ import { AuthProvider } from '../context/auth'
 import { Sidebar } from '../common/components/ui'
 import { Constantes } from '../config'
 import { SnackbarProvider } from 'notistack'
-import { useEffect } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { appWithTranslation } from 'next-i18next'
 
