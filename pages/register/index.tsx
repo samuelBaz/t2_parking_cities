@@ -77,7 +77,7 @@ const Register = () => {
         url: `${Constantes.baseUrl}/auth/insecure/countries`,
         withCredentials: false
       })
-      const dataResponse: Country[] = respuesta.data
+      const dataResponse: Country[] = respuesta.data.content
       if(dataResponse){
         setCountries(
           dataResponse.map((country: Country) => {
