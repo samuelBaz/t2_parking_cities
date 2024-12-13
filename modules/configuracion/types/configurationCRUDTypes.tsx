@@ -4,6 +4,7 @@ export interface ConfigurationCRUDType {
   version: number,
   cityId: number,
   paymentMethods: Array<PaymentMethodCRUDType>,
+  commission: Commission
   messagingChannels: any | null,
   fleets: boolean | null,
   distributors: boolean | null
@@ -41,4 +42,29 @@ export interface UpdateConfigurationCRUDType {
   version: number
   fleets: boolean | null
   distributors: boolean | null
+  commission: Commission
+}
+
+export interface Commission {
+  id?: number
+  name: TypeCommission
+  value: number
+  byMonth: boolean
+  byTicket: boolean
+  version: number
+}
+
+export enum TypeCommission {
+  PERCENTAGE = 'PERCENTAGE',
+  FIXED = 'FIXED'
+}
+
+
+export interface UpdateCommission {
+  id: number
+  name: string
+  value: number
+  byMonth: boolean
+  byTicket: boolean
+  version: number
 }

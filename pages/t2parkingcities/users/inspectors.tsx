@@ -98,7 +98,7 @@ const Users = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('users.table.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'email', nombre: t('users.table.email'), ordenar: true },
     { campo: 'parking_areas', nombre: t('inspectors.table.parking_area'), ordenar: true },
     { campo: 'permissions', nombre: t('inspectors.table.permissions'), ordenar: true },

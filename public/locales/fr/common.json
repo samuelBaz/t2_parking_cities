@@ -70,7 +70,6 @@
     "add_subscription": "Ajouter un nouvel abonnement",
     "no_parking_areas": "Il n'y a pas de zones de stationnement enregistrées...",
     "tables": {
-      "name": "NOM",
       "area": "ZONE",
       "schedules": "HORAIRES",
       "subscriptions": "ABONNEMENTS"
@@ -81,7 +80,6 @@
     "edit": "Modifier la zone",
     "first": "Créez votre première zone...",
     "tables": {
-      "name": "NOM",
       "parking_spaces": "PLACES DE PARKING",
       "type_numbering": "TYPE DE NUMÉROTATION",
       "sensor": "CAPTEUR",
@@ -119,7 +117,6 @@
     "until": "jusqu'à",
     "hours": "heures",
     "tables": {
-      "name": "NOM",
       "days": "JOURS",
       "hours": "HEURES",
       "minimum_time": "TEMPS MINIMUM",
@@ -147,7 +144,6 @@
     "edit": "Modifier l'abonnement",
     "first": "Créez votre premier abonnement...",
     "tables": {
-      "name": "NOM",
       "currency": "DEVISE"
     },
     "form": {
@@ -165,7 +161,6 @@
     "add": "Ajouter un inspecteur",
     "add_new": "Ajouter un nouvel inspecteur",
     "table": {
-      "name": "NOM",
       "email": "EMAIL",
       "parking_area": "ZONE DE STATIONNEMENT",
       "permissions": "PERMISSIONS"
@@ -184,11 +179,18 @@
         "vehicle_plate": "Plaque du véhicule",
         "photographic": "Photographique"
       },
+      "validate": {
+        "title": "Valider la Pénalité",
+        "description": "Veuillez laisser un commentaire ci-dessous pour valider la pénalité.",
+        "cancel": "Annuler la Pénalité",
+        "cancel_description": "Veuillez laisser un commentaire ci-dessous pour annuler la pénalité."
+      },
       "table": {
         "description": "DESCRIPTION",
         "vehicle_plate": "PLAQUE DU VÉHICULE",
         "type": "TYPE",
-        "photographic": "PHOTOGRAPHIQUE"
+        "photographic": "PHOTOGRAPHIQUE",
+        "review_status": "STATUT DE L'EXAMEN"
       }
     }
   },
@@ -198,7 +200,6 @@
     "add": "Ajouter un utilisateur",
     "add_new": "Ajouter un nouvel utilisateur",
     "table": {
-      "name": "NOM",
       "email": "EMAIL"
     }
   },
@@ -207,7 +208,6 @@
     "add": "Ajouter un véhicule",
     "edit": "Modifier le véhicule",
     "table": {
-      "name": "NOM",
       "description": "DESCRIPTION"
     },
     "form": {
@@ -220,7 +220,6 @@
     "cities": "Villes",
     "no_content": "Aucune ville à afficher...",
     "table": {
-      "name": "NOM",
       "email": "EMAIL",
       "phone": "TÉLÉPHONE"
     }
@@ -235,7 +234,6 @@
     "no_payouts": "Aucune liquidation enregistrée",
     "no_tickets": "Aucun ticket enregistré...",
     "table": {
-      "name": "NOM",
       "tax_id": "NIF",
       "email": "COURRIEL",
       "address": "ADRESSE",
@@ -272,8 +270,11 @@
     },
     "tickets": {
       "title": "Tickets",
+      "buy": "Acheter des Billets",
       "table": {
         "plate": "PLAQUE",
+        "phone_email": "TÉLÉPHONE/EMAIL",
+        "distributor": "DISTRIBUTEUR",
         "amount": "MONTANT",
         "duration": "DURÉE",
         "status": "STATUT"
@@ -378,6 +379,7 @@
     "SUNDAY": "Dimanche"
   },
   "table": {
+    "name": "NOM",
     "createdAt": "DATE DE CRÉATION",
     "actions": "ACTIONS"
   },
@@ -403,5 +405,7 @@
   "sales_volume": "Volume des ventes par ",
   "subscription": "Abonnement",
   "dark_mode": "Mode sombre",
-  "light_mode": "Mode clair"
+  "light_mode": "Mode clair",
+  "validate": "Valider",
+  "comment": "Commentaire"
 }

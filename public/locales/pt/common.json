@@ -70,7 +70,6 @@
     "add_subscription": "Adicionar Nova Assinatura",
     "no_parking_areas": "Não há áreas de estacionamento registradas ...",
     "tables": {
-      "name": "NOME",
       "area": "ÁREA",
       "schedules": "HORÁRIOS",
       "subscriptions": "ASSINATURAS"
@@ -81,7 +80,6 @@
     "edit": "Editar Área",
     "first": "Crie sua primeira área...",
     "tables": {
-      "name": "NOME",
       "parking_spaces": "VAGAS DE ESTACIONAMENTO",
       "type_numbering": "TIPO DE NUMERAÇÃO",
       "sensor": "SENSOR",
@@ -119,7 +117,6 @@
     "until": "até",
     "hours": "horas",
     "tables": {
-      "name": "NOME",
       "days": "DIAS",
       "hours": "HORAS",
       "minimum_time": "TEMPO MÍNIMO",
@@ -147,7 +144,6 @@
     "edit": "Editar Assinatura",
     "first": "Crie sua primeira assinatura...",
     "tables": {
-      "name": "NOME",
       "currency": "MOEDA"
     },
     "form": {
@@ -165,7 +161,6 @@
     "add": "Adicionar Inspetor",
     "add_new": "Adicionar novo Inspetor",
     "table": {
-      "name": "NOME",
       "email": "EMAIL",
       "parking_area": "ÁREA DE ESTACIONAMENTO",
       "permissions": "PERMISSÕES"
@@ -184,11 +179,18 @@
         "vehicle_plate": "Placa do veículo",
         "photographic": "Fotográfico"
       },
+      "validate": {
+        "title": "Validar Penalidade",
+        "description": "Por favor, deixe um comentário abaixo para validar a penalidade.",
+        "cancel": "Cancelar Penalidade",
+        "cancel_description": "Por favor, deixe um comentário abaixo para cancelar a penalidade."
+      },
       "table": {
         "description": "DESCRIÇÃO",
         "vehicle_plate": "PLACA DO VEÍCULO",
         "type": "TIPO",
-        "photographic": "FOTOGRÁFICO"
+        "photographic": "FOTOGRÁFICO",
+        "review_status": "STATUS DA REVISÃO"
       }
     }
   },
@@ -198,7 +200,6 @@
     "add": "Adicionar Usuário",
     "add_new": "Adicionar novo Usuário",
     "table": {
-      "name": "NOME",
       "email": "EMAIL"
     }
   },
@@ -207,7 +208,6 @@
     "add": "Adicionar Veículo",
     "edit": "Editar Veículo",
     "table": {
-      "name": "NOME",
       "description": "DESCRIÇÃO"
     },
     "form": {
@@ -220,7 +220,6 @@
     "cities": "Cidades",
     "no_content": "Sem cidades para exibir...",
     "table": {
-      "name": "NOME",
       "email": "EMAIL",
       "phone": "TELEFONE"
     }
@@ -235,7 +234,6 @@
     "no_payouts": "Não há pagamentos registrados",
     "no_tickets": "Não há tickets registrados...",
     "table": {
-      "name": "NOME",
       "tax_id": "CNPJ",
       "email": "EMAIL",
       "address": "ENDEREÇO",
@@ -272,8 +270,11 @@
     },
     "tickets": {
       "title": "Tickets",
+      "buy": "Comprar Ingressos",
       "table": {
         "plate": "PLACA",
+        "phone_email": "TELEFONE/EMAIL",
+        "distributor": "DISTRIBUIDOR",
         "amount": "VALOR",
         "duration": "DURAÇÃO",
         "status": "STATUS"
@@ -378,6 +379,7 @@
     "SUNDAY": "Domingo"
   },
   "table": {
+    "name": "NOME",
     "createdAt": "DATA DE CRIAÇÃO",
     "actions": "AÇÕES"
   },
@@ -403,5 +405,7 @@
   "sales_volume": "Volume de vendas por ",
   "subscription": "Assinatura",
   "dark_mode": "Modo escuro",
-  "light_mode": "Modo claro"
+  "light_mode": "Modo claro",
+  "validate": "Validar",
+  "comment": "Comentário"
 }

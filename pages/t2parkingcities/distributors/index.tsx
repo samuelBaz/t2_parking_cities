@@ -71,7 +71,7 @@ const Distributors = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('third_party_company.table.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'taxId', nombre: t('third_party_company.table.tax_id'), ordenar: true },
     { campo: 'email', nombre: t('third_party_company.table.email'), ordenar: true },
     { campo: 'address', nombre: t('third_party_company.table.address'), ordenar: true },

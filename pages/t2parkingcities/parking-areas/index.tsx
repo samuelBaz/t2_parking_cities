@@ -69,7 +69,7 @@ const ParkingAreas = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('parking_areas.tables.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'area', nombre: t('parking_areas.tables.area'), ordenar: true },
     { campo: 'schedules', nombre: t('parking_areas.tables.schedules'), ordenar: true },
     { campo: 'subscriptions', nombre: t('parking_areas.tables.subscriptions'), ordenar: true },

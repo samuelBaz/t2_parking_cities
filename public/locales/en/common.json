@@ -70,7 +70,6 @@
     "add_subscription": "Add New Subscription",
     "no_parking_areas": "There is no registered parking areas ...",
     "tables": {
-      "name": "NAME",
       "area": "AREA",
       "schedules": "SCHEDULES",
       "subscriptions": "SUBSCRIPTIONS"
@@ -81,7 +80,6 @@
     "edit": "Edit Area",
     "first": "Create your first area...",
     "tables": {
-      "name": "NAME",
       "parking_spaces": "PARKING SPACES",
       "type_numbering": "TYPE NUMBERING",
       "sensor": "SENSOR",
@@ -119,7 +117,6 @@
     "until": "until",
     "hours": "hours",
     "tables": {
-      "name": "NAME",
       "days": "DAYS",
       "hours": "HOURS",
       "minimum_time": "MINIMUM TIME",
@@ -147,7 +144,6 @@
     "edit": "Edit Subscription",
     "first": "Create your first subscription...",
     "tables": {
-      "name": "NAME",
       "currency": "CURRENCY"
     },
     "form": {
@@ -165,7 +161,6 @@
     "add": "Add Inspector",
     "add_new": "Add new Inspector",
     "table": {
-      "name": "NAME",
       "email": "EMAIL",
       "parking_area": "PARKING AREA",
       "permissions": "PERMISSIONS"
@@ -184,11 +179,18 @@
         "vehicle_plate": "Plate of vehicle",
         "photographic": "Photographic"
       },
+      "validate": {
+        "title": "Validate Penalty",
+        "description": "Please leave a comment below to validate the penalty.",
+        "cancel": "Cancel Penalty",
+        "cancel_description": "Please leave a comment below to cancel the penalty."
+      },
       "table": {
         "description": "DESCRIPTION",
         "vehicle_plate": "VEHICLE PLATE",
         "type": "TYPE",
-        "photographic": "PHOTOGRAPHIC"
+        "photographic": "PHOTOGRAPHIC",
+        "review_status": "REVIEW STATUS"
       }
     }
   },
@@ -198,7 +200,6 @@
     "add": "Add User",
     "add_new": "Add new User",
     "table": {
-      "name": "NAME",
       "email": "EMAIL"
     }
   },
@@ -207,7 +208,6 @@
     "add": "Add Vehicle",
     "edit": "Edit Vehicle",
     "table": {
-      "name": "NAME",
       "description": "DESCRIPTION"
     },
     "form": {
@@ -219,8 +219,8 @@
   "cities": {
     "cities": "Cities",
     "no_content": "No cities to display...",
+    "config_commission": "Settings Commission",
     "table": {
-      "name": "NAME",
       "email": "EMAIL",
       "phone": "PHONE"
     }
@@ -235,7 +235,6 @@
     "no_payouts": "There are no registered payouts",
     "no_tickets": "There are no registered tickets...",
     "table": {
-      "name": "NAME",
       "tax_id": "TAX ID",
       "email": "EMAIL",
       "address": "ADDRESS",
@@ -272,10 +271,13 @@
     },
     "tickets": {
       "title": "Tickets",
+      "buy": "Buy Tickets",
       "table": {
         "plate": "PLATE",
+        "phone_email": "PHONE/EMAIL",
         "amount": "AMOUNT",
         "duration": "DURATION",
+        "distributor": "DISTRIBUTOR",
         "status": "STATUS"
       }
     }
@@ -378,6 +380,7 @@
     "SUNDAY": "Sunday"
   },
   "table": {
+    "name": "NAME",
     "createdAt": "CREATION DATE",
     "actions": "ACTIONS"
   },
@@ -403,5 +406,7 @@
   "sales_volume":"Sales volume by ",
   "subscription": "Subscription",
   "dark_mode": "Dark mode",
-  "light_mode": "Light mode"
+  "light_mode": "Light mode",
+  "validate": "Validate",
+  "comment": "Comment"
 }

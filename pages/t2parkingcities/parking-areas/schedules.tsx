@@ -117,7 +117,7 @@ const Schedules = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('schedules.tables.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'days', nombre: t('schedules.tables.days'), ordenar: true },
     { campo: 'hours', nombre: t('schedules.tables.hours'), ordenar: true },
     { campo: 'minimumTime', nombre: t('schedules.tables.minimum_time'), ordenar: true },

@@ -116,7 +116,7 @@ const Subscriptions = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('subscriptions.tables.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'currency', nombre: t('subscriptions.tables.currency'), ordenar: true },
     { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     { campo: 'acciones', nombre: t('table.actions'), ordenar: false },

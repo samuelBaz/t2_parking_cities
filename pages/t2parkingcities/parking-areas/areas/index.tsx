@@ -70,7 +70,7 @@ const Areas = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('areas.tables.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'spaces', nombre: t('areas.tables.parking_spaces'), ordenar: true },
     { campo: 'typeNumbering', nombre: t('areas.tables.type_numbering'), ordenar: true },
     { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },

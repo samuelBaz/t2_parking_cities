@@ -28,7 +28,7 @@ export const Sidebar = () => {
     progresoLogin
   } = useAuth()
   const [modulos, setModulos] = useState<SidebarModuloType[]>([])
-  const { modulosAppAdmin, modulosAppDistributor, modulosAppUser, modulosAppInspector } = useModulo()
+  const { modulosAppAdmin, modulosAppDistributor, modulosAppUser, modulosAppInspector, modulosAppSystemAdmin } = useModulo()
   const theme = useTheme()
   const router = useRouter()
   
@@ -51,6 +51,7 @@ export const Sidebar = () => {
       : rolSeleccionado === 'DISTRIBUTOR' ? modulosAppDistributor 
       : rolSeleccionado === 'ADMIN'? modulosAppAdmin 
       : rolSeleccionado === 'INSPECTOR' ? modulosAppInspector
+      : rolSeleccionado === 'SYSTEM_ADMIN' ? modulosAppSystemAdmin
       : [] 
     )
   }

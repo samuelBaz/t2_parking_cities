@@ -107,6 +107,7 @@ export const VistaModalConfiguracion = ({
           distributors: config?.distributors,
           fleets: config?.fleets,
           version: configuration?.version!,
+          commission: configuration?.commission!,
           cityId: configuration?.cityId!
         }
 

@@ -70,7 +70,6 @@
       "add_subscription": "Añadir nuevo Abono",
       "no_parking_areas": "No hay ningún area de parqueo registrado ...",
       "tables": {
-        "name": "NOMBRE",
         "area": "ZONA",
         "schedules": "HORARIOS",
         "subscriptions": "ABONOS"
@@ -81,7 +80,6 @@
       "edit": "Editar Zona",
       "first": "Crea tu primer zona...",
       "tables": {
-        "name": "NOMBRE",
         "parking_spaces": "PLAZAS DE ESTACIONAMIENTO",
         "type_numbering": "TIPO DE NUMERACIÓN",
         "sensor": "SENSOR",
@@ -119,7 +117,6 @@
       "until": "hasta las",
       "hours": " ",
       "tables": {
-        "name": "NOMBRE",
         "days": "DIAS",
         "hours": "HORAS",
         "minimum_time": "TIEMPO MÍNIMO",
@@ -147,7 +144,6 @@
     "edit": "Editar Abono",
     "first": "Crea tu primer abono...",
     "tables": {
-      "name": "NOMBRE",
       "currency": "MONEDA"
   },
     "form": {
@@ -158,37 +154,43 @@
       "want_subs": "Deseo asignar abonos"
   }
   },
-    "inspectors": {
-      "inspectors": "Inspectores",
-      "tracking": "Seguimiento Inspectores",
-      "app": "Inspectors App",
-      "add": "Añadir Inspector",
-      "add_new": "Añadir nuevo Inspector",
-      "table": {
-        "name": "NOMBRE",
-        "email": "CORREO ELECTRÓNICO",
-        "parking_area": "AREAS DE PARQUEO",
-        "permissions": "PERMISOS"
+  "inspectors": {
+    "inspectors": "Inspectores",
+    "tracking": "Seguimiento Inspectores",
+    "app": "Inspectors App",
+    "add": "Añadir Inspector",
+    "add_new": "Añadir nuevo Inspector",
+    "table": {
+      "email": "CORREO ELECTRÓNICO",
+      "parking_area": "AREAS DE PARQUEO",
+      "permissions": "PERMISOS"
     },
+    "form": {
+      "inspector_information": "Información del Inspector",
+      "name_of_inspector": "Nombre del inspector",
+      "assign": "Asignar area de parqueo",
+      "permissions": "Permisos"
+    },
+    "events": {
+      "history": "Historial de eventos",
+      "new_penalty": "Nueva multa",
       "form": {
-        "inspector_information": "Información del Inspector",
-        "name_of_inspector": "Nombre del inspector",
-        "assign": "Asignar area de parqueo",
-        "permissions": "Permisos"
-    },
-      "events": {
-        "history": "Historial de eventos",
-        "new_penalty": "Nueva multa",
-        "form": {
-          "description": "Detalle de la multa",
-          "vehicle_plate": "Matricula del vehículo",
-          "photographic": "Fotografía"
+        "description": "Detalle de la multa",
+        "vehicle_plate": "Matricula del vehículo",
+        "photographic": "Fotografía"
       },
-        "table": {
-          "description": "DESCRIPCIÓN",
-          "vehicle_plate": "MATRICULA DEL VEHÍCULO",
-          "type": "TIPO DE EVENTO",
-          "photographic": "FOTOGRAFÍA"
+      "validate": {
+        "title": "Validar Penalización",
+        "description": "Por favor ingresa un comentario abajo para validar la penalización.",
+        "cancel": "Cancelar Penalización",
+        "cancel_description": "Por favor ingresa un comentario para cancelar la penalización."
+      },
+      "table": {
+        "description": "DESCRIPCIÓN",
+        "vehicle_plate": "MATRICULA DEL VEHÍCULO",
+        "type": "TIPO DE EVENTO",
+        "photographic": "FOTOGRAFÍA",
+        "review_status": "ESTADO DE REVISION"
       }
     }
   },
@@ -198,7 +200,6 @@
       "add": "Añadir Usuario",
       "add_new": "Añadir nuevo usuario",
       "table": {
-        "name": "NOMBRE",
         "email": "CORREO ELECTRONICO"
     }
   },
@@ -207,7 +208,6 @@
       "add": "Añadir Vehículo",
       "edit": "Editar vehículo",
       "table": {
-        "name": "NOMBRE",
         "description": "DESCRIPCION"
     },
       "form": {
@@ -216,13 +216,13 @@
         "description": "Descripcion del vehiculo"
     }
   },
-    "cities": {
-      "cities": "Alcaldias",
-      "no_content": "Ninguna alcaldia para mostrar...",
-      "table": {
-        "name": "NOMBRE",
-        "email": "CORREO ELECTRONICO",
-        "phone": "TELEFONO"
+  "cities": {
+    "cities": "Alcaldias",
+    "no_content": "Ninguna alcaldia para mostrar...",
+    "config_commission": "Configurar Comision",
+    "table": {
+      "email": "CORREO ELECTRONICO",
+      "phone": "TELEFONO"
     }
   },
   "third_party_company": {
@@ -235,7 +235,6 @@
       "no_payouts": "No existen liquidaciones registradas",
       "no_tickets": "No existen tickets registrados...",
       "table": {
-        "name": "NOMBRE",
         "tax_id": "NIT",
         "email": "CORREO ELECTRONICO",
         "address": "DIRECCION",
@@ -245,9 +244,9 @@
         "company_information": "Informacion del distribuidor",
         "name": "Nombre del distribuidor",
         "name_real": "Nombre real del distribuidor",
-        "description": "Descripcion del distribuidor",
-        "email": "Correo Electronico del distribuidor",
-        "address": "DIreccion del distribuidor",
+        "description": "Descripción del distribuidor",
+        "email": "Correo Electrónico del distribuidor",
+        "address": "Dirección del distribuidor",
         "tax_id": "NIT del distribuidor",
         "commission_types": "Tipo de Comision",
         "commission": "Comision",
@@ -257,11 +256,11 @@
         "define_commission": "Define el tipo de comision"
     },
       "user": {
-        "user_information": "Informacion del usuario",
+        "user_information": "Información del usuario",
         "username": "Nombre del usuario"
     },
       "payout_commissions": {
-        "title": "Liquidacion de comisiones",
+        "title": "Liquidación de comisiones",
         "table": {
           "period": "PERIODO",
           "total_commission": "COMISION TOTAL",
@@ -270,13 +269,16 @@
           "end_date": "FECHA FINAL"
       }
     },
-      "tickets": {
-        "title": "Tickets",
-        "table": {
-          "plate": "MATRICULA",
-          "amount": "IMPORTE",
-          "duration": "DURACION",
-          "status": "ESTADO"
+    "tickets": {
+      "title": "Tickets",
+      "buy": "Comprar Tickets",
+      "table": {
+        "plate": "MATRICULA",
+        "phone_email": "TELÉFONO/EMAIL",
+        "amount": "IMPORTE",
+        "duration": "DURACIÓN",
+        "distributor": "DISTRIBUIDOR",
+        "status": "ESTADO"
       }
     }
   },
@@ -378,6 +380,7 @@
     "SUNDAY": "Domingo"
   },
   "table": {
+    "name": "NOMBRE",
     "createdAt": "FECHA DE CREACIÓN",
     "actions": "ACCIONES"
   },
@@ -403,5 +406,7 @@
   "sales_volume": "Volumen de ventas por ",
   "subscription": "Abono",
   "dark_mode": "Modo oscuro",
-  "light_mode": "Modo claro"
+  "light_mode": "Modo claro",
+  "validate": "Validar",
+  "comment": "Comentario"
 }

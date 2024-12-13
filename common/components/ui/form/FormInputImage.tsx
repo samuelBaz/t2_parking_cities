@@ -29,6 +29,7 @@ export interface FormInputImageProps<T extends FieldValues> {
   multiple?: boolean
   label: string
   labelVariant?: Variant
+  borrar?: boolean
 }
 
 const FormInputImage = <T extends FieldValues>({
@@ -40,6 +41,7 @@ const FormInputImage = <T extends FieldValues>({
   tiposPermitidos = ['png', 'jpg', 'jpeg', 'svg'],
   label,
   labelVariant = 'subtitle2',
+  borrar = false,
 }: FormInputImageProps<T>) => {
   const [archivosCargados, setArchivosCargados] = useState<ArchivoType[]>([])
   const { field } = useController({ name, control })
@@ -163,6 +165,7 @@ const FormInputImage = <T extends FieldValues>({
               <IconoTooltip
                 id={`id-quitar-archivo-${0}`}
                 color="primary"
+                desactivado={borrar}
                 titulo={'Quitar archivo'}
                 key={`accionQuitarArchivo`}
                 accion={() => {

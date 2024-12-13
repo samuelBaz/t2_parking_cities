@@ -242,7 +242,7 @@ export const VistaModalDistributor = ({
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      UYU
+                      { watch('commissionType') && watch('commissionType').value === 'FIXED' ? 'UYU' : '%'}
                     </InputAdornment>
                   )
                 }}

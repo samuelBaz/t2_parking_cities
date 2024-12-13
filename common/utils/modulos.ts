@@ -170,12 +170,23 @@ export default function useModulo() {
     {
       label: t('nav_menu.third_party_company'),
       url: 'distributors',
-      nombre: 'districutors',
+      nombre: 'distributors',
       subModulo: [
         {
           label: t('third_party_company.companies'),
           nombre: 'all_distributors',
           url: '/t2parkingcities/distributors',
+          id: '',
+          descripcion: '',
+          icono: 'add_business',
+          propiedades: {orden: 1},
+          estado: '',
+          subModulo: []
+        },
+        {
+          label: t('third_party_company.tickets.title'),
+          nombre: 'tickets',
+          url: '/t2parkingcities/distributors/all-tickets',
           id: '',
           descripcion: '',
           icono: 'local_activity',
@@ -196,12 +207,12 @@ export default function useModulo() {
 
   const modulosAppDistributor = [
     {
-      label: 'Inicio',
+      label: t('nav_menu.home'),
       url: '/',
       nombre: 'inicio',
       subModulo: [
         {
-          label: 'Home',
+          label: t('nav_menu.home'),
           nombre: 'home',
           url: '/t2parkingcities/home',
           id: '',
@@ -221,17 +232,70 @@ export default function useModulo() {
       propiedades: {orden: 1}
     },
     {
-      label: 'Distributors',
+      label: t('nav_menu.third_party_company'),
       url: 'distributors',
-      nombre: 'districutors',
+      nombre: 'distributors',
       subModulo: [
         {
-          label: 'Tickets',
+          label: t('third_party_company.tickets.title'),
           nombre: 'tickets',
           url: '/t2parkingcities/distributors/tickets',
           id: '',
           descripcion: '',
           icono: 'local_activity',
+          propiedades: {orden: 1},
+          estado: '',
+          subModulo: []
+        },
+      ],
+      descripcion: '',
+      estado: '',
+      icono: '',
+      id: '',
+      open: true,
+      showed: true,
+      propiedades: {orden: 1}
+    }
+  ]
+
+  const modulosAppSystemAdmin = [
+    {
+      label: t('nav_menu.home'),
+      url: '/',
+      nombre: 'inicio',
+      subModulo: [
+        {
+          label: t('nav_menu.home'),
+          nombre: 'home',
+          url: '/t2parkingcities/home',
+          id: '',
+          descripcion: '',
+          icono: 'home',
+          propiedades: {orden: 1},
+          estado: '',
+          subModulo: []
+        },
+      ],
+      descripcion: '',
+      estado: '',
+      icono: '',
+      id: '',
+      open: true,
+      showed: true,
+      propiedades: {orden: 1}
+    },
+    {
+      label: t('nav_menu.super_user'),
+      url: 'super_user',
+      nombre: 'super_user',
+      subModulo: [
+        {
+          label: t('cities.cities'),
+          nombre: 'cities',
+          url: '/t2parkingcities/system_admin/cities',
+          id: '',
+          descripcion: '',
+          icono: 'account_balance',
           propiedades: {orden: 1},
           estado: '',
           subModulo: []
@@ -408,5 +472,5 @@ export default function useModulo() {
     },
   ]
 
-  return { modulosAppAdmin, modulosAppDistributor, modulosAppUser, modulosAppInspector }
+  return { modulosAppAdmin, modulosAppDistributor, modulosAppUser, modulosAppInspector, modulosAppSystemAdmin }
 }

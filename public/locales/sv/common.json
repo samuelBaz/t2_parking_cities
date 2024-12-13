@@ -70,7 +70,6 @@
     "add_subscription": "Lägg till Ny Prenumeration",
     "no_parking_areas": "Det finns inga registrerade parkeringområden...",
     "tables": {
-      "name": "NAMN",
       "area": "OMRÅDE",
       "schedules": "SCHEMA",
       "subscriptions": "PRENUMERATIONER"
@@ -81,7 +80,6 @@
     "edit": "Redigera Område",
     "first": "Skapa ditt första område...",
     "tables": {
-      "name": "NAMN",
       "parking_spaces": "PARKERINGSPLATSER",
       "type_numbering": "TYP NUMRERING",
       "sensor": "SENSOR",
@@ -119,7 +117,6 @@
     "until": "Till",
     "hours": "Timmar",
     "tables": {
-      "name": "NAMN",
       "days": "DAGAR",
       "hours": "TIMMAR",
       "minimum_time": "MINIMITID",
@@ -147,7 +144,6 @@
     "edit": "Redigera Prenumeration",
     "first": "Skapa din första prenumeration...",
     "tables": {
-      "name": "NAMN",
       "currency": "VALUTA"
     },
     "form": {
@@ -165,7 +161,6 @@
     "add": "Lägg till Inspektör",
     "add_new": "Lägg till ny Inspektör",
     "table": {
-      "name": "NAMN",
       "email": "E-POST",
       "parking_area": "PARKERINGSOMRÅDE",
       "permissions": "BEHÖRIGHETER"
@@ -184,11 +179,18 @@
         "vehicle_plate": "Fordonsregistreringsskylt",
         "photographic": "Fotografisk"
       },
+      "validate": {
+        "title": "Validera Straff",
+        "description": "Lämna en kommentar nedan för att validera straffet.",
+        "cancel": "Avbryt Straff",
+        "cancel_description": "Lämna en kommentar nedan för att avbryta straffet."
+      },
       "table": {
         "description": "BESKRIVNING",
         "vehicle_plate": "FORDONSREGISTRERING",
         "type": "TYP",
-        "photographic": "FOTOGRAFISK"
+        "photographic": "FOTOGRAFISK",
+        "review_status": "GRANSKNINGSSTATUS"
       }
     }
   },
@@ -198,7 +200,6 @@
     "add": "Lägg till Användare",
     "add_new": "Lägg till ny Användare",
     "table": {
-      "name": "NAMN",
       "email": "E-POST"
     }
   },
@@ -207,7 +208,6 @@
     "add": "Lägg till Fordon",
     "edit": "Redigera Fordon",
     "table": {
-      "name": "NAMN",
       "description": "BESKRIVNING"
     },
     "form": {
@@ -220,7 +220,6 @@
     "cities": "Städer",
     "no_content": "Inga städer att visa...",
     "table": {
-      "name": "NAMN",
       "email": "E-POST",
       "phone": "TELEFON"
     }
@@ -235,7 +234,6 @@
     "no_payouts": "Det finns inga registrerade utbetalningar",
     "no_tickets": "Det finns inga registrerade biljetter...",
     "table": {
-      "name": "NAMN",
       "tax_id": "SKATTE ID",
       "email": "E-POST",
       "address": "ADRESS",
@@ -272,8 +270,11 @@
     },
     "tickets": {
       "title": "Biljetter",
+      "buy": "Köp Biljetter",
       "table": {
         "plate": "PLATE",
+        "phone_email": "TELEFON/EMAIL",
+        "distributor": "DISTRIBUTÖR",
         "amount": "BELOPP",
         "duration": "VARIGHET",
         "status": "STATUS"
@@ -378,6 +379,7 @@
     "SUNDAY": "Söndag"
   },
   "table": {
+    "name": "NAMN",
     "createdAt": "SKAPAD DATUM",
     "actions": "ÅTGÄRDER"
   },
@@ -403,5 +405,7 @@
   "sales_volume": "Försäljningsvolym efter ",
   "subscription": "Prenumeration",
   "dark_mode": "Mörkt läge",
-  "light_mode": "Ljust läge"
+  "light_mode": "Ljust läge",
+  "validate": "Validera",
+  "comment": "Kommentar"
 }

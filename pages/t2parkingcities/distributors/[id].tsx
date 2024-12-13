@@ -67,7 +67,7 @@ const DistributorDetail = () => {
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
-    { campo: 'name', nombre: t('users.table.name'), ordenar: true },
+    { campo: 'name', nombre: t('table.name'), ordenar: true },
     { campo: 'email', nombre: t('users.table.email'), ordenar: true },
     { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     // { campo: 'acciones', nombre: 'Acciones', ordenar: false },

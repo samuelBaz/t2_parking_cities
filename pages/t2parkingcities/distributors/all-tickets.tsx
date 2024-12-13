@@ -1,7 +1,5 @@
 import { LayoutUser } from "@/common/components/layouts"
-import { CustomDataTable, CustomDialog, IconoTooltip } from "@/common/components/ui"
-import { IconoBoton } from "@/common/components/ui/botones/IconoBoton"
-import InfoPopper from "@/common/components/ui/botones/InfoPopper"
+import { CustomDataTable, IconoTooltip } from "@/common/components/ui"
 import { CriterioOrdenType } from "@/common/components/ui/datatable/ordenTypes"
 import { Paginacion } from "@/common/components/ui/datatable/Paginacion"
 import { useAlerts, useSession } from "@/common/hooks"
@@ -11,10 +9,7 @@ import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
 import { Ticket } from "@/modules/distributors/types/ticketsTypes"
-import VistaModalCompraTicket from "@/modules/distributors/ui/VistaModalCompraTicket"
-import { Area } from "@/modules/t2parkingcities/types/areaTypes"
-import { ParkingArea } from "@/modules/t2parkingcities/types/parkinAreaTypes"
-import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
 import { ReactNode, useEffect, useState } from "react"
 
@@ -37,10 +32,6 @@ const Tickets = () => {
   
   const [tickets, setTickets] = useState<Array<Ticket>>([])
   const [loading, setLoading] = useState(true)
-
-  const [modalArea, setModalArea] = useState<boolean>(false)
-  const [areaAdicion, setAreaEdicion] = useState<Area | null>(null)
-  const [parkingAreas, setParkingAreas] = useState<Array<ParkingArea>>([])
   
   const [errorAreaData, setErrorAreaData] = useState<any>()
 
@@ -67,23 +58,6 @@ const Tickets = () => {
     }
   }
 
-  const obtenerParkingAreasPeticion = async (): Promise<void> => {
-    try {
-      setLoading(true)
-      const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/parking_areas/getAll/company/${usuario?.dependency}`,
-        method: 'get',
-      })
-      setParkingAreas(respuesta.data)
-    } catch (e) {
-      imprimir(`Error obteniendo parking areas`, e)
-      Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
-      setErrorAreaData(e)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   const [ordenCriterios, setOrdenCriterios] = useState<
     Array<CriterioOrdenType>
   >([
@@ -91,6 +65,7 @@ const Tickets = () => {
     { campo: 'phone_email', nombre: t('third_party_company.tickets.table.phone_email'), ordenar: true },
     { campo: 'amount', nombre: t('third_party_company.tickets.table.amount'), ordenar: true },
     { campo: 'duration', nombre: t('third_party_company.tickets.table.duration'), ordenar: true },
+    { campo: 'distributor', nombre: t('third_party_company.tickets.table.distributor'), ordenar: true },
     { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     // { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
@@ -121,6 +96,10 @@ const Tickets = () => {
       <Typography
         key={`${ticketData.id}-${indexTicket}-createdAt`}
         variant={'body2'}
+      >{ticketData.companyName}</Typography>,
+      <Typography
+        key={`${ticketData.id}-${indexTicket}-createdAt`}
+        variant={'body2'}
       >{dayjs(ticketData.createdAt).format('DD/MM/YYYY HH:mm')}</Typography>,
       // <Typography
       //   key={`${ticketData.id}-${indexTicket}-actions`}
@@ -142,7 +121,6 @@ const Tickets = () => {
   useEffect(() => {
     if(estaAutenticado) {
       obtenerTicketsPeticion().finally(() => {})
-      obtenerParkingAreasPeticion()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -175,42 +153,11 @@ const Tickets = () => {
       }}
       icono={'filter_list'}
       name={'Filtrar areas'}
-    />,
-    <IconoBoton
-      id={'comprarTicket'}
-      key={'comprarTicket'}
-      texto={'Comprar Ticket'}
-      variante={xs ? 'icono' : 'boton'}
-      icono={'add_circle_outline'}
-      descripcion={'Comprar Ticket'}
-      accion={() => {
-        setModalArea(true)
-      }}
     />
   ]
 
-  const cerrarModalArea = async () => {
-    setModalArea(false)
-    setAreaEdicion(null)
-  }
-
   return (
     <LayoutUser>
-      <CustomDialog
-        isOpen={modalArea}
-        info={<InfoPopper title={t('help.area.title')} description={t('help.area.description')}/>}
-        handleClose={cerrarModalArea}
-        title={t('third_party_company.tickets.buy')}
-      >
-        <VistaModalCompraTicket
-        parkingAreas={parkingAreas}
-          accionCorrecta={() => {
-            cerrarModalArea().finally()
-            obtenerTicketsPeticion().finally()
-          }}
-          accionCancelar={cerrarModalArea}
-        />
-      </CustomDialog>
       <CustomDataTable
           titulo={'Tickets'}
           error={!!errorAreaData}

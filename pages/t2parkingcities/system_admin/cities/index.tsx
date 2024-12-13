@@ -1,6 +1,5 @@
 import { LayoutUser } from "@/common/components/layouts"
-import { CustomDataTable, CustomDialog, IconoTooltip } from "@/common/components/ui"
-import { IconoBoton } from "@/common/components/ui/botones/IconoBoton"
+import { CustomDataTable, IconoTooltip } from "@/common/components/ui"
 import { CriterioOrdenType } from "@/common/components/ui/datatable/ordenTypes"
 import { Paginacion } from "@/common/components/ui/datatable/Paginacion"
 import { useAlerts, useSession } from "@/common/hooks"
@@ -9,20 +8,21 @@ import { InterpreteMensajes } from "@/common/utils"
 import { imprimir } from "@/common/utils/imprimir"
 import { Constantes } from "@/config"
 import { useAuth } from "@/context/auth"
-import { Vehicle } from "@/modules/t2parkingcities/types/scheduleTypes"
-import VistaModalVehicles from "@/modules/t2parkingcities/ui/VistaModalVehicles"
+import { CityCRUDType } from "@/modules/system_admin/types/citiesCRUDTypes"
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import dayjs from "dayjs"
+import { useRouter } from "next/router"
 import { ReactNode, useEffect, useState } from "react"
 
-const Vehicles = () => {
+const Cities = () => {
 
   const { t } = useTranslation()
   const { sesionPeticion } = useSession()
   const { estaAutenticado, usuario } = useAuth()
+  const router = useRouter()
+
   const theme = useTheme()
   const xs = useMediaQuery(theme.breakpoints.only('xs'))
-
   const { Alerta } = useAlerts()
 
   const [openFilters, setOpenFilters] = useState(false)
@@ -33,32 +33,29 @@ const Vehicles = () => {
   const [pagina, setPagina] = useState<number>(1)
   const [total, setTotal] = useState<number>(0)
   
-  const [vehicles, setVehicles] = useState<Array<Vehicle>>([])
+  const [cities, setCities] = useState<Array<CityCRUDType>>([])
   const [loading, setLoading] = useState(true)
-
-  const [modalVehiculo, setModalVehiculo] = useState<boolean>(false)
-  const [vehiculoEdicion, setVehiculoEdicion] = useState<Vehicle | null>(null)
   
-  const [errorVehicleData, setErrorVehicleData] = useState<any>()
+  const [errorCitiesData, setErrorCitiesData] = useState<any>()
 
-  const obtenerVehiclesPeticion = async (): Promise<void> => {
+  const obtenerParkingAreasPeticion = async (): Promise<void> => {
     try {
       setLoading(true)
       const respuesta = await sesionPeticion({
-        url: `${Constantes.baseUrl}/api/vehicles/getAll/${usuario?.dependency}`,
+        url: `${Constantes.baseUrl}/api/cities`,
         method: 'get',
       })
-      imprimir(`Respuesta obtener vehiculos: `, respuesta)
+      imprimir(`Respuesta estado obtener cities: ${respuesta}`)
       Alerta({
         mensaje: InterpreteMensajes(respuesta),
         variant: 'success',
       })
-      setVehicles(respuesta.data.content)
-      setTotal(respuesta.data.totalElements )
+      setCities(respuesta.data.content)
+      setTotal(respuesta.data.totalElements)
     } catch (e) {
-      imprimir(`Error obteniendo vehiculos`, e)
+      imprimir(`Error obteniendo alcaldias`, e)
+      setErrorCitiesData(e)
       Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
-      setErrorVehicleData(e)
     } finally {
       setLoading(false)
     }
@@ -68,41 +65,42 @@ const Vehicles = () => {
     Array<CriterioOrdenType>
   >([
     { campo: 'name', nombre: t('table.name'), ordenar: true },
-    { campo: 'description', nombre: t('vehicles.table.description'), ordenar: true },
+    { campo: 'email', nombre: t('cities.table.email'), ordenar: true },
+    { campo: 'phone', nombre: t('cities.table.phone'), ordenar: true },
     { campo: 'createdAt', nombre: t('table.createdAt'), ordenar: true },
     { campo: 'acciones', nombre: t('table.actions'), ordenar: false },
   ])
 
-  const contenidoTabla: Array<Array<ReactNode>> = vehicles.map(
-    (vehicleData, indexVehicle) => [
+  const contenidoTabla: Array<Array<ReactNode>> = cities.map(
+    (cityData, indexCity) => [
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-name`}
+        key={`${cityData.id}-${indexCity}-name`}
         variant={'body2'}
-      >{vehicleData.name}</Typography>,
+      >{cityData.name}</Typography>,
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-description`}
+        key={`${cityData.id}-${indexCity}-email`}
         variant={'body2'}
-      >{vehicleData.description}</Typography>,
+      >{cityData.email}</Typography>,
       <Typography
-        key={`${vehicleData.id}-${indexVehicle}-createdAt`}
+        key={`${cityData.id}-${indexCity}-idTicket`}
         variant={'body2'}
-      >{dayjs(vehicleData.createdAt).format('DD/MM/YYYY HH:mm')}</Typography>,
-      <Grid key={`${vehicleData.id}-${indexVehicle}-acciones`}>
-        {
-          !vehicleData.byDefault && 
-          <IconoTooltip
-            key={'editar-vehiculos'}
-            id={`editar-vehiculos`}
-            titulo={'Editar vehiculo'}
-            color={'primary'}
-            accion={() => {
-              setVehiculoEdicion(vehicleData)
-              setModalVehiculo(true)
-            }}
-            icono={'edit'}
-            name={'Editar vehiculo'}
-          />
-        }
+      >{cityData.phone}</Typography>,
+      <Typography
+        key={`${cityData.id}-${indexCity}-createdAt`}
+        variant={'body2'}
+      >{dayjs(cityData.createdAt).format('DD/MM/YYYY HH:mm')}</Typography>,
+      <Grid key={`${cityData.id}-${indexCity}-acciones`}>
+        <IconoTooltip
+          key={'configurar-city'}
+          id={`configurar-city`}
+          titulo={'Configurar Alcaldía'}
+          color={'primary'}
+          accion={() => {
+            router.push(`/t2parkingcities/system_admin/cities/${cityData.id}`)
+          }}
+          icono={'settings'}
+          name={'Configurar Alcaldía'}
+        />
       </Grid>
     ]
   )
@@ -118,7 +116,7 @@ const Vehicles = () => {
   )
 
   useEffect(() => {
-    if(estaAutenticado) obtenerVehiclesPeticion().finally(() => {})
+    if(estaAutenticado) obtenerParkingAreasPeticion().finally(() => {})
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     estaAutenticado,
@@ -130,64 +128,33 @@ const Vehicles = () => {
 
   const acciones: Array<ReactNode> = [
     <IconoTooltip
-      key={'refresh-vehiculos'}
-      id={`refresh-vehiculos`}
-      titulo={'Actualizar Vehículos'}
+      key={'refresh-parking-areas'}
+      id={`refresh-parking-areas`}
+      titulo={'Actualizar Parking Areas'}
       color={'primary'}
       accion={() => {
-        obtenerVehiclesPeticion()
+        obtenerParkingAreasPeticion()
       }}
       icono={'refresh'}
-      name={'Actualizar Vehículos'}
+      name={'Actualizar Parking Areas'}
     />,
     <IconoTooltip
-      key={'filtrar-vehiculos'}
-      id={`filtrar-vehiculos`}
-      titulo={'Filtrar vehiculos'}
+      key={'filtrar-parking-areas'}
+      id={`filtrar-parking-areas`}
+      titulo={'Filtrar Parking Areas'}
       color={'primary'}
       accion={() => {
         // setOpenFilters((openFilters: any) => !openFilters)
       }}
       icono={'filter_list'}
-      name={'Filtrar Vehiculos'}
-    />,
-    <IconoBoton
-      id={'agregarVehiculo'}
-      key={'agregarvehiculo'}
-      texto={t('vehicles.add')}
-      variante={xs ? 'icono' : 'boton'}
-      icono={'add_circle_outline'}
-      descripcion={t('vehicles.add')}
-      accion={() => {
-        setModalVehiculo(true)
-      }}
+      name={'Filtrar Parking Areas'}
     />
   ]
-
-  const cerrarModalVehiculo = async () => {
-    setModalVehiculo(false)
-    setVehiculoEdicion(null)
-  }
-
   return (
     <LayoutUser>
-      <CustomDialog
-        isOpen={modalVehiculo}
-        handleClose={cerrarModalVehiculo}
-        title={vehiculoEdicion ? t('vehicles.edit') : t('vehicles.add')}
-      >
-        <VistaModalVehicles
-          vehicle={vehiculoEdicion}
-          accionCorrecta={() => {
-            cerrarModalVehiculo().finally()
-            obtenerVehiclesPeticion().finally()
-          }}
-          accionCancelar={cerrarModalVehiculo}
-        />
-      </CustomDialog>
       <CustomDataTable
-          titulo={t('vehicles.all')}
-          error={!!errorVehicleData}
+          titulo={t('cities.cities')}
+          error={!!errorCitiesData}
           cargando={loading}
           acciones={acciones}
           columnas={ordenCriterios}
@@ -210,4 +177,4 @@ const Vehicles = () => {
   )
 }
 
-export default Vehicles
+export default Cities

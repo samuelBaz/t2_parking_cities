@@ -1,3 +1,5 @@
+import { DistributorCRUDType } from "./distributorsTypes"
+
 export interface Ticket {
   id: number
   plate: string
@@ -10,10 +12,26 @@ export interface Ticket {
   amount: number
   status: TicketStatus
   companyId: number
-  cityId: number
+  companyName: string
   version: number
+  createdAt: Date
 }
 
 export enum TicketStatus {
-  OK, REVERSED, PENDING
+  OK="OK", 
+  REVERSED="REVERSED", 
+  PENDING="PENDING"
+}
+
+export interface CreateTicket{
+  plate: string
+  duration: string
+  startDate: Date
+  endDate: Date
+  phone: string
+  email: string
+  // idTicketGenerator: number
+  amount: string
+  status: TicketStatus
+  companyId: string
 }
