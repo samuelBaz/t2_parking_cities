@@ -8,12 +8,14 @@ import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "@/common/hooks/useTranslation"
 import { useAuth } from "@/context/auth"
-import { Schedule } from "../types/scheduleTypes"
+import { BillingBlock, CreateUpdateScheduleType, Days, Schedule } from "../types/scheduleTypes"
 import { FormInputAutocomplete } from "@/common/components/ui/form/FormInputAutocomplete"
 import { Constantes } from "@/config"
 import { Area } from "../types/areaTypes"
-import { Subscription } from "../types/subscriptionTypes"
+import { Subscription, SubscriptionBlock } from "../types/subscriptionTypes"
 import { CreateEditParkingAreaType } from "../types/parkinAreaTypes"
+import { DiaTG, PriceRequestTG, PriceSubscriptionRequestTG, PriceTG, SubscriptionTG, ZonaTG } from "../types/pricesTypes"
+import { ScheduleT2PCTG, SubscriptionT2PCTG } from "../types/ticketGenerator"
 
 interface CreateEditParkingAreaTypeForm {
   id?: number
@@ -35,7 +37,9 @@ export const VistaModalParkingArea = ({
   const [loading, setLoading] = useState<boolean>(false)
   const [areas, setAreas] = useState<Array<optionType>>([])
   const [schedules, setSchedules] = useState<Array<optionType>>([])
+  const [schedulesData, setSchedulesData] = useState<Array<Schedule>>([])
   const [subscriptions, setSubscriptions] = useState<Array<optionType>>([])
+  const [subscriptionsData, setSubscriptionsData] = useState<Array<Subscription>>([])
 
   // Hook para mostrar alertas
   const { Alerta } = useAlerts()
@@ -54,18 +58,19 @@ export const VistaModalParkingArea = ({
     },
   })
 
-  const guardarActualizarSubscription = async (
+  const guardarActualizarParkingArea = async (
     data: CreateEditParkingAreaTypeForm
   ) => {
-    await guardarActualizarSubscriptionPeticion(data)
+    await guardarActualizarParkingAreaPeticion(data)
+    await guardarPreciosTicketGenerator(data)
+    await guardarPreciosSubscripcionTicketGenerator(data)
   }
 
-  const guardarActualizarSubscriptionPeticion = async (
+  const guardarActualizarParkingAreaPeticion = async (
     parkingAreaForm: CreateEditParkingAreaTypeForm
   ) => {
     try {
       setLoading(true)
-
       const body: CreateEditParkingAreaType = {
         id: parkingAreaForm.id,
         name: parkingAreaForm.name,
@@ -98,6 +103,135 @@ export const VistaModalParkingArea = ({
       setLoading(false)
     }
   }
+
+	const guardarPreciosTicketGenerator = async (parkingAreaForm: CreateEditParkingAreaTypeForm) => {
+    try {
+      if (parkingAreaForm.scheduleIds.length > 0) {
+        const schedulesFlat = schedulesData.filter((schedule: Schedule) =>
+          parkingAreaForm.scheduleIds.map((option: optionType) => option.value).includes(schedule.id.toString())
+        )
+  
+        for (const schedule of schedulesFlat) {
+          const zona: ZonaTG = {
+            name: schedule.name,
+            departamento: schedule.name,
+            descripcion: schedule.name,
+            billingBlock: schedule.id,
+          }
+  
+          const billingBlock: PriceTG[] = schedule.billingBlocks.map((bb: BillingBlock) => ({
+            minutes: bb.minutes,
+            price: bb.price,
+          }))
+  
+          const dias: DiaTG[] = schedule.days.map((d: Days, indexDay: number) => {
+            const [startHour, startMinute, startSecond] = schedule.startHour.split(':').map(Number);
+            const [endHour, endMinute, endSecond] = schedule.endHour.split(':').map(Number);
+  
+            const sd = new Date();
+            sd.setHours(startHour, startMinute, startSecond)
+  
+            const ed = new Date();
+            ed.setHours(endHour, endMinute, endSecond)
+  
+            return {
+              nombre: d.toString(),
+              idNombre: indexDay,
+              horarioInicio: sd,
+              horarioFin: ed,
+            }
+          })
+  
+          const precioDto: PriceRequestTG = {
+            zona,
+            dias,
+            billingBlock,
+          }
+  
+          const response = await sesionPeticion({
+            url: `${Constantes.ticketGeneratorUrl}/precios`,
+            method: 'post',
+            body: precioDto,
+            withCredentials: false
+          })
+          if (response) {
+            const price: PriceRequestTG = response.response
+            const scheduleTG: ScheduleT2PCTG = {
+              cityId: schedule.cityId,
+              parkingAreaId: parkingAreaForm.area?.value!,
+              scheduleId: schedule.id,
+              zonaId: price.zona.id!,
+            }
+  
+            await sesionPeticion({
+              url: `${Constantes.baseUrl}/api/ticket_generator_schedules`,
+              method: 'post',
+              body: scheduleTG,
+            })
+          }
+        }
+      }
+    } catch (e) {
+      imprimir(`Error al crear precios Ticket Generator`, e)
+      Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
+    }
+  }
+
+	const guardarPreciosSubscripcionTicketGenerator = async (parkingAreaForm: CreateEditParkingAreaTypeForm) => {
+    try {
+      if (parkingAreaForm.subscriptionIds && parkingAreaForm.subscriptionIds.length > 0) {
+        const subscriptionsFlat = subscriptionsData.filter((subs: Subscription) =>
+          parkingAreaForm.subscriptionIds?.map((option: optionType) => option.value).includes(subs.id.toString())
+        )
+  
+        for (const subscription of subscriptionsFlat) {
+          const zona: ZonaTG = {
+            name: subscription.name,
+            departamento: subscription.name,
+            descripcion: subscription.name,
+            billingBlock: subscription.id
+          }
+  
+          const billingBlock: SubscriptionTG[] = subscription.subscriptionBlocks.map((sb: SubscriptionBlock) => ({
+            price: sb.price,
+            mes: sb.name,
+            mesInt: sb.id
+          }))
+  
+          const precioAbonoDto: PriceSubscriptionRequestTG = {
+            zona,
+            billingBlock
+          }
+  
+          const response = await sesionPeticion({
+            url: `${Constantes.ticketGeneratorUrl}/precio_abonos`,
+            method: 'post',
+            body: precioAbonoDto,
+            withCredentials: false
+          })
+  
+          if (response) {
+            const priceSubscription: PriceSubscriptionRequestTG = response.response
+            const subscriptionTG: SubscriptionT2PCTG = {
+              cityId: subscription.cityId,
+              parkingAreaId: parkingAreaForm.area?.value!,
+              zonaId: priceSubscription.zona.id!,
+              subscriptionId: subscription.id
+            }
+  
+            await sesionPeticion({
+              url: `${Constantes.baseUrl}/api/ticket_generator_subscriptions`,
+              method: 'post',
+              body: subscriptionTG
+            })
+          }
+        }
+      }
+    } catch (e) {
+      imprimir(`Error al crear precio subscripciones Ticket Generator`, e)
+      Alerta({ mensaje: `${InterpreteMensajes(e)}`, variant: 'error' })
+    }
+  }  
 
   const obtenerAreasPeticion = async (): Promise<void> => {
     try {
@@ -136,6 +270,7 @@ export const VistaModalParkingArea = ({
             return {key: schedule.id?.toString(), value: schedule.id?.toString(), label: schedule.name} as optionType
           })
         )
+        setSchedulesData(respuesta.data.content)
       }
     } catch (e) {
       imprimir(`Error obteniendo schedules`, e)
@@ -159,6 +294,7 @@ export const VistaModalParkingArea = ({
             return {key: sub.id?.toString(), value: sub.id?.toString(), label: sub.name} as optionType
           })
         )
+        setSubscriptionsData(respuesta.data.content)
       }
     } catch (e) {
       imprimir(`Error obteniendo areas`, e)
@@ -176,7 +312,7 @@ export const VistaModalParkingArea = ({
   }, [estaAutenticado])
 
   return (
-    <form onSubmit={handleSubmit(guardarActualizarSubscription)}>
+    <form onSubmit={handleSubmit(guardarActualizarParkingArea)}>
       <DialogContent dividers>
         <Grid container display='flex' direction='column' justifyContent="center">
           <Grid container direction="row" spacing={{ xs: 2, sm: 1, md: 2 }}>

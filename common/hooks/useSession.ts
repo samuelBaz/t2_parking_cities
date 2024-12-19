@@ -52,7 +52,7 @@ export const useSession = () => {
         imprimir('respuesta 🔐📡', body, method, url, response)
         return response.data
       } else {
-        const response = await Servicios.peticionHTTP({
+        const response = await Servicios.peticion({
           url,
           method: method,
           body,
