@@ -46,7 +46,7 @@ export const VistaModalParkingArea = ({
   const { t } = useTranslation()
 
   // Proveedor de la sesión
-  const { sesionPeticion } = useSession()
+  const { sesionPeticion, peticion } = useSession()
   const { usuario, estaAutenticado } = useAuth()
 
   const { handleSubmit, control } = useForm<CreateEditParkingAreaTypeForm>({
@@ -148,13 +148,14 @@ export const VistaModalParkingArea = ({
             billingBlock,
           }
   
-          const response = await sesionPeticion({
+          const response = await peticion({
             url: `${Constantes.ticketGeneratorUrl}/precios`,
             method: 'post',
             body: precioDto,
             withCredentials: false
           })
-          if (response) {
+          
+          if (response && response.status === 200) {
             const price: PriceRequestTG = response.response
             const scheduleTG: ScheduleT2PCTG = {
               cityId: schedule.cityId,
@@ -203,14 +204,14 @@ export const VistaModalParkingArea = ({
             billingBlock
           }
   
-          const response = await sesionPeticion({
+          const response = await peticion({
             url: `${Constantes.ticketGeneratorUrl}/precio_abonos`,
             method: 'post',
             body: precioAbonoDto,
             withCredentials: false
           })
   
-          if (response) {
+          if (response && response.status === 200) {
             const priceSubscription: PriceSubscriptionRequestTG = response.response
             const subscriptionTG: SubscriptionT2PCTG = {
               cityId: subscription.cityId,
